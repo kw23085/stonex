@@ -1,9 +1,11 @@
+/* Global */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
   
+/* Header Styles */
   .header {
     min-height: 150px;
     border-bottom: 2px solid #D9DBE9;
@@ -47,3 +49,6 @@
       font-size: 16px;
       padding: 0 0 0 20px;
   }
+
+  /* Popup Styles */
+  te
