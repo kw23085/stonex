@@ -1,10 +1,8 @@
-import './App.css';
+import HeaderBtns from './components/HeaderBtns';
 
 function App() {
   return (
-    <div className="container">
-
-    </div>
+      <HeaderBtns />
   );
 }
 
