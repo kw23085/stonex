@@ -1,14 +1,15 @@
-import HeaderBtns from './components/HeaderBtns';
+import HeaderBtns from './components';
 
 function App() {
 
   // Show Modal
   function showModal() {
-    
+    const popup = document.querySelector('.popup-container');
+    popup.style.display = 'flex';
   }
 
   return (
-      <HeaderBtns />
+      <HeaderBtns onClick={showModal}/>
   );
 }
 
