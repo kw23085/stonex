@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import RegisterModal from './components/registermodal/RegisterModal';
+import RegisterModal from './components/modal/Index';
 
 
 // Header Buttons

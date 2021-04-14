@@ -49,23 +49,3 @@
       font-size: 16px;
       padding: 0 0 0 20px;
   }
-
-  /* Popup Styles */
-  .popup-container {
-      background-color: rgba(0, 0, 0, .3);
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-  }
-
-  .register-popup {
-      background-color: #fff;
-      width: 600px;
-      height: 450px;
-      border-radius: 10px;
-  }

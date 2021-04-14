@@ -1,9 +1,9 @@
 import ModalHeader from './ModalHeader';
 
-function RegisterModal() {
+function Index() {
     return (
         <ModalHeader />
     )
 }
 
-export default RegisterModal
+export default Index

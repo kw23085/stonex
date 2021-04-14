@@ -1,0 +1,29 @@
+/* Header Buttons */
+.login-btn {
+    background: #fff;
+    color: #007099;
+    border: 2px solid #007099;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.register-btn {
+    background: #007099;
+    color: #fff;
+    border: 2px solid #007099;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0 0 0 20px;
+}
+
+.login-btns:focus {
+    outline: none;
+}
+
+.login-btns:active {
+    transform: scale(0.98);
+}
