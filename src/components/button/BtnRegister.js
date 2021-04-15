@@ -1,7 +1,7 @@
-function BtnRegister() {
+function BtnRegister({ onClick }) {
     return (
         <>
-            <button className="login-btns register-btn">會員註冊</button>
+            <button onClick={onClick} className="login-btns register-btn">會員註冊</button>
         </>
     )
 }

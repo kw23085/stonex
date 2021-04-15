@@ -1,10 +1,10 @@
-import icon from '../../icons/close.png';
+import CloseIcon from '../../icons/close.png';
 
-function ModalHeader() {
+function ModalHeader({ closeModal }) {
     return (
         <div className="register-modal-header">
-            <button className="register-modal-header-btn">
-                <img src={icon}/>
+            <button onClick={closeModal} className="register-modal-header-btn">
+                <img src={CloseIcon}/>
             </button>
             <p className="modal-header-title">會員註冊</p>
         </div>
