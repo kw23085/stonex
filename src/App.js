@@ -8,10 +8,12 @@ function App() {
 
   const openModal = () => setIsOpen(true);
 
+  const closeModal = () => setIsOpen(false);
+
   return (
     <>
-      <Buttons  onClick={openModal}/>
-      <Modal open={isOpen}/>
+      <Buttons  openModal={openModal} closeModal={closeModal}/>
+      <Modal open={isOpen} closeModal={closeModal}/>
     </>
   );
 }

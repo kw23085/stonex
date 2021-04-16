@@ -13,45 +13,31 @@
 }
 
 .modal-header {
-    background: #2c2c2c;
-    color: #e9e9e9;
-    padding: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: relative;
+    height: 72px;
+    border-bottom: 2px solid #D9DBE9;
 }
 
-.modal-header span {
-    font-size: 1.5rem;
+.modal-header-btn {
+    position: absolute;
+    /* background: url(./icons/close.png);
+    background-repeat: no-repeat;
+    background-position: center; */
+    /* width: 24px;
+    height: 24px; */
+    left: 24px;
+    top: 24px;
     cursor: pointer;
-}
-  
-.modal-content {
-    padding: 1.5rem 1rem;
+    /* border: none; */
 }
 
-.modal-body {
-    margin-bottom: 1rem;
-}
-
-.modal-body p {
-    font-size: 1rem;
-    background: #eee;
-    color: #333;
-    padding: 1rem;
-    margin: 1rem 0 2rem 0;
-}
-
-.modal-footer button {
-    display: block;
-    font-size: 1rem;
-    margin-left: auto;
-    padding: 0.5rem 1.8rem;
-    background: #DD501D;
-    color: #fff;
-    border: none;
-    outline: none;
-    cursor: pointer;
+.modal-header-title {
+    position: absolute;
+    width: 125px;
+    height: 24px;
+    left: 237px;
+    top: 24px;
+    text-align: center;
 }
 
 .back-drop {
@@ -66,5 +52,12 @@
     width: 100%;
 }
 
-/* Icons */
+.modal-header-btn:focus {
+    outline: none;
+}
+
+.modal-header-btn:active {
+    transform: scale(0.98);
+}
+
 

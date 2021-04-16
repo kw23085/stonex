@@ -1,12 +1,12 @@
 import BtnLogin from './btnLogin';
 import BtnRegister from './btnRegister';
 
-function Buttons({ onClick }) {
+function Buttons({ openModal }) {
 
     return (
         <>
             <BtnLogin />
-            <BtnRegister onClick={onClick}/>
+            <BtnRegister openModal={openModal} />
         </>
     )
 }
