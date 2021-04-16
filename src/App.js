@@ -1,19 +1,17 @@
 import { useState } from 'react';
-import BtnLogin from './components/button/BtnLogin';
-import BtnRegister from './components/button/BtnRegister';
-import Modal from './components/modal/Modal';
+import Buttons from './components/button/index';
+import Modal from './components/modal/modal';
 
 function App() {
 
-  const [show, setShow] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const closeModal = () => setShow(false);
+  const openModal = () => setIsOpen(true);
 
   return (
     <>
-      <BtnLogin />
-      <BtnRegister onClick={() => setShow(true)}/>
-      <Modal show={show} closeModal={closeModal} />
+      <Buttons  onClick={openModal}/>
+      <Modal open={isOpen}/>
     </>
   );
 }

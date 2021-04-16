@@ -1,13 +1,14 @@
-import BtnLogin from './BtnLogin';
-import BtnRegister from './BtnRegister';
+import BtnLogin from './btnLogin';
+import BtnRegister from './btnRegister';
 
-function Index() {
+function Buttons({ onClick }) {
+
     return (
         <>
             <BtnLogin />
-            <BtnRegister />
+            <BtnRegister onClick={onClick}/>
         </>
     )
 }
 
-export default Index
+export default Buttons

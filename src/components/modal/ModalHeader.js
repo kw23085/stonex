@@ -4,7 +4,7 @@ function ModalHeader({ closeModal }) {
     return (
         <div className="register-modal-header">
             <button onClick={closeModal} className="register-modal-header-btn">
-                <img src={CloseIcon}/>
+                <img src={CloseIcon} alt="close-icon"/>
             </button>
             <p className="modal-header-title">會員註冊</p>
         </div>

@@ -1,25 +1,23 @@
-import './Modal.css';
-import ModalHeader from './ModalHeader';
+import './modal.css';
+import ModalHeader from './modalHeader';
 
-function Modal({ show, closeModal }) {
+function Modal({ open }) {
+
+    if(!open) return null;
+
     return (
         <>
-            { show ? <div className="back-drop"></div> : null }
-            <div className="modal-wrapper"
-                style={{
-                    opacity: show ? '1' : '0'
-                }}
-            >
-
-                <ModalHeader closeModal={closeModal}/>
+            <div className="back-drop"></div>
+            <div className="modal-wrapper">
 
                 <div className="modal-content">
+
+                <ModalHeader />
+
                     <div className="modal-body">
                         <p>body</p>
                     </div>
-                    <div className="modal-footer">
-                        <p>footer</p>
-                    </div>
+
                 </div>
 
             </div>
