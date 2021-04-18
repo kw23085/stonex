@@ -1,7 +1,7 @@
 function BtnRegister({ openModal }) {
     return (
         <>
-            <button onClick={openModal} className="login-btns register-btn">會員註冊</button>
+            <button onClick={openModal} className="btn btn-solid btn-register">會員註冊</button>
         </>
     )
 }

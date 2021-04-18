@@ -1,0 +1,18 @@
+.inputfield {
+    width: 325px;
+    height: 56px;
+    background: #F7F7FC;
+    border-radius: 10px;
+    border: 0;
+    font-size: 15px;
+    line-height: 24px;
+    padding: 16px 181px 16px 24px;
+}
+
+.inputfield::placeholder {
+    width: 120px;
+    height: 24px;
+    font-size: 15px;
+    line-height: 24px;
+    color: #6E7191;
+}

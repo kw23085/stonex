@@ -1,29 +1,83 @@
-/* Header Buttons */
-.login-btn {
-    background: #fff;
-    color: #007099;
-    border: 2px solid #007099;
-    padding: 10px 20px;
-    border-radius: 10px;
+/* Global Button Styles */
+.btn {
+    border: none;
     cursor: pointer;
     text-decoration: none;
 }
 
-.register-btn {
-    background: #007099;
-    color: #fff;
-    border: 2px solid #007099;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    text-decoration: none;
-    margin: 0 0 0 20px;
-}
-
-.login-btns:focus {
+.btn:focus {
     outline: none;
 }
 
-.login-btns:active {
+.btn:active {
     transform: scale(0.98);
+}
+
+/* Header Buttons */
+.btn-register {
+    background: #007099;
+    color: #FCFCFC;
+    margin: 0 0 0 20px;
+    font-size: 15px;
+    border-radius: 12px;
+    letter-spacing: 0.75px;
+    padding: 16px 24px;
+    font-weight: 600px;
+    line-height: 24px;
+}
+
+.btn-login {
+    background: #FCFCFC;
+    color: #007099;
+    border: 2px solid #007099;
+    font-size: 15px;
+    border-radius: 12px;
+    letter-spacing: 0.75px;
+    padding: 16px 24px;
+    font-weight: 600px;
+    line-height: 24px;
+}
+
+
+/* Modal Buttons */
+.btn-next {
+    background: #007099;
+    color: #FCFCFC;
+    width: 325px;
+    height: 46px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    letter-spacing: 0.25px;
+    margin: 12px 0 0 0;
+}
+
+.btn-google {
+    width: 156px;
+    height: 46px;
+    background: #DE5246;
+    padding: 12px 22px;
+    border-radius: 8px;
+    color: #FCFCFC;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.25px;
+}
+
+.btn-facebook {
+    width: 156px;
+    height: 46px;
+    background: #3B5998;
+    padding: 12px 22px;
+    border-radius: 8px;
+    color: #FCFCFC;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.25px;
 }

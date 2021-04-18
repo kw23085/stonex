@@ -3,7 +3,7 @@ import './button.css';
 function BtnLogin() {
     return (
         <>
-            <button className="login-btns login-btn">登入</button>
+            <button className="btn btn-hollow btn-login">登入</button>
         </>
     )
 }
