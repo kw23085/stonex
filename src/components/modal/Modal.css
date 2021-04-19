@@ -24,15 +24,11 @@
 
 .modal-header-btn {
     position: absolute;
-    /* background: url(./icons/close.png);
-    background-repeat: no-repeat;
-    background-position: center; */
-    /* width: 24px;
-    height: 24px; */
+    width: 24px;
+    height: 24px;
     left: 24px;
     top: 24px;
     cursor: pointer;
-    /* border: none; */
 }
 
 .modal-header-title {
@@ -116,4 +112,9 @@
     letter-spacing: 0.75px;
     color: #007099;
     margin: 0 0 0 6px;
+}
+
+#register-link:hover {
+    transform: scale(1.15);
+    text-decoration: underline;
 }

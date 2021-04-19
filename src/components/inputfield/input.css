@@ -6,10 +6,22 @@
     border: 0;
     font-size: 15px;
     line-height: 24px;
-    padding: 16px 181px 16px 24px;
+    padding: 16px 0 16px 24px;
 }
 
-.inputfield::placeholder {
+.inputfield.focus {
+    border: 2px solid #14142B;
+}
+
+.inputfield-input {
+    border: none;
+    outline: none;
+    height: 20px;
+    width: 200px;
+    background: #F7F7FC;
+}
+
+.inputfield-input::placeholder {
     width: 120px;
     height: 24px;
     font-size: 15px;

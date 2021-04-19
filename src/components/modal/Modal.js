@@ -18,9 +18,9 @@ function Modal({ open, closeModal }) {
                 <div className="modal-content">
                     {/* HEADER */}
                     <div className="modal-header">
-                        <button onClick={closeModal} className="modal-header-btn">
+                        <div onClick={closeModal} className="modal-header-btn">
                             <img src={CloseIcon} alt="close-icon"/>
-                        </button>
+                        </div>
                         <p className="modal-header-title">會員註冊</p>
                     </div>
 

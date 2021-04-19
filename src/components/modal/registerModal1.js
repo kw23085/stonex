@@ -21,7 +21,7 @@ function registerModal1() {
                 <BtnFacebook />
             </div>
             <div className="modal-bottom-info">
-                <p id="already-acc-txt">已經有帳號了嗎?</p><a id="register-link">登入</a>
+                <p id="already-acc-txt">已經有帳號了嗎?</p><p id="register-link">登入</p>
             </div>
         </div>
     )
