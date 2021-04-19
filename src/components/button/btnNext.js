@@ -1,7 +1,7 @@
-function btnNext() {
+function btnNext({ handleNext }) {
     return (
         <>
-            <button className="btn btn-solid btn-next">下一步</button>
+            <button className="btn btn-solid btn-next" onClick={handleNext}>下一步</button>
         </>
     )
 }
