@@ -3,6 +3,7 @@ import BtnNext from '../button/btnNext';
 import BtnGoogle from '../button/btnGoogle';
 import BtnFacebook from '../button/btnFacebook';
 
+
 function registerModal1({ handleNext }) {
 
     const inputInfo = {
@@ -10,10 +11,10 @@ function registerModal1({ handleNext }) {
         type: "text",
         id: "register-input-phone-account"
     }
-
+    
     return (
         <div className="register-modal-content-1">
-            <InputField placeholder={inputInfo.placeholder} type={inputInfo.type} id={inputInfo.id}/>
+            <InputField id={inputInfo.id} type={inputInfo.type} placeholder={inputInfo.placeholder} />
             <BtnNext handleNext={handleNext} />
             <h2 id="horizontal-line"><span id="horizontal-line-text">或</span></h2>
             <div className="modal-social-btns">

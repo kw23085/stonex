@@ -3,27 +3,38 @@ import './modal.css';
 import CloseIcon from '../../icons/close.png';
 import RegisterModal1 from './registerModal1';
 import RegisterModal2 from './registerModal2';
+import { act } from 'react-dom/test-utils';
 
 function Modal({ open, closeModal }) {
     // Step
-    let [step, setStep] = useState(0);
-    
-    // Contents
-    let modalContent = [<RegisterModal1 handleNext={handleNext} />, <RegisterModal2 />]
+    let [step, setStep] = useState('signup');
 
     // Show Modal or No
     if(!open) return null;
 
-    if(step === 0) {
-        modalContent = modalContent[0];
-    } else if(step === 1) {
-        modalContent = modalContent[1];
+    // Contents
+    let modalContent = {
+        signup: {
+            title: '會員註冊',
+            content: <RegisterModal1 handleNext={handleNext} />
+        },
+        otp: {
+            title: '請輸入驗證碼',
+            content: <RegisterModal2 />
+        } 
+    }
+
+    var actualModalContent;
+
+    if(modalContent[step]) {
+        actualModalContent = modalContent[step]
+    } else {
+        actualModalContent = modalContent['signup']
     }
     
     // Handle next step
     function handleNext() {
-        setStep(prevStep => prevStep + 1)
-        console.log(step, 'hihi')
+        setStep(prevStep => prevStep + 1);
     }
 
     console.log(step)
@@ -43,11 +54,12 @@ function Modal({ open, closeModal }) {
                         <div onClick={closeModal} className="modal-header-btn">
                             <img src={CloseIcon} alt="close-icon"/>
                         </div>
-                        <p className="modal-header-title">會員註冊</p>
+                        
+                        <p className="modal-header-title">{actualModalContent.title}</p>
                     </div>
 
                     {/* CONTENT */}
-                    { modalContent }
+                    { actualModalContent.content }
 
                 </div>
 
