@@ -1,0 +1,24 @@
+.btn-google {
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    width: 156px;
+    height: 46px;
+    background: #DE5246;
+    padding: 12px 22px;
+    border-radius: 8px;
+    color: #FCFCFC;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.25px;
+}
+
+.btn-google:focus {
+    outline: none;
+}
+
+.btn-google:active {
+    transform: scale(0.98);
+}

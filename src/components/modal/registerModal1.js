@@ -1,7 +1,7 @@
 import InputField from '../inputfield/inputField';
-import BtnNext from '../button/btnNext';
-import BtnGoogle from '../button/btnGoogle';
-import BtnFacebook from '../button/btnFacebook';
+import BtnNext from '../btnNext';
+import BtnGoogle from '../btnGoogle';
+import BtnFacebook from '../btnFacebook';
 
 
 function registerModal1({ handleNext }) {

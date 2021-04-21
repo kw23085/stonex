@@ -1,5 +1,5 @@
-import BtnLogin from './btnLogin';
-import BtnRegister from './btnRegister';
+import BtnLogin from '../btnLogin';
+import BtnRegister from '../btnRegister';
 
 function Buttons({ openModal }) {
 

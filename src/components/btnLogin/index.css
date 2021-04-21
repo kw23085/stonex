@@ -1,0 +1,21 @@
+.btn-login {
+    background: #FCFCFC;
+    color: #007099;
+    border: 2px solid #007099;
+    font-size: 15px;
+    border-radius: 12px;
+    letter-spacing: 0.75px;
+    padding: 16px 24px;
+    font-weight: 600px;
+    line-height: 24px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-login:focus {
+    outline: none;
+}
+
+.btn-login:active {
+    transform: scale(0.98);
+}

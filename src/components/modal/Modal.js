@@ -3,7 +3,6 @@ import './modal.css';
 import CloseIcon from '../../icons/close.png';
 import RegisterModal1 from './registerModal1';
 import RegisterModal2 from './registerModal2';
-import { act } from 'react-dom/test-utils';
 
 function Modal({ open, closeModal }) {
     // Step
@@ -21,7 +20,7 @@ function Modal({ open, closeModal }) {
         otp: {
             title: '請輸入驗證碼',
             content: <RegisterModal2 />
-        } 
+        }
     }
 
     var actualModalContent;
@@ -37,7 +36,6 @@ function Modal({ open, closeModal }) {
         setStep(prevStep => prevStep + 1);
     }
 
-    console.log(step)
 
     return (
         <>

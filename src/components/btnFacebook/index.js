@@ -1,7 +1,9 @@
+import './index.css';
+
 function btnFacebook() {
     return (
         <>
-            <button className="btn btn-facebook">
+            <button className="btn-facebook">
                 facebook
             </button>
         </>

@@ -1,0 +1,23 @@
+.btn-next {
+    background: #007099;
+    color: #FCFCFC;
+    width: 325px;
+    height: 46px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    letter-spacing: 0.25px;
+    margin: 12px 0 0 0;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-next:focus {
+    outline: none;
+}
+
+.btn-next:active {
+    transform: scale(0.98);
+}
