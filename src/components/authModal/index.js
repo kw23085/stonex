@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import './modal.css';
+import './index.css';
 import CloseIcon from '../../icons/close.png';
-import RegisterModal1 from './registerModal1';
-import RegisterModal2 from './registerModal2';
+import AuthEmail from './authEmail';
+import AuthOtp from './authOtp';
 
 function Modal({ open, closeModal }) {
     // Step
@@ -15,11 +15,11 @@ function Modal({ open, closeModal }) {
     let modalContent = {
         signup: {
             title: '會員註冊',
-            content: <RegisterModal1 handleNext={handleNext} />
+            content: <AuthEmail handleNext={handleNext} />
         },
         otp: {
             title: '請輸入驗證碼',
-            content: <RegisterModal2 />
+            content: <AuthOtp />
         }
     }
 
@@ -34,8 +34,8 @@ function Modal({ open, closeModal }) {
     // Handle next step
     function handleNext() {
         setStep(prevStep => prevStep + 1);
+        console.log(step);
     }
-
 
     return (
         <>

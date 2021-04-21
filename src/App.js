@@ -1,19 +1,21 @@
 import { useState } from 'react';
-import Buttons from './components/button/index';
-import Modal from './components/modal/modal';
+import BtnLogin from './components/btnLogin';
+import BtnRegister from './components/btnRegister';
+import AuthModal from './components/authModal';
 
 function App() {
 
-  const [isOpen, setIsOpen] = useState(false);
+  let [isOpen, setIsOpen] = useState(false);
 
-  const openModal = () => setIsOpen(true);
+  let openModal = () => setIsOpen(true);
 
-  const closeModal = () => setIsOpen(false);
+  let closeModal = () => setIsOpen(false);
 
   return (
     <>
-      <Buttons  openModal={openModal} closeModal={closeModal}/>
-      <Modal open={isOpen} closeModal={closeModal}/>
+      <BtnLogin />
+      <BtnRegister openModal={openModal} closeModal={closeModal}/>
+      <AuthModal open={isOpen} closeModal={closeModal}/>
     </>
   );
 }

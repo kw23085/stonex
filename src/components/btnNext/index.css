@@ -1,6 +1,7 @@
 .btn-next {
     background: #007099;
     color: #FCFCFC;
+    border: 2px solid #007099;
     width: 325px;
     height: 46px;
     border-radius: 8px;

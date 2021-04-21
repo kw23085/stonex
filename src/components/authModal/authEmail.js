@@ -4,7 +4,7 @@ import BtnGoogle from '../btnGoogle';
 import BtnFacebook from '../btnFacebook';
 
 
-function registerModal1({ handleNext }) {
+function authEmail({ handleNext }) {
 
     const inputInfo = {
         placeholder: "電話號碼/ Email",
@@ -28,4 +28,4 @@ function registerModal1({ handleNext }) {
     )
 }
 
-export default registerModal1
+export default authEmail
