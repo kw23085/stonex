@@ -29,6 +29,9 @@
     left: 24px;
     top: 24px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-header-title {
@@ -58,14 +61,17 @@
 }
 
 
-/* Register Modal Content 1 */
-.register-modal-content-1 {
+/* Register Modal Content */
+.register-modal-content {
     width: 326px;
     height: 266px;
-    display: block;
+    display: flex;
+    justify-content: center;
     margin: 34px auto 0 auto;
 }
 
+
+/* Auth Content */
 #horizontal-line {
     width: 100%; 
     text-align: center; 
@@ -117,4 +123,15 @@
 #register-link:hover {
     transform: scale(1.15);
     text-decoration: underline;
+}
+
+/* OTP Content */
+.otp-confirm-msg {
+    width: 237px;
+    height: 48px;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
 }

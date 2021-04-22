@@ -13,7 +13,7 @@ function authEmail({ handleNext }) {
     }
     
     return (
-        <div className="register-modal-content-1">
+        <div className="register-modal-content">
             <InputField id={inputInfo.id} type={inputInfo.type} placeholder={inputInfo.placeholder} />
             <BtnNext handleNext={handleNext} />
             <h2 id="horizontal-line"><span id="horizontal-line-text">或</span></h2>
