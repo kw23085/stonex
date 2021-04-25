@@ -4,7 +4,7 @@ import BtnGoogle from '../btnGoogle';
 import BtnFacebook from '../btnFacebook';
 
 
-function authEmail({ handleNext }) {
+function AuthEmail({ handleNext }) {
 
     const inputInfo = {
         placeholder: "電話號碼/ Email",
@@ -28,4 +28,4 @@ function authEmail({ handleNext }) {
     )
 }
 
-export default authEmail
+export default AuthEmail

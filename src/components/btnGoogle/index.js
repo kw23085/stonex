@@ -1,6 +1,6 @@
 import './index.css';
 
-function btnGoogle() {
+function BtnGoogle() {
     return (
         <>
             <button className="btn btn-google">
@@ -10,4 +10,4 @@ function btnGoogle() {
     )
 }
 
-export default btnGoogle
+export default BtnGoogle

@@ -1,6 +1,6 @@
 import './input.css';
 
-function inputField({ type, id, placeholder }) {
+function InputField({ type, id, placeholder }) {
 
     function addBorder(e) {
         e.target.parentNode.classList.add('focus');
@@ -18,4 +18,4 @@ function inputField({ type, id, placeholder }) {
 
 }
 
-export default inputField
+export default InputField

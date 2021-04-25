@@ -64,9 +64,10 @@
 /* Register Modal Content */
 .register-modal-content {
     width: 326px;
-    height: 266px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     margin: 34px auto 0 auto;
 }
 
@@ -129,9 +130,23 @@
 .otp-confirm-msg {
     width: 237px;
     height: 48px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     text-align: center;
     font-style: normal;
     font-weight: normal;
     font-size: 15px;
     line-height: 24px;
+}
+
+.otp-validation-num {
+    display: flex;
+}
+
+.validation-num {
+    border-bottom: 2px solid #007099;
+    width: 40px;
+    height: 50px;
+    margin: 40px 6px 57px 6px;
 }

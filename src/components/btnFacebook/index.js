@@ -1,6 +1,6 @@
 import './index.css';
 
-function btnFacebook() {
+function BtnFacebook() {
     return (
         <>
             <button className="btn-facebook">
@@ -10,4 +10,4 @@ function btnFacebook() {
     )
 }
 
-export default btnFacebook
+export default BtnFacebook

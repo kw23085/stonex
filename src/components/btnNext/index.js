@@ -1,6 +1,6 @@
 import './index.css';
 
-function btnNext({ handleNext }) {
+function BtnNext({ handleNext }) {
     return (
         <>
             <button className="btn-next" onClick={handleNext}>下一步</button>
@@ -8,4 +8,4 @@ function btnNext({ handleNext }) {
     )
 }
 
-export default btnNext
+export default BtnNext
