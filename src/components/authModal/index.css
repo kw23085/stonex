@@ -145,8 +145,12 @@
 }
 
 .validation-num {
-    border-bottom: 2px solid #007099;
+    border-bottom: 2px solid #D9DBE9;
     width: 40px;
     height: 50px;
     margin: 40px 6px 57px 6px;
+}
+
+.validation-num.fill {
+    border-bottom: 2px solid #007099;
 }
