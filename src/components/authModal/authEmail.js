@@ -21,8 +21,8 @@ function AuthEmail({ handleNext }) {
                 <BtnGoogle />
                 <BtnFacebook />
             </div>
-            <div className="modal-bottom-info">
-                <p id="already-acc-txt">已經有帳號了嗎?</p><p id="register-link">登入</p>
+            <div className="already-acc">
+                <p id="already-acc-txt">已經有帳號了嗎?</p><p className="modal-link register-link">登入</p>
             </div>
         </div>
     )

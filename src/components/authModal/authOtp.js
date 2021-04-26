@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import './index.css'
 
 
@@ -23,13 +23,12 @@ function AuthOtp() {
                 valiNum.push(e.key)
                 valiNum.forEach((num, index) => {
                     numField[index].classList.add('fill');
-                    numField[index].innerText = num;
+                    numField[index].firstChild.innerText = num;
                 })
             } else if(e.keyCode === 8) {
                 valiNum.pop();
                 numField[valiNum.length].classList.remove('fill');
-                numField[valiNum.length].innerText = '';
-                
+                numField[valiNum.length].firstChild.innerText = '';
             }
         }
 
@@ -51,10 +50,14 @@ function AuthOtp() {
                     <p>(+886) 92200000</p>
                 </div>
                 <div className="otp-validation-num">
-                    <span className="validation-num"></span>
-                    <span className="validation-num"></span>
-                    <span className="validation-num"></span>
-                    <span className="validation-num"></span>
+                    <div className="validation-num"><span className="vali-num"></span></div>
+                    <div className="validation-num"><span className="vali-num"></span></div>
+                    <div className="validation-num"><span className="vali-num"></span></div>
+                    <div className="validation-num"><span className="vali-num"></span></div>
+                </div>
+                <div className="no-valinum">
+                    <p className="no-valinum-txt">沒有收到驗證碼嗎?</p>
+                    <p className="no-valinum-txt"><span className="modal-link re-send-valinum">重新傳送</span>或<span className="modal-link alt-register">使用不同的註冊方式</span></p>
                 </div>
             </div>
         </>
