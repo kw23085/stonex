@@ -1,46 +1,32 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './index.css'
 
 
 
-function AuthOtp() {
-    // const [valiNum, setValiNum] = useState([]);
+function AuthOtp({ handleNext }) {
 
     console.log('render')
-    // console.log(valiNum)
-    // console.log(valiNum.length)
+
+    function displayNum(e) {
 
 
-    // Keydown event listener
-    useEffect(() => {
-        let valiNum = [];
-        let numField = document.querySelector('.otp-validation-num').childNodes;
+        console.log(e.target.value)
+        console.log(e.target.value.length)
+        console.log(e.target.max)
+        console.log(e.target.value === e.target.max)
 
-        function displayNum(e) {
-            // Check if its 0-9 and less then 4 digits - push the input in array
-            if(e.keyCode >= 48 && e.keyCode <= 57 && valiNum.length <= 3) {
-                // setValiNum(valiNum => [...valiNum, e.key])
-                valiNum.push(e.key)
-                valiNum.forEach((num, index) => {
-                    numField[index].classList.add('fill');
-                    numField[index].firstChild.innerText = num;
-                })
-            } else if(e.keyCode === 8) {
-                valiNum.pop();
-                numField[valiNum.length].classList.remove('fill');
-                numField[valiNum.length].firstChild.innerText = '';
-            }
+        if (e.target.value.length > e.target.max) {
+            e.target.value = e.target.value.slice(0, e.target.max)
         }
 
-        
-        window.addEventListener('keydown', displayNum);
+        // if (e.target.value.length > e.target.maxLength) {
+        //     e.target.value = e.target.value.slice(0, e.target.maxLength)
+        // }
 
-        // Remove eventlistener after unmount
-        return () => {
-            window.removeEventListener('keydown', displayNum);
-        };
 
-    }, []);
+    }
+
+
 
     return (
         <>
@@ -50,10 +36,10 @@ function AuthOtp() {
                     <p>(+886) 92200000</p>
                 </div>
                 <div className="otp-validation-num">
-                    <div className="validation-num"><span className="vali-num"></span></div>
-                    <div className="validation-num"><span className="vali-num"></span></div>
-                    <div className="validation-num"><span className="vali-num"></span></div>
-                    <div className="validation-num"><span className="vali-num"></span></div>
+                    <input className="validation-num num1" type="number" max="1" onChange={displayNum}/>
+                    <input className="validation-num num2" type="number" max="1" onChange={displayNum}/>
+                    <input className="validation-num num3" type="number" max="1" onChange={displayNum}/>
+                    <input className="validation-num num4" type="number" max="1" onChange={displayNum}/>
                 </div>
                 <div className="no-valinum">
                     <p className="no-valinum-txt">沒有收到驗證碼嗎?</p>

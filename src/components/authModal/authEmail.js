@@ -5,16 +5,10 @@ import BtnFacebook from '../btnFacebook';
 
 
 function AuthEmail({ handleNext }) {
-
-    const inputInfo = {
-        placeholder: "電話號碼/ Email",
-        type: "text",
-        id: "register-input-phone-account"
-    }
     
     return (
         <div className="register-modal-content">
-            <InputField id={inputInfo.id} type={inputInfo.type} placeholder={inputInfo.placeholder} />
+            <InputField id="register-input-phone-account" type="text" placeholder="電話號碼/ Email" />
             <BtnNext handleNext={handleNext} />
             <h2 id="horizontal-line"><span id="horizontal-line-text">或</span></h2>
             <div className="modal-social-btns">

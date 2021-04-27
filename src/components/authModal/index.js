@@ -4,6 +4,7 @@ import CloseIcon from '../../icons/close.png';
 import PrevIcon from '../../icons/prev.png'
 import AuthEmail from './authEmail';
 import AuthOtp from './authOtp';
+import AuthSucess from './authSucess';
 
 function Modal({ open, closeModal }) {
     // Step
@@ -22,9 +23,15 @@ function Modal({ open, closeModal }) {
         },
         otp: {
             title: '請輸入驗證碼',
-            content: <AuthOtp />,
+            content: <AuthOtp handleNext={handleNext} />,
             icon: <img src={PrevIcon} alt="close-icon"/>,
             iconFunc: resetStep
+        },
+        success: {
+            title: '完成註冊',
+            content: <AuthSucess />,
+            icon: <img src={CloseIcon} alt="close-icon"/>,
+            iconFunc: closeResetStep
         }
     }
 
@@ -38,12 +45,24 @@ function Modal({ open, closeModal }) {
     
     // Handle next step
     function handleNext() {
-        setStep('otp');
+
+        if(step === 'signup') {
+            setStep('otp');
+        } else if(step === 'otp') {
+            setStep('success');
+        }
+     
     }
 
     // Reset step 
     function resetStep() {
         setStep('signup')
+    }
+
+    // Close and reset
+    function closeResetStep() {
+        closeModal();
+        setStep('signup');
     }
 
     return (
