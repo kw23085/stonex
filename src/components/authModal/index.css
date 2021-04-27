@@ -145,6 +145,13 @@
     display: flex;
 }
 
+/* Remove num input spinner */
+.otp-validation-num input::-webkit-outer-spin-button,
+.otp-validation-num input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .validation-num {
     display: flex;
     justify-content: center;

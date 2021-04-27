@@ -9,17 +9,27 @@ function AuthOtp({ handleNext }) {
 
     function displayNum(e) {
 
-
+        console.log(e)
         console.log(e.target.value)
-        console.log(e.target.value.length)
-        console.log(e.target.max)
-        console.log(e.target.value === e.target.max)
+        console.log(e.key === "-")
 
         if (e.target.value.length > e.target.max) {
-            e.target.value = e.target.value.slice(0, e.target.max)
+            e.target.value = e.target.value.slice(1, e.target.max + 1)
         }
 
+    }
 
+    function formatInput(e) {
+        let checkIfNum;
+        if (e.key !== undefined) {
+            // Check if it's a "e", ".", "+" or "-"
+            checkIfNum = e.key === "e" || e.key === "." || e.key === "+" || e.key === "-" ;
+          }
+          else if (e.keyCode !== undefined) {
+            // Check if it's a "e" (69), "." (190), "+" (187) or "-" (189)
+            checkIfNum = e.keyCode === 69 || e.keyCode === 190 || e.keyCode === 187 || e.keyCode === 189;
+          }
+          return checkIfNum && e.preventDefault();
     }
 
 
@@ -32,10 +42,10 @@ function AuthOtp({ handleNext }) {
                     <p>(+886) 92200000</p>
                 </div>
                 <div className="otp-validation-num">
-                    <input className="validation-num num1" type="number" max="1" onChange={displayNum}/>
-                    <input className="validation-num num2" type="number" max="1" onChange={displayNum}/>
-                    <input className="validation-num num3" type="number" max="1" onChange={displayNum}/>
-                    <input className="validation-num num4" type="number" max="1" onChange={displayNum}/>
+                    <input className="validation-num otp1" type="number" max="1" onChange={displayNum} onKeyDown={formatInput}/>
+                    <input className="validation-num otp2" type="number" max="1" onChange={displayNum} onKeyDown={formatInput}/>
+                    <input className="validation-num otp3" type="number" max="1" onChange={displayNum} onKeyDown={formatInput}/>
+                    <input className="validation-num otp4" type="number" max="1" onChange={displayNum} onKeyDown={formatInput}/>
                 </div>
                 <div className="no-valinum">
                     <p className="no-valinum-txt">沒有收到驗證碼嗎?</p>
