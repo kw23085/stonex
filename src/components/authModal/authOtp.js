@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import './index.css'
 
 
@@ -9,30 +8,45 @@ function AuthOtp({ handleNext }) {
 
     function displayNum(e) {
 
-        console.log(e)
-        console.log(e.target.value)
-        console.log(e.key === "-")
+        // Restrict inputfield length to 1
+        if (e.target.value.length > 1) {
+            e.target.value = e.target.value.slice(1, 2)
+        }
 
-        if (e.target.value.length > e.target.max) {
-            e.target.value = e.target.value.slice(1, e.target.max + 1)
+        // Handle input focus
+        if(e.target.value) {
+            e.target.classList.add('fill')
+            if(e.target.nextSibling) {
+                e.target.nextSibling.focus()
+            }
+        } else if(!e.target.value) {
+            e.target.classList.remove('fill')
+            if(e.target.previousSibling) {
+                e.target.previousSibling.focus();
+            }
         }
 
     }
 
     function formatInput(e) {
+
+        // Handle backspace
+        if(e.keyCode === 8 && e.target.previousSibling && e.target.value === '') {
+            e.preventDefault()
+            e.target.previousSibling.focus()
+        }
+
+        // Prevent e / . / + / - in inputfiled
         let checkIfNum;
         if (e.key !== undefined) {
             // Check if it's a "e", ".", "+" or "-"
             checkIfNum = e.key === "e" || e.key === "." || e.key === "+" || e.key === "-" ;
-          }
-          else if (e.keyCode !== undefined) {
+        } else if (e.keyCode !== undefined) {
             // Check if it's a "e" (69), "." (190), "+" (187) or "-" (189)
             checkIfNum = e.keyCode === 69 || e.keyCode === 190 || e.keyCode === 187 || e.keyCode === 189;
-          }
-          return checkIfNum && e.preventDefault();
+        } return checkIfNum && e.preventDefault();
+
     }
-
-
 
     return (
         <>
