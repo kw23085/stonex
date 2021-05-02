@@ -1,4 +1,4 @@
-import InputField from '../inputfield/inputField';
+import InputEmail from '../inputEmail';
 import BtnNext from '../btnNext';
 import BtnGoogle from '../btnGoogle';
 import BtnFacebook from '../btnFacebook';
@@ -8,7 +8,7 @@ function AuthEmail({ handleNext }) {
     
     return (
         <div className="register-modal-content">
-            <InputField id="register-input-phone-account" type="text" placeholder="電話號碼/ Email" />
+            <InputEmail id="register-input-phone-account" type="text" placeholder="電話號碼/ Email" />
             <BtnNext handleNext={handleNext} />
             <h2 id="horizontal-line"><span id="horizontal-line-text">或</span></h2>
             <div className="modal-social-btns">

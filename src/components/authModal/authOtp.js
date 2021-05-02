@@ -1,50 +1,47 @@
 import './index.css'
-
+import { useState } from 'react'
 
 
 function AuthOtp({ handleNext }) {
 
+    const [otp, setOtp] = useState({
+        otp1: null,
+        otp2: null,
+        otp3: null,
+        otp4: null
+    });
+
+    const INTEGER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+
     console.log('render')
+    console.log(otp.otp1)
+    console.log(otp.otp2)
+    console.log(otp.otp3)
+    console.log(otp.otp4)
 
-    function displayNum(e) {
+    function displayName(e) {
 
-        // Restrict inputfield length to 1
-        if (e.target.value.length > 1) {
-            e.target.value = e.target.value.slice(1, 2)
+        let key = parseInt(e.nativeEvent.data);
+
+        // if(INTEGER.includes(key) && e.nativeEvent.inputType )
+
+        console.log(e.nativeEvent.inputType == 'deleteContentBackward')
+
+        // Update otp state
+        if(Number.isInteger(key)) {
+            key = parseInt(e.nativeEvent.data)
+        } else {
+            key = null
         }
 
-        // Handle input focus
-        if(e.target.value) {
-            e.target.classList.add('fill')
-            if(e.target.nextSibling) {
-                e.target.nextSibling.focus()
-            }
-        } else if(!e.target.value) {
-            e.target.classList.remove('fill')
-            if(e.target.previousSibling) {
-                e.target.previousSibling.focus();
-            }
-        }
+        let inputId = e.target.id
+        let newOtpState = {...otp}
+        newOtpState[inputId] = key
 
-    }
+        setOtp(newOtpState)
 
-    function formatInput(e) {
-
-        // Handle backspace
-        if(e.keyCode === 8 && e.target.previousSibling && e.target.value === '') {
-            e.preventDefault()
-            e.target.previousSibling.focus()
-        }
-
-        // Prevent e / . / + / - in inputfiled
-        let checkIfNum;
-        if (e.key !== undefined) {
-            // Check if it's a "e", ".", "+" or "-"
-            checkIfNum = e.key === "e" || e.key === "." || e.key === "+" || e.key === "-" ;
-        } else if (e.keyCode !== undefined) {
-            // Check if it's a "e" (69), "." (190), "+" (187) or "-" (189)
-            checkIfNum = e.keyCode === 69 || e.keyCode === 190 || e.keyCode === 187 || e.keyCode === 189;
-        } return checkIfNum && e.preventDefault();
+        // Move inputfield focus
+        // console.log(e)
 
     }
 
@@ -56,10 +53,10 @@ function AuthOtp({ handleNext }) {
                     <p>(+886) 92200000</p>
                 </div>
                 <div className="otp-validation-num">
-                    <input className="validation-num otp1" type="number" max="1" onChange={displayNum} onKeyDown={formatInput}/>
-                    <input className="validation-num otp2" type="number" max="1" onChange={displayNum} onKeyDown={formatInput}/>
-                    <input className="validation-num otp3" type="number" max="1" onChange={displayNum} onKeyDown={formatInput}/>
-                    <input className="validation-num otp4" type="number" max="1" onChange={displayNum} onKeyDown={formatInput}/>
+                    <input id="otp1" className="validation-num" type="text" onChange={displayName}/>
+                    <input id="otp2" className="validation-num" type="text" onChange={displayName}/>
+                    <input id="otp3" className="validation-num" type="text" onChange={displayName}/>
+                    <input id="otp4" className="validation-num" type="text" onChange={displayName}/>
                 </div>
                 <div className="no-valinum">
                     <p className="no-valinum-txt">沒有收到驗證碼嗎?</p>

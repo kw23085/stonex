@@ -1,6 +1,6 @@
-import './input.css';
+import './index.css';
 
-function InputField({ type, id, placeholder }) {
+function InputEmail({ type, id, placeholder }) {
 
     return (
         <>
@@ -13,4 +13,4 @@ function InputField({ type, id, placeholder }) {
 
 }
 
-export default InputField
+export default InputEmail
