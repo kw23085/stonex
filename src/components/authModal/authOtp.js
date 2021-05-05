@@ -1,49 +1,43 @@
 import './index.css'
-import { useState } from 'react'
-
+import InputOtp from '../inputOtp'
+import { useState, useEffect, useRef } from 'react'
+const INTEGER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
 function AuthOtp({ handleNext }) {
-
-    const [otp, setOtp] = useState({
-        otp1: null,
-        otp2: null,
-        otp3: null,
-        otp4: null
-    });
-
-    const INTEGER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-
     console.log('render')
-    console.log(otp.otp1)
-    console.log(otp.otp2)
-    console.log(otp.otp3)
-    console.log(otp.otp4)
 
-    function displayName(e) {
 
-        let key = parseInt(e.nativeEvent.data);
+    const [inputArr, setInputArr] = useState([0, 0, 0, 0])
 
-        // if(INTEGER.includes(key) && e.nativeEvent.inputType )
+    function displayNum(e) {
+        
+        let key = e.key
+        let id = e.target.id
+        let digit = parseInt(key) ? parseInt(key) : undefined
+        let currentOtp;
 
-        console.log(e.nativeEvent.inputType == 'deleteContentBackward')
-
-        // Update otp state
-        if(Number.isInteger(key)) {
-            key = parseInt(e.nativeEvent.data)
+        if(id === 'otp0') {
+            console.log('otp0')
+        } else if(id === 'otp1') {
+            console.log('otp1')
+        } else if(id === 'otp2') {
+            console.log('otp2')
         } else {
-            key = null
+            console.log('otp3')
         }
 
-        let inputId = e.target.id
-        let newOtpState = {...otp}
-        newOtpState[inputId] = key
+        // if(digit)  {
+            
+        //     let inputArrC = [...inputArr]
+        //     inputArr
 
-        setOtp(newOtpState)
-
-        // Move inputfield focus
-        // console.log(e)
+        // } else {
+        //     console.log('no')
+        // }
 
     }
+
+
 
     return (
         <>
@@ -53,10 +47,11 @@ function AuthOtp({ handleNext }) {
                     <p>(+886) 92200000</p>
                 </div>
                 <div className="otp-validation-num">
-                    <input id="otp1" className="validation-num" type="text" onChange={displayName}/>
-                    <input id="otp2" className="validation-num" type="text" onChange={displayName}/>
-                    <input id="otp3" className="validation-num" type="text" onChange={displayName}/>
-                    <input id="otp4" className="validation-num" type="text" onChange={displayName}/>
+                    {
+                        inputArr.map((input, index) => {
+                           return  <InputOtp index={index} displayNum={displayNum}/>
+                        })
+                    }
                 </div>
                 <div className="no-valinum">
                     <p className="no-valinum-txt">沒有收到驗證碼嗎?</p>
