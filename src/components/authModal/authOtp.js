@@ -1,43 +1,87 @@
 import './index.css'
 import InputOtp from '../inputOtp'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 const INTEGER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
 function AuthOtp({ handleNext }) {
     console.log('render')
 
+    const [inputArr, setInputArr] = useState([null, null, null, null])
+    
 
-    const [inputArr, setInputArr] = useState([0, 0, 0, 0])
+    const inputRef0 = useRef()
+    const inputRef1 = useRef()
+    const inputRef2 = useRef()
+    const inputRef3 = useRef()
+
+    let currentOtpIndex = useRef(0)
+
+
+    const inputRefArr = [inputRef0, inputRef1, inputRef2, inputRef3]
 
     function displayNum(e) {
         
         let key = e.key
         let id = e.target.id
-        let digit = parseInt(key) ? parseInt(key) : undefined
-        let currentOtp;
 
-        if(id === 'otp0') {
-            console.log('otp0')
+        if(id === 'otp0') { 
+            currentOtpIndex = 0
         } else if(id === 'otp1') {
-            console.log('otp1')
+            currentOtpIndex = 1
         } else if(id === 'otp2') {
-            console.log('otp2')
+            currentOtpIndex = 2
         } else {
-            console.log('otp3')
+            currentOtpIndex = 3
         }
 
-        // if(digit)  {
-            
-        //     let inputArrC = [...inputArr]
-        //     inputArr
+        if(INTEGER.includes(parseInt(key))) {
 
-        // } else {
-        //     console.log('no')
-        // }
+            let digit = parseInt(key)
+            
+            let inputArrC = [...inputArr]
+            inputArrC[currentOtpIndex] = digit
+            setInputArr(inputArrC)
+
+
+        } else if(key === 'Backspace') {
+
+            let inputArrC = [...inputArr]
+            inputArrC[currentOtpIndex] = null
+            setInputArr(inputArrC)
+
+        }
+
 
     }
 
+    useEffect(() => {
 
+        inputArr.forEach((input, index) => {
+
+            // Get next input wrapper
+            let nextInputBox = inputArr[(index + 1)]
+
+            // Get current input wrapper
+            let currentInputBox = inputArr[index]
+
+            // Show number on modal
+            inputRefArr[index].current.childNodes[0].innerText = input
+
+            console.log(nextInputBox)
+            console.log(currentInputBox)
+
+            if(nextInputBox === undefined ) {
+                console.log('good')
+            } else {
+                console.log('no good')
+            }
+
+            // nextInputBox.focus()
+
+        })
+
+
+    }, [inputArr])
 
     return (
         <>
@@ -49,7 +93,10 @@ function AuthOtp({ handleNext }) {
                 <div className="otp-validation-num">
                     {
                         inputArr.map((input, index) => {
-                           return  <InputOtp index={index} displayNum={displayNum}/>
+
+                            let currentInputRef = inputRefArr[index]
+
+                           return  <InputOtp key={index} index={index} onKeyDownFunc={displayNum} currentInputRef={currentInputRef}/>
                         })
                     }
                 </div>

@@ -141,50 +141,6 @@
     line-height: 24px;
 }
 
-.otp-validation-num {
-    display: flex;
-}
-
-/* Remove num input spinner */
-.otp-validation-num input::-webkit-outer-spin-button,
-.otp-validation-num input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.validation-num {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 2px solid #D9DBE9;
-    width: 40px;
-    height: 50px;
-    margin: 40px 6px 57px 6px;
-}
-
-.validation-num:focus {
-    outline: none;
-    border-bottom: 2px solid #007099;
-}
-
-.validation-num.fill {
-    border-bottom: 2px solid #007099;
-}
-
-.vali-num {
-    width: 9px;
-    height: 24px; 
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 24px;
-    letter-spacing: 0.75px;
-    margin: 0 0 7px 0;
-}
-
 .no-valinum {
     display: flex;
     justify-content: center;
