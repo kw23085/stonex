@@ -8,14 +8,14 @@ function AuthOtp({ handleNext }) {
     console.log('render')
 
     const [inputArr, setInputArr] = useState([null, null, null, null])
-    
+    const [currentInputIndex, setCurrentInputIndex] = useState(0)
 
     const inputRef0 = useRef()
     const inputRef1 = useRef()
     const inputRef2 = useRef()
     const inputRef3 = useRef()
 
-    let currentOtpIndex = useRef(0)
+    let currentInputRefArrIndex = useRef(0)
 
 
     const inputRefArr = [inputRef0, inputRef1, inputRef2, inputRef3]
@@ -27,29 +27,33 @@ function AuthOtp({ handleNext }) {
         let id = e.target.id
 
         if(id === 'otp0') { 
-            currentOtpIndex = 0
+            currentInputRefArrIndex = 0
+            setCurrentInputIndex(0)
         } else if(id === 'otp1') {
-            currentOtpIndex = 1
+            currentInputRefArrIndex = 1
+            setCurrentInputIndex(1)
         } else if(id === 'otp2') {
-            currentOtpIndex = 2
+            currentInputRefArrIndex = 2
+            setCurrentInputIndex(2)
         } else {
-            currentOtpIndex = 3
+            currentInputRefArrIndex = 3
+            setCurrentInputIndex(3)
         }
 
         if(INTEGER.includes(parseInt(key))) {
 
             let digit = parseInt(key)
             
-            let inputArrC = [...inputArr]
-            inputArrC[currentOtpIndex] = digit
-            setInputArr(inputArrC)
+            let inputArrCopy = [...inputArr]
+            inputArrCopy[currentInputRefArrIndex] = digit
+            setInputArr(inputArrCopy)
 
 
         } else if(key === 'Backspace') {
 
-            let inputArrC = [...inputArr]
-            inputArrC[currentOtpIndex] = null
-            setInputArr(inputArrC)
+            let inputArrCopy = [...inputArr]
+            inputArrCopy[currentInputRefArrIndex] = null
+            setInputArr(inputArrCopy)
 
         }
 
@@ -59,46 +63,40 @@ function AuthOtp({ handleNext }) {
     useEffect(() => {
 
         // Check if all inputfield is empty
-        let isInputArrSame = inputArr.every((el, i, arr) => el === null) ? true : false
+        let isInputArrNull = inputArr.every((el, i, arr) => el === null) ? true : false
+
+        // Set input values
+        let prevInputVal = inputArr[(currentInputIndex - 1)]
+        let currentInputVal = inputArr[currentInputIndex]
+        let nextInputVal = inputArr[(currentInputIndex + 1)]
+
+        // Set input field
+        let prevInputField = inputRefArr[(currentInputIndex - 1)] ? inputRefArr[(currentInputIndex - 1)].current : undefined
+        let currentInputField = inputRefArr[currentInputIndex].current
+        let nextInputField = inputRefArr[(currentInputIndex + 1)] ? inputRefArr[(currentInputIndex + 1)].current : undefined
+
 
         inputArr.forEach((input, index) => {
-
             // Show number in input field
             inputRefArr[index].current.childNodes[0].innerText = input
-
-            // Next input array item
-            let nextInputArrIndex = inputArr[(index + 1)]
-
-            // Current input array item
-            let currentInputArrIndex = inputArr[index]
-
-            // Current input field
-            let currentInputField = inputRefArr[index].current
-
-            // Next input field
-            let nextInputField = inputRefArr[(index + 1)] ? inputRefArr[(index + 1)].current : undefined
-
-            let currentInputFieldText = inputRefArr[index].current.childNodes[0].innerText
-
-            // console.log(currentInputFieldText)
-            // console.log(nextInputField)
-            // console.log(nextInputArrIndex)
-            // console.log(currentInputArrIndex)
-
-            if(isInputArrSame) {
-
-                inputRef0.current.focus();
-
-            } else if(currentInputArrIndex !== null && nextInputArrIndex === null && nextInputArrIndex !== undefined) {
-                
-                nextInputField.focus()
-                
-            } else {
-                console.log('no good')
-            }
-
         })
 
+        console.log(isInputArrNull)
+
+        // Handle inputfield focus
+        if(isInputArrNull) {
+            inputRef0.current.focus()
+        } else if(currentInputVal !== null) {
+            currentInputField.classList.add('fill')
+            if(nextInputField !== undefined) {
+                nextInputField.focus()
+            }
+        } else if(currentInputVal === null) {
+            currentInputField.classList.remove('fill')
+            if(prevInputField !== undefined) {
+                prevInputField.focus()
+            }
+        }
 
     }, [inputArr])
 
