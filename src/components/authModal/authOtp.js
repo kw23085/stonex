@@ -1,6 +1,7 @@
 import './index.css'
 import InputOtp from '../inputOtp'
 import { useState, useRef, useEffect } from 'react'
+
 const INTEGER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
 function AuthOtp({ handleNext }) {
@@ -19,7 +20,8 @@ function AuthOtp({ handleNext }) {
 
     const inputRefArr = [inputRef0, inputRef1, inputRef2, inputRef3]
 
-    function displayNum(e) {
+    // Update inputArr
+    function updateInputArr(e) {
         
         let key = e.key
         let id = e.target.id
@@ -56,27 +58,44 @@ function AuthOtp({ handleNext }) {
 
     useEffect(() => {
 
+        // Check if all inputfield is empty
+        let isInputArrSame = inputArr.every((el, i, arr) => el === null) ? true : false
+
         inputArr.forEach((input, index) => {
 
-            // Get next input wrapper
-            let nextInputBox = inputArr[(index + 1)]
-
-            // Get current input wrapper
-            let currentInputBox = inputArr[index]
-
-            // Show number on modal
+            // Show number in input field
             inputRefArr[index].current.childNodes[0].innerText = input
 
-            console.log(nextInputBox)
-            console.log(currentInputBox)
+            // Next input array item
+            let nextInputArrIndex = inputArr[(index + 1)]
 
-            if(nextInputBox === undefined ) {
-                console.log('good')
+            // Current input array item
+            let currentInputArrIndex = inputArr[index]
+
+            // Current input field
+            let currentInputField = inputRefArr[index].current
+
+            // Next input field
+            let nextInputField = inputRefArr[(index + 1)] ? inputRefArr[(index + 1)].current : undefined
+
+            let currentInputFieldText = inputRefArr[index].current.childNodes[0].innerText
+
+            // console.log(currentInputFieldText)
+            // console.log(nextInputField)
+            // console.log(nextInputArrIndex)
+            // console.log(currentInputArrIndex)
+
+            if(isInputArrSame) {
+
+                inputRef0.current.focus();
+
+            } else if(currentInputArrIndex !== null && nextInputArrIndex === null && nextInputArrIndex !== undefined) {
+                
+                nextInputField.focus()
+                
             } else {
                 console.log('no good')
             }
-
-            // nextInputBox.focus()
 
         })
 
@@ -96,7 +115,7 @@ function AuthOtp({ handleNext }) {
 
                             let currentInputRef = inputRefArr[index]
 
-                           return  <InputOtp key={index} index={index} onKeyDownFunc={displayNum} currentInputRef={currentInputRef}/>
+                           return  <InputOtp key={index} index={index} onKeyDownFunc={updateInputArr} currentInputRef={currentInputRef}/>
                         })
                     }
                 </div>
