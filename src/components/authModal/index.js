@@ -6,9 +6,9 @@ import AuthEmail from './authEmail';
 import AuthOtp from './authOtp';
 import AuthSucess from './authSucess';
 
-function Modal({ open, closeModal }) {
+function AuthModal({ open, closeModal }) {
     // Step
-    let [step, setStep] = useState('signup');
+    const [step, setStep] = useState('signup');
 
     // Show Modal or No
     if(!open) return null;
@@ -25,7 +25,7 @@ function Modal({ open, closeModal }) {
         otp: {
             title: '請輸入驗證碼',
             content: <AuthOtp handleNext={handleNext} />,
-            icon: <img src={PrevIcon} alt="close-icon"/>,
+            icon: <img src={PrevIcon} alt="prev-icon"/>,
             iconFunc: resetStep,
             modalClassName: 'modal-wrapper'
         },
@@ -97,4 +97,4 @@ function Modal({ open, closeModal }) {
     )
 }
 
-export default Modal
+export default AuthModal

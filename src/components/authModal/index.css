@@ -12,14 +12,7 @@
 }
 
 .modal-wrapper-large {
-    background: #fff;
-    width: 600px;
     height: 514px;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
 }
 
 .modal-content {
@@ -84,6 +77,10 @@
     cursor: pointer;
 }
 
+.modal-link.loading {
+    color: #D9DBE9;
+}
+
 
 /* Auth Email */
 .register-input-phone-account-wrapper {
@@ -97,6 +94,10 @@
     align-items: center;
     flex-direction: column;
     margin: 0 auto;
+}
+
+.register-modal-content.loading{
+    color: #D9DBE9;
 }
 
 #horizontal-line {
@@ -143,6 +144,44 @@
 }
 
 /* OTP */
+.otp-resubmit-message {
+    display: none;
+    width: 178px;
+    height: 48px;
+    border: 1px solid #00994D;
+    border-radius: 8px;
+    margin: 21px 0 -18px 0;
+    align-items: center;
+    position: relative;    
+}
+
+.otp-resubmit-message.show {
+    display: flex;
+}
+
+.otp-resubmit-icon {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 24px;
+}
+
+.resubmit-message {
+    position: absolute;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.25px;
+    left: 54px;
+    color: #00994D;
+}
+
+.check-icon {
+    width: 16px;
+    height: 16px;
+}
+
 .otp-confirm-msg {
     width: 237px;
     height: 48px;
@@ -155,6 +194,10 @@
     font-size: 15px;
     line-height: 24px;
     margin-top: 34px;
+}
+
+.otp-confirm-msg.loading {
+    color: #D9DBE9;
 }
 
 .no-valinum {
@@ -179,6 +222,20 @@
 
 .alt-register {
     padding-left: 6px;
+}
+
+.spinner {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 50%;
+    top: 58%;
+    transform: translateX(-50%);
+    display: none;
+}
+
+.spinner.show {
+    display: block;
 }
 
 
