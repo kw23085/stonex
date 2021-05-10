@@ -19,19 +19,22 @@ function Modal({ open, closeModal }) {
             title: '會員註冊',
             content: <AuthEmail handleNext={handleNext} />,
             icon: <img src={CloseIcon} alt="close-icon"/>,
-            iconFunc: closeModal
+            iconFunc: closeModal,
+            modalClassName: 'modal-wrapper'
         },
         otp: {
             title: '請輸入驗證碼',
             content: <AuthOtp handleNext={handleNext} />,
             icon: <img src={PrevIcon} alt="close-icon"/>,
-            iconFunc: resetStep
+            iconFunc: resetStep,
+            modalClassName: 'modal-wrapper'
         },
         success: {
             title: '完成註冊',
-            content: <AuthSucess />,
+            content: <AuthSucess closeResetStep={closeResetStep}/>,
             icon: <img src={CloseIcon} alt="close-icon"/>,
-            iconFunc: closeResetStep
+            iconFunc: closeResetStep,
+            modalClassName: 'modal-wrapper-large'
         }
     }
 
@@ -71,7 +74,7 @@ function Modal({ open, closeModal }) {
             <div className="back-drop" onClick={() => {closeModal(); resetStep()}}></div>
 
             {/* MODAL */}
-            <div className="modal-wrapper" onClick={e => e.stopPropagation()}>
+            <div className={actualModalContent.modalClassName} onClick={e => e.stopPropagation()}>
 
                 <div className="modal-content">
 

@@ -11,6 +11,17 @@
     border-radius: 10px;
 }
 
+.modal-wrapper-large {
+    background: #fff;
+    width: 600px;
+    height: 514px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
 .modal-content {
     width: 100%;
     height: 100%;
@@ -172,7 +183,7 @@
 
 
 /* Auth Success */
-.last-step-txt-wrapper {
+.last-step-text-wrapper {
     margin: 24px 0 23px 0 ;
 }
 
@@ -186,4 +197,8 @@
 
 .user-password-confirm-wrapper {
     margin: 0 0 12px 0;
+}
+
+.terms-wrapper {
+    margin: 0 0 24px 0;
 }
