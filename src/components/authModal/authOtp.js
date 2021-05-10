@@ -66,9 +66,7 @@ function AuthOtp({ handleNext }) {
         let isInputArrNull = inputArr.every((el, i, arr) => el === null) ? true : false
 
         // Set input values
-        let prevInputVal = inputArr[(currentInputIndex - 1)]
         let currentInputVal = inputArr[currentInputIndex]
-        let nextInputVal = inputArr[(currentInputIndex + 1)]
 
         // Set input field
         let prevInputField = inputRefArr[(currentInputIndex - 1)] ? inputRefArr[(currentInputIndex - 1)].current : undefined
@@ -90,6 +88,8 @@ function AuthOtp({ handleNext }) {
             currentInputField.classList.add('fill')
             if(nextInputField !== undefined) {
                 nextInputField.focus()
+            } else if(nextInputField === undefined) {
+                handleNext()
             }
         } else if(currentInputVal === null) {
             currentInputField.classList.remove('fill')
