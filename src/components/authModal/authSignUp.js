@@ -4,22 +4,22 @@ import BtnGoogle from '../btnGoogle';
 import BtnFacebook from '../btnFacebook';
 
 
-function AuthEmail({ handleNext }) {
+function AuthSignUp({ handleNext, login }) {
     
     return (
-        <div className="register-modal-content">
-            <InputField id="register-input-phone-account" type="text" placeholder="電話號碼/ Email" />
-            <BtnNext handleNext={handleNext} />
+        <div className="inner-modal-content">
+            <InputField className="signup-modal-phone-account" type="text" placeholder="電話號碼/ Email" />
+            <BtnNext handleNext={handleNext} className="btn-next-signup"/>
             <h2 id="horizontal-line"><span id="horizontal-line-text">或</span></h2>
             <div className="modal-social-btns">
                 <BtnGoogle />
                 <BtnFacebook />
             </div>
             <div className="already-acc">
-                <p id="already-acc-txt">已經有帳號了嗎?</p><p className="modal-link register-link">登入</p>
+                <p id="already-acc-txt">已經有帳號了嗎?</p><p className="modal-link signup-link" onClick={login}>登入</p>
             </div>
         </div>
     )
 }
 
-export default AuthEmail
+export default AuthSignUp

@@ -11,8 +11,26 @@
     border-radius: 10px;
 }
 
+.modal-wrapper-medium {
+    background: #fff;
+    width: 600px;
+    height: 473px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
 .modal-wrapper-large {
+    background: #fff;
+    width: 600px;
     height: 514px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
 }
 
 .modal-content {
@@ -82,12 +100,12 @@
 }
 
 
-/* Auth Email */
-.register-input-phone-account-wrapper {
+/* Sign Up */
+.signup-modal-phone-account {
     margin: 34px 0 0 0;
 }
 
-.register-modal-content {
+.inner-modal-content {
     width: 326px;
     display: flex;
     justify-content: center;
@@ -96,11 +114,15 @@
     margin: 0 auto;
 }
 
-.register-modal-content.loading{
+.btn-next-signup {
+    margin: 12px 0 0 0;
+}
+
+.inner-modal-content.loading{
     color: #D9DBE9;
 }
 
-#horizontal-line {
+.horizontal-line {
     width: 100%; 
     text-align: center; 
     border-bottom: 2px solid #D9DBE9; 
@@ -108,7 +130,7 @@
     margin: 36px 0 34px 0; 
 }
 
-#horizontal-line-text {
+.horizontal-line-text {
     background:#fff; 
     padding:0 4px; 
     color: #6E7191;
@@ -139,7 +161,7 @@
     color: #4E4B66;
 }
 
-.register-link {
+.signup-link {
     margin: 0 0 0 6px;
 }
 
@@ -244,18 +266,43 @@
     margin: 24px 0 23px 0 ;
 }
 
-.user-nickname-wrapper {
+.user-nickname {
     margin: 0 0 12px 0;
 }
 
-.user-password-wrapper {
+.user-password {
     margin: 0 0 12px 0;
 }
 
-.user-password-confirm-wrapper {
+.user-password-confirm {
     margin: 0 0 12px 0;
 }
 
 .terms-wrapper {
     margin: 0 0 24px 0;
+}
+
+/* Login */
+
+.login-modal-phone-email {
+    margin: 30px 0 12px 0;
+}
+
+.forgot-password {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 12px 0 0 0;
+}
+
+.btn-next-login {
+    margin: 36px 0 0 0;
+}
+
+.horizontal-line-login {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 2px solid #D9DBE9; 
+    line-height: 0.1em;
+    margin: 23px 0; 
 }

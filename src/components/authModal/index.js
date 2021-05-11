@@ -2,9 +2,10 @@ import { useState } from 'react';
 import './index.css';
 import CloseIcon from '../../icons/close.png';
 import PrevIcon from '../../icons/prev.png'
-import AuthEmail from './authEmail';
+import AuthSignUp from './authSignUp';
 import AuthOtp from './authOtp';
 import AuthSucess from './authSucess';
+import AuthLogin from './authLogin';
 
 function AuthModal({ open, closeModal }) {
     // Step
@@ -17,14 +18,14 @@ function AuthModal({ open, closeModal }) {
     let modalContent = {
         signup: {
             title: '會員註冊',
-            content: <AuthEmail handleNext={handleNext} />,
+            content: <AuthSignUp handleNext={handleNext} login={login}/>,
             icon: <img src={CloseIcon} alt="close-icon"/>,
             iconFunc: closeModal,
             modalClassName: 'modal-wrapper'
         },
         otp: {
             title: '請輸入驗證碼',
-            content: <AuthOtp handleNext={handleNext} />,
+            content: <AuthOtp handleNext={handleNext} altLogin={altLogin}/>,
             icon: <img src={PrevIcon} alt="prev-icon"/>,
             iconFunc: resetStep,
             modalClassName: 'modal-wrapper'
@@ -35,6 +36,20 @@ function AuthModal({ open, closeModal }) {
             icon: <img src={CloseIcon} alt="close-icon"/>,
             iconFunc: closeResetStep,
             modalClassName: 'modal-wrapper-large'
+        },
+        altLogin: {
+            title: '選擇註冊方式',
+            content: <AuthSignUp handleNext={handleNext} />,
+            icon: <img src={CloseIcon} alt="close-icon"/>,
+            iconFunc: closeResetStep,
+            modalClassName: 'modal-wrapper'
+        },
+        login: {
+            title: '會員登入',
+            content: <AuthLogin />,
+            icon: <img src={CloseIcon} alt="close-icon"/>,
+            iconFunc: closeResetStep,
+            modalClassName: 'modal-wrapper-medium'
         }
     }
 
@@ -66,6 +81,16 @@ function AuthModal({ open, closeModal }) {
     function closeResetStep() {
         closeModal();
         setStep('signup');
+    }
+
+    // Render altLogin modal content
+    function altLogin() {
+        setStep('altLogin')
+    }
+
+    // Render login modal content
+    function login() {
+        setStep('login')
     }
 
     return (

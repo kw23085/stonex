@@ -6,7 +6,7 @@ import { useState, useRef, useEffect } from 'react'
 
 const INTEGER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
-function AuthOtp({ handleNext }) {
+function AuthOtp({ handleNext, altLogin }) {
 
     const [inputArr, setInputArr] = useState([null, null, null, null])
     const [currentInputIndex, setCurrentInputIndex] = useState(0)
@@ -123,7 +123,7 @@ function AuthOtp({ handleNext }) {
         <>
             {/* Loading Gif */}
             <img ref={spinnerGif} className={isLoading ? "spinner show" : "spinner"} src={spinner} />
-            <div className={isLoading ? "register-modal-content loading" : "register-modal-content"}>
+            <div className={isLoading ? "inner-modal-content loading" : "inner-modal-content"}>
                 {/* Resubmit Message */}
                 <div ref={reSubmitMessage} className="otp-resubmit-message">
                     <div className="otp-resubmit-icon">
@@ -147,7 +147,7 @@ function AuthOtp({ handleNext }) {
                 </div>
                 <div className="no-valinum">
                     <p className="no-valinum-txt">沒有收到驗證碼嗎?</p>
-                    <p className="no-valinum-txt"><span role="button" className={isLoading ? "modal-link re-send-valinum loading" : "modal-link re-send-valinum"} onClick={otpReSubmit}>重新傳送</span>或<span className={isLoading ? "modal-link alt-register loading" : "modal-link alt-register"}>使用不同的註冊方式</span></p>
+                    <p className="no-valinum-txt"><span role="button" className={isLoading ? "modal-link re-send-valinum loading" : "modal-link re-send-valinum"} onClick={otpReSubmit}>重新傳送</span>或<span className={isLoading ? "modal-link alt-register loading" : "modal-link alt-register"} onClick={altLogin}>使用不同的註冊方式</span></p>
                 </div>
             </div>
         </>
