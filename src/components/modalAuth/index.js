@@ -2,10 +2,11 @@ import { useState } from 'react';
 import './index.css';
 import CloseIcon from '../../icons/close.png';
 import PrevIcon from '../../icons/prev.png'
-import AuthSignUp from './authSignUp';
-import AuthOtp from './authOtp';
-import AuthSucess from './authSucess';
-import AuthLogin from './authLogin';
+import ModalSignUp from '../modalSignUp';
+import ModalOtp from '../modalOtp';
+import ModalSuccess from '../modalSuccess';
+import ModalLogin from '../modalLogin';
+import ModalForgotPw from '../modalForgotPw';
 
 function AuthModal({ open, closeModal }) {
     // Step
@@ -18,38 +19,45 @@ function AuthModal({ open, closeModal }) {
     let modalContent = {
         signup: {
             title: '會員註冊',
-            content: <AuthSignUp handleNext={handleNext} login={login}/>,
+            content: <ModalSignUp handleNext={handleNext} login={login}/>,
             icon: <img src={CloseIcon} alt="close-icon"/>,
             iconFunc: closeModal,
             modalClassName: 'modal-wrapper'
         },
         otp: {
             title: '請輸入驗證碼',
-            content: <AuthOtp handleNext={handleNext} altLogin={altLogin}/>,
+            content: <ModalOtp handleNext={handleNext} altLogin={altLogin}/>,
             icon: <img src={PrevIcon} alt="prev-icon"/>,
             iconFunc: resetStep,
             modalClassName: 'modal-wrapper'
         },
         success: {
             title: '完成註冊',
-            content: <AuthSucess closeResetStep={closeResetStep}/>,
+            content: <ModalSuccess closeResetStep={closeResetStep}/>,
             icon: <img src={CloseIcon} alt="close-icon"/>,
             iconFunc: closeResetStep,
             modalClassName: 'modal-wrapper-large'
         },
         altLogin: {
             title: '選擇註冊方式',
-            content: <AuthSignUp handleNext={handleNext} />,
+            content: <ModalSignUp handleNext={handleNext} />,
             icon: <img src={CloseIcon} alt="close-icon"/>,
             iconFunc: closeResetStep,
             modalClassName: 'modal-wrapper'
         },
         login: {
             title: '會員登入',
-            content: <AuthLogin />,
+            content: <ModalLogin forgotPassword={forgotPassword} />,
             icon: <img src={CloseIcon} alt="close-icon"/>,
             iconFunc: closeResetStep,
             modalClassName: 'modal-wrapper-medium'
+        },
+        forgotPassword: {
+            title: '會員登入',
+            content: <ModalForgotPw />,
+            icon: <img src={PrevIcon} alt="prev-icon"/>,
+            iconFunc: closeResetStep,
+            modalClassName: 'modal-wrapper'
         }
     }
 
@@ -91,6 +99,11 @@ function AuthModal({ open, closeModal }) {
     // Render login modal content
     function login() {
         setStep('login')
+    }
+
+    // Render forgotpassword modal content
+    function forgotPassword() {
+        setStep('forgotPassword')
     }
 
     return (

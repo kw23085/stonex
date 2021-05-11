@@ -1,16 +1,17 @@
-import InputField from '../inputField';
-import BtnNext from '../btnNext';
-import BtnGoogle from '../btnGoogle';
-import BtnFacebook from '../btnFacebook';
+import './index.css'
+import InputField from '../inputField'
+import BtnNext from '../btnNext'
+import BtnGoogle from '../btnGoogle'
+import BtnFacebook from '../btnFacebook'
 
 
 function AuthSignUp({ handleNext, login }) {
     
     return (
         <div className="inner-modal-content">
-            <InputField className="signup-modal-phone-account" type="text" placeholder="電話號碼/ Email" />
+            <InputField className="signup-modal-phone-email" type="text" placeholder="電話號碼/ Email" />
             <BtnNext handleNext={handleNext} className="btn-next-signup"/>
-            <h2 id="horizontal-line"><span id="horizontal-line-text">或</span></h2>
+            <h2 className="horizontal-line"><span className="horizontal-line-text">或</span></h2>
             <div className="modal-social-btns">
                 <BtnGoogle />
                 <BtnFacebook />

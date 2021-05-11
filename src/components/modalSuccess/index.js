@@ -1,3 +1,4 @@
+import './index.css'
 import InputField from '../inputField'
 import BtnAgree from '../btnAgree'
 
