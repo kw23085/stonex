@@ -5,7 +5,7 @@ import BtnGoogle from '../btnGoogle'
 import BtnFacebook from '../btnFacebook'
 
 
-function ModalSignUp({ handleNext, login }) {
+function ModalAltLogin({ login }) {
     
     return (
         <div className="inner-modal-content">
@@ -23,4 +23,4 @@ function ModalSignUp({ handleNext, login }) {
     )
 }
 
-export default ModalSignUp
+export default ModalAltLogin

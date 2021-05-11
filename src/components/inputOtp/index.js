@@ -7,6 +7,7 @@ function InputOtp({ index, onKeyDownFunc, currentInputRef, className }) {
                 <p id={index} className="validation-num"></p>
             </div>
     )
+    
 }
 
 export default InputOtp

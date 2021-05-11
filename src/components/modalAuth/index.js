@@ -7,8 +7,9 @@ import ModalOtp from '../modalOtp';
 import ModalSuccess from '../modalSuccess';
 import ModalLogin from '../modalLogin';
 import ModalForgotPw from '../modalForgotPw';
+import ModalAltLogin from '../modalAltLogin';
 
-function AuthModal({ open, closeModal }) {
+function ModalAuth({ open, closeModal }) {
     // Step
     const [step, setStep] = useState('signup');
 
@@ -40,7 +41,7 @@ function AuthModal({ open, closeModal }) {
         },
         altLogin: {
             title: '選擇註冊方式',
-            content: <ModalSignUp handleNext={handleNext} />,
+            content: <ModalAltLogin login={login}/>,
             icon: <img src={CloseIcon} alt="close-icon"/>,
             iconFunc: closeResetStep,
             modalClassName: 'modal-wrapper'
@@ -135,4 +136,4 @@ function AuthModal({ open, closeModal }) {
     )
 }
 
-export default AuthModal
+export default ModalAuth

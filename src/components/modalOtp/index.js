@@ -6,7 +6,7 @@ import { useState, useRef, useEffect } from 'react'
 
 const INTEGER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
-function AuthOtp({ handleNext, altLogin }) {
+function ModalOtp({ handleNext, altLogin }) {
 
     const [inputArr, setInputArr] = useState([null, null, null, null])
     const [currentInputIndex, setCurrentInputIndex] = useState(0)
@@ -105,7 +105,7 @@ function AuthOtp({ handleNext, altLogin }) {
             if(nextInputField !== undefined) {
                 nextInputField.focus()
             } else if(nextInputField === undefined && isInputArrFilled) {
-                setIsLoading('true')
+                setIsLoading(true)
                 setTimeout(() => {
                     handleNext()
                 }, 3000)
@@ -154,4 +154,4 @@ function AuthOtp({ handleNext, altLogin }) {
     )
 }
 
-export default AuthOtp
+export default ModalOtp

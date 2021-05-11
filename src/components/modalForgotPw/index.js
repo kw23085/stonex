@@ -2,7 +2,7 @@ import './index.css'
 import InputField from '../inputField'
 import BtnNext from '../btnNext'
 
-function authForgotPw() {
+function ModalForgotPw() {
     return (
         <div className="inner-modal-content">
             <div className="forgot-password-msg">
@@ -14,4 +14,4 @@ function authForgotPw() {
     )
 }
 
-export default authForgotPw
+export default ModalForgotPw

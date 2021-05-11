@@ -4,7 +4,7 @@ import BtnNext from '../btnNext';
 import BtnGoogle from '../btnGoogle';
 import BtnFacebook from '../btnFacebook';
 
-function authLogin({ forgotPassword }) {
+function ModalLogin({ forgotPassword }) {
     return (
         <div className="inner-modal-content">
             <InputField className="login-modal-phone-email" type="text" placeholder="電話號碼/ Email" />
@@ -22,4 +22,4 @@ function authLogin({ forgotPassword }) {
     )
 }
 
-export default authLogin
+export default ModalLogin
