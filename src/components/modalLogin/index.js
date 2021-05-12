@@ -4,7 +4,7 @@ import BtnNext from '../btnNext';
 import BtnGoogle from '../btnGoogle';
 import BtnFacebook from '../btnFacebook';
 
-function ModalLogin({ forgotPassword }) {
+function ModalLogin({ forgotPassword, handleNext }) {
     return (
         <div className="inner-modal-content">
             <InputField className="login-modal-phone-email" type="text" placeholder="電話號碼/ Email" />
@@ -12,7 +12,7 @@ function ModalLogin({ forgotPassword }) {
             <div className="forgot-password">
                 <p className="modal-link register-link" onClick={forgotPassword}>忘記密碼 ?</p>
             </div>
-            <BtnNext className="btn-next-login"/>
+            <BtnNext className="btn-next-login" onClick={handleNext}/>
             <h2 className="horizontal-line-login"><span className="horizontal-line-text">或</span></h2>
             <div className="modal-social-btns">
                 <BtnGoogle />

@@ -1,9 +1,10 @@
 import './index.css';
 
-function BtnNext({ handleNext, className }) {
+function BtnNext({ onClick, className }) {
+
     return (
         <>
-            <button className={'btn-next ' + className} onClick={handleNext}>下一步</button>
+            <button className={'btn-next ' + className} onClick={onClick}>下一步</button>
         </>
     )
 }

@@ -10,7 +10,7 @@ function ModalAltLogin({ login }) {
     return (
         <div className="inner-modal-content">
             <InputField className="signup-modal-phone-email" type="text" placeholder="電話號碼/ Email" />
-            <BtnNext handleNext={handleNext} className="btn-next-signup"/>
+            <BtnNext login={login} className="btn-next-signup"/>
             <h2 className="horizontal-line"><span className="horizontal-line-text">或</span></h2>
             <div className="modal-social-btns">
                 <BtnGoogle />

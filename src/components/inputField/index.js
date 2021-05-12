@@ -1,6 +1,6 @@
 import './index.css';
 
-function InputField({ type, id, placeholder, className }) {
+function InputField({ type, id, placeholder, className}) {
 
     return (
         <>

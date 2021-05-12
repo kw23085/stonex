@@ -1,17 +1,19 @@
-import { useState } from 'react';
-import './index.css';
-import CloseIcon from '../../icons/close.png';
+import { useState } from 'react'
+import './index.css'
+import CloseIcon from '../../icons/close.png'
 import PrevIcon from '../../icons/prev.png'
-import ModalSignUp from '../modalSignUp';
-import ModalOtp from '../modalOtp';
-import ModalSuccess from '../modalSuccess';
-import ModalLogin from '../modalLogin';
-import ModalForgotPw from '../modalForgotPw';
-import ModalAltLogin from '../modalAltLogin';
+import ModalSignUp from '../modalSignUp'
+import ModalOtp from '../modalOtp'
+import ModalSuccess from '../modalSuccess'
+import ModalLogin from '../modalLogin'
+import ModalForgotPw from '../modalForgotPw'
+import ModalAltLogin from '../modalAltLogin'
+import ModalLoginOtp from '../modalLoginOtp'
 
 function ModalAuth({ open, closeModal }) {
     // Step
     const [step, setStep] = useState('signup');
+    console.log(step)
 
     // Show Modal or No
     if(!open) return null;
@@ -29,7 +31,7 @@ function ModalAuth({ open, closeModal }) {
             title: '請輸入驗證碼',
             content: <ModalOtp handleNext={handleNext} altLogin={altLogin}/>,
             icon: <img src={PrevIcon} alt="prev-icon"/>,
-            iconFunc: resetStep,
+            iconFunc: signUp,
             modalClassName: 'modal-wrapper'
         },
         success: {
@@ -48,16 +50,23 @@ function ModalAuth({ open, closeModal }) {
         },
         login: {
             title: '會員登入',
-            content: <ModalLogin forgotPassword={forgotPassword} />,
+            content: <ModalLogin forgotPassword={forgotPassword} handleNext={handleNext} />,
             icon: <img src={CloseIcon} alt="close-icon"/>,
             iconFunc: closeResetStep,
             modalClassName: 'modal-wrapper-medium'
         },
         forgotPassword: {
-            title: '會員登入',
-            content: <ModalForgotPw />,
+            title: '忘記密碼',
+            content: <ModalForgotPw handleNext={handleNext}/>,
             icon: <img src={PrevIcon} alt="prev-icon"/>,
-            iconFunc: closeResetStep,
+            iconFunc: login,
+            modalClassName: 'modal-wrapper'
+        },
+        loginOtp: {
+            title: '請輸入驗證碼',
+            content: <ModalLoginOtp handleNext={handleNext}/>,
+            icon: <img src={PrevIcon} alt="prev-icon"/>,
+            iconFunc: login,
             modalClassName: 'modal-wrapper'
         }
     }
@@ -77,12 +86,16 @@ function ModalAuth({ open, closeModal }) {
             setStep('otp');
         } else if(step === 'otp') {
             setStep('success');
+        } else if(step === 'login') {
+            setStep('loginOtp')
+        } else if(step === 'forgotPassword') {
+            setStep('loginOtp')
         }
      
     }
 
-    // Reset step 
-    function resetStep() {
+    // Render signup modal
+    function signUp() {
         setStep('signup')
     }
 
@@ -110,7 +123,7 @@ function ModalAuth({ open, closeModal }) {
     return (
         <>
             {/* MODAL BACKDROP */}
-            <div className="back-drop" onClick={() => {closeModal(); resetStep()}}></div>
+            <div className="back-drop" onClick={() => {closeModal(); signUp()}}></div>
 
             {/* MODAL */}
             <div className={actualModalContent.modalClassName} onClick={e => e.stopPropagation()}>

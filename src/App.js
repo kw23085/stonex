@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import BtnLogin from './components/btnLogin';
 import BtnRegister from './components/btnRegister';
-import AuthModal from './components/authModal';
+import ModalAuth from './components/modalAuth';
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
     <>
       <BtnLogin />
       <BtnRegister openModal={openModal} closeModal={closeModal}/>
-      <AuthModal open={isOpen} closeModal={closeModal}/>
+      <ModalAuth open={isOpen} closeModal={closeModal}/>
     </>
   );
 }

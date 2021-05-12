@@ -6,7 +6,7 @@ import { useState, useRef, useEffect } from 'react'
 
 const INTEGER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
-function ModalOtp({ handleNext, altLogin }) {
+function ModalLoginOtp({ handleNext, altLogin }) {
 
     const [inputArr, setInputArr] = useState([null, null, null, null])
     const [currentInputIndex, setCurrentInputIndex] = useState(0)
@@ -149,13 +149,13 @@ function ModalOtp({ handleNext, altLogin }) {
                         })
                     }
                 </div>
-                <div className="no-valinum">
+                <div className="login-otp-no-valinum">
                     <p className="no-valinum-txt">沒有收到驗證碼嗎?</p>
-                    <p className="no-valinum-txt"><span role="button" className={isLoading ? "modal-link re-send-valinum loading" : "modal-link re-send-valinum"} onClick={otpReSubmit}>重新傳送</span>或<span className={isLoading ? "modal-link alt-register loading" : "modal-link alt-register"} onClick={altLogin}>使用不同的註冊方式</span></p>
+                    <p className="no-valinum-txt"><span role="button" className={isLoading ? "modal-link login-otp-re-send-valinum loading" : "modal-link login-otp-re-send-valinum"} onClick={otpReSubmit}>重新傳送</span></p>
                 </div>
             </div>
         </>
     )
 }
 
-export default ModalOtp
+export default ModalLoginOtp
