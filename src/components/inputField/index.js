@@ -5,7 +5,7 @@ function InputField({ type, id, placeholder, className}) {
     return (
         <>
             <label className={'custom-field ' + className}>
-                <input type={type} id={id} className="input" required/>
+                <input type={type} id={id} className={'input ' + className + '-input'} required/>
                 <span className="placeholder">{placeholder}</span>
             </label>
         </>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import './index.css'
 import CloseIcon from '../../icons/close.png'
 import PrevIcon from '../../icons/prev.png'
@@ -10,10 +10,21 @@ import ModalForgotPw from '../modalForgotPw'
 import ModalAltLogin from '../modalAltLogin'
 import ModalLoginOtp from '../modalLoginOtp'
 
+
+export const ContextProvider = React.createContext()
+
+
 function ModalAuth({ open, closeModal }) {
     // Step
     const [step, setStep] = useState('signup');
     console.log(step)
+
+    const inputFieldRef = useRef()
+
+    const contextValues = {
+        nextBtnFunc: nextBtnFunc,
+        inputFieldRef: inputFieldRef
+    }
 
     // Show Modal or No
     if(!open) return null;
@@ -22,14 +33,14 @@ function ModalAuth({ open, closeModal }) {
     let modalContent = {
         signup: {
             title: '會員註冊',
-            content: <ModalSignUp handleNext={handleNext} login={login}/>,
+            content: <ModalSignUp login={login}/>,
             icon: <img src={CloseIcon} alt="close-icon"/>,
             iconFunc: closeModal,
             modalClassName: 'modal-wrapper'
         },
         otp: {
             title: '請輸入驗證碼',
-            content: <ModalOtp handleNext={handleNext} altLogin={altLogin}/>,
+            content: <ModalOtp altLogin={altLogin}/>,
             icon: <img src={PrevIcon} alt="prev-icon"/>,
             iconFunc: signUp,
             modalClassName: 'modal-wrapper'
@@ -50,21 +61,21 @@ function ModalAuth({ open, closeModal }) {
         },
         login: {
             title: '會員登入',
-            content: <ModalLogin forgotPassword={forgotPassword} handleNext={handleNext} />,
+            content: <ModalLogin forgotPassword={forgotPassword} />,
             icon: <img src={CloseIcon} alt="close-icon"/>,
             iconFunc: closeResetStep,
             modalClassName: 'modal-wrapper-medium'
         },
         forgotPassword: {
             title: '忘記密碼',
-            content: <ModalForgotPw handleNext={handleNext}/>,
+            content: <ModalForgotPw />,
             icon: <img src={PrevIcon} alt="prev-icon"/>,
             iconFunc: login,
             modalClassName: 'modal-wrapper'
         },
         loginOtp: {
             title: '請輸入驗證碼',
-            content: <ModalLoginOtp handleNext={handleNext}/>,
+            content: <ModalLoginOtp />,
             icon: <img src={PrevIcon} alt="prev-icon"/>,
             iconFunc: login,
             modalClassName: 'modal-wrapper'
@@ -80,7 +91,7 @@ function ModalAuth({ open, closeModal }) {
     }
     
     // Handle next step
-    function handleNext() {
+    function nextBtnFunc() {
 
         if(step === 'signup') {
             setStep('otp');
@@ -122,29 +133,31 @@ function ModalAuth({ open, closeModal }) {
 
     return (
         <>
-            {/* MODAL BACKDROP */}
-            <div className="back-drop" onClick={() => {closeModal(); signUp()}}></div>
+            <ContextProvider.Provider value={contextValues}>
+                {/* MODAL BACKDROP */}
+                <div className="back-drop" onClick={() => {closeModal(); signUp()}}></div>
 
-            {/* MODAL */}
-            <div className={actualModalContent.modalClassName} onClick={e => e.stopPropagation()}>
+                {/* MODAL */}
+                <div className={actualModalContent.modalClassName} onClick={e => e.stopPropagation()}>
 
-                <div className="modal-content">
+                    <div className="modal-content">
 
-                    {/* HEADER */}
-                    <div className="modal-header">
-                        <div onClick={actualModalContent.iconFunc} className="modal-header-btn">
-                            {actualModalContent.icon}
+                        {/* HEADER */}
+                        <div className="modal-header">
+                            <div onClick={actualModalContent.iconFunc} className="modal-header-btn">
+                                {actualModalContent.icon}
+                            </div>
+                            
+                            <p className="modal-header-title">{actualModalContent.title}</p>
                         </div>
-                        
-                        <p className="modal-header-title">{actualModalContent.title}</p>
+
+                        {/* CONTENT */}
+                        { actualModalContent.content }
+
                     </div>
 
-                    {/* CONTENT */}
-                    { actualModalContent.content }
-
                 </div>
-
-            </div>
+            </ContextProvider.Provider>
         </>
     )
 }
