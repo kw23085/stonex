@@ -4,6 +4,7 @@ import { ContextProvider } from '../modalAuth'
 
 function BtnNext({ onClick, className }) {
 
+    // Pull nextBtnFunc from modalAuth component and set to nextBtnFunc variable
     const contextObject = useContext(ContextProvider)
     const nextBtnFunc = contextObject.nextBtnFunc
 

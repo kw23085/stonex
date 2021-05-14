@@ -2,15 +2,18 @@ import './index.css'
 import spinner from '../../icons/loadingspinner.gif'
 import checkIcon from '../../icons/check.png'
 import InputOtp from '../inputOtp'
-import { useState, useRef, useEffect } from 'react'
+import { ContextProvider } from '../modalAuth'
+import { useState, useRef, useEffect, useContext } from 'react'
 
 const INTEGER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
-function ModalOtp({ handleNext, altLogin }) {
+function ModalOtp({ altLogin }) {
 
     const [inputArr, setInputArr] = useState([null, null, null, null])
     const [currentInputIndex, setCurrentInputIndex] = useState(0)
     const [isLoading, setIsLoading] = useState(false);
+    const contextObject = useContext(ContextProvider)
+    const nextBtnFunc = contextObject.nextBtnFunc
 
     const inputRef0 = useRef()
     const inputRef1 = useRef()
@@ -109,7 +112,7 @@ function ModalOtp({ handleNext, altLogin }) {
             } else if(nextInputField === undefined && isInputArrFilled) {
                 setIsLoading(true)
                 setTimeout(() => {
-                    handleNext()
+                    nextBtnFunc();
                 }, 3000)
             }
         } else if(currentInputVal === null) {

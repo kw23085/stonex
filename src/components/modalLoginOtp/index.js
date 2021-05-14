@@ -2,15 +2,20 @@ import './index.css'
 import spinner from '../../icons/loadingspinner.gif'
 import checkIcon from '../../icons/check.png'
 import InputOtp from '../inputOtp'
-import { useState, useRef, useEffect } from 'react'
+import { ContextProvider } from '../modalAuth'
+import { useState, useRef, useEffect, useContext } from 'react'
+
+
 
 const INTEGER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
-function ModalLoginOtp({ handleNext, altLogin }) {
+function ModalLoginOtp() {
 
     const [inputArr, setInputArr] = useState([null, null, null, null])
     const [currentInputIndex, setCurrentInputIndex] = useState(0)
     const [isLoading, setIsLoading] = useState(false);
+    const contextObject = useContext(ContextProvider)
+    const nextBtnFunc = contextObject.nextBtnFunc
 
     const inputRef0 = useRef()
     const inputRef1 = useRef()
@@ -109,7 +114,7 @@ function ModalLoginOtp({ handleNext, altLogin }) {
             } else if(nextInputField === undefined && isInputArrFilled) {
                 setIsLoading(true)
                 setTimeout(() => {
-                    handleNext()
+                    nextBtnFunc()
                 }, 3000)
             }
         } else if(currentInputVal === null) {
@@ -124,12 +129,12 @@ function ModalLoginOtp({ handleNext, altLogin }) {
     return (
         <>
             {/* Loading Gif */}
-            <img ref={spinnerGif} className={isLoading ? "spinner show" : "spinner"} src={spinner} />
+            <img ref={spinnerGif} className={isLoading ? "spinner show" : "spinner"} src={spinner} alt="spinner"/>
             <div className={isLoading ? "inner-modal-content loading" : "inner-modal-content"}>
                 {/* Resubmit Message */}
                 <div ref={reSubmitMessage} className="otp-resubmit-message">
                     <div className="otp-resubmit-icon">
-                        <img src={checkIcon} className="check-icon" />
+                        <img src={checkIcon} className="check-icon" alt="resubmit-icon"/>
                     </div>
                     <p className="resubmit-message">驗證碼已重新傳送</p>
                 </div>
