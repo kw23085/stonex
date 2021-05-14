@@ -1,0 +1,8 @@
+.login-otp-no-valinum {
+    display: flex;
+    flex-direction: row;
+}
+
+.login-otp-re-send-valinum {
+    padding-left: 8px;
+}

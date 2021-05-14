@@ -8,7 +8,8 @@ import ModalSuccess from '../modalSuccess'
 import ModalLogin from '../modalLogin'
 import ModalForgotPw from '../modalForgotPw'
 import ModalAltLogin from '../modalAltLogin'
-import ModalLoginOtp from '../modalLoginOtp'
+import ModalLoginOtpPhone from '../modalLoginOtpPhone'
+import ModalLoginOtpEmail from '../modalLoginOtpEmail'
 
 
 export const ContextProvider = React.createContext()
@@ -17,19 +18,26 @@ export const ContextProvider = React.createContext()
 function ModalAuth({ open, closeModal }) {
     // Step
     const [step, setStep] = useState('signup');
+    // Inputfield Values
+    const [accountInputFieldVal, setaccountInputFieldVal] = useState('')
+    const [passwordInputFieldVal, setPasswordInputFieldVal] = useState('')
+
     console.log(step)
 
     const inputFieldRef = useRef()
 
     const contextValues = {
         nextBtnFunc: nextBtnFunc,
-        inputFieldRef: inputFieldRef
+        inputFieldRef: inputFieldRef,
+        accountInputFieldVal: accountInputFieldVal,
+        passwordInputFieldVal: passwordInputFieldVal,
+        updateInputFieldVal: updateInputFieldVal
     }
 
     // Show Modal or No
     if(!open) return null;
 
-    // Contents
+    // Modals
     let modalContent = {
         signup: {
             title: '會員註冊',
@@ -73,9 +81,16 @@ function ModalAuth({ open, closeModal }) {
             iconFunc: login,
             modalClassName: 'modal-wrapper'
         },
-        loginOtp: {
+        loginOtpPhone: {
             title: '請輸入驗證碼',
-            content: <ModalLoginOtp />,
+            content: <ModalLoginOtpPhone />,
+            icon: <img src={PrevIcon} alt="prev-icon"/>,
+            iconFunc: login,
+            modalClassName: 'modal-wrapper'
+        },
+        loginOtpEmail: {
+            title: '驗證信已傳送',
+            content: <ModalLoginOtpEmail />,
             icon: <img src={PrevIcon} alt="prev-icon"/>,
             iconFunc: login,
             modalClassName: 'modal-wrapper'
@@ -97,10 +112,12 @@ function ModalAuth({ open, closeModal }) {
             setStep('otp');
         } else if(step === 'otp') {
             setStep('success');
-        } else if(step === 'login') {
-            setStep('loginOtp')
+        } else if(step === 'login' && phoneIsValid(accountInputFieldVal)) {
+            setStep('loginOtpPhone')
         } else if(step === 'forgotPassword') {
             setStep('loginOtp')
+        } else if(step === 'login' && emailIsValid(accountInputFieldVal)) {
+            setStep('loginOtpEmail')
         }
      
     }
@@ -130,6 +147,38 @@ function ModalAuth({ open, closeModal }) {
     function forgotPassword() {
         setStep('forgotPassword')
     }
+
+
+    // Update inputfield value
+    function updateInputFieldVal(e) {
+
+        let targetClass = e.target.classList[1]
+        let inputVal = e.target.value
+  
+        if(targetClass === 'login-modal-phone-email-input') {
+            setaccountInputFieldVal(inputVal)
+        } else {
+            setPasswordInputFieldVal(inputVal)
+        }
+  
+    }
+
+    // Validate email format
+    function emailIsValid(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    }
+
+    // Validate phone(Taiwan) format
+    function phoneIsValid(phone) {
+        var cell = /^[09]{2}[0-9]{8}$/.test(phone)
+        var landline = /^[2]{1}[0-9]{7}$/.test(phone)
+        if(cell || landline) {
+            return true
+        } else {
+            return false
+        }
+    }
+
 
     return (
         <>

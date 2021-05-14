@@ -6,10 +6,9 @@ import { ContextProvider } from '../modalAuth'
 import { useState, useRef, useEffect, useContext } from 'react'
 
 
-
 const INTEGER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
-function ModalLoginOtp() {
+function ModalLoginOtpPhone() {
 
     const [inputArr, setInputArr] = useState([null, null, null, null])
     const [currentInputIndex, setCurrentInputIndex] = useState(0)
@@ -115,7 +114,7 @@ function ModalLoginOtp() {
                 setIsLoading(true)
                 setTimeout(() => {
                     nextBtnFunc()
-                }, 3000)
+                }, 2000)
             }
         } else if(currentInputVal === null) {
             currentInputField.classList.remove('fill')
@@ -163,4 +162,4 @@ function ModalLoginOtp() {
     )
 }
 
-export default ModalLoginOtp
+export default ModalLoginOtpPhone
