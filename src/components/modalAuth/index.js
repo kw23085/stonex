@@ -3,7 +3,8 @@ import './index.css'
 import CloseIcon from '../../icons/close.png'
 import PrevIcon from '../../icons/prev.png'
 import ModalSignUp from '../modalSignUp'
-import ModalOtp from '../modalOtp'
+import ModalSignUpOtp from '../modalSignUpOtp'
+import ModalSignUpOtpEmail from '../modalSignUpOtpEmail'
 import ModalSuccess from '../modalSuccess'
 import ModalLogin from '../modalLogin'
 import ModalForgotPw from '../modalForgotPw'
@@ -43,14 +44,21 @@ function ModalAuth({ open, closeModal }) {
             title: '會員註冊',
             content: <ModalSignUp login={login}/>,
             icon: <img src={CloseIcon} alt="close-icon"/>,
-            iconFunc: closeModal,
+            iconFunc: closeResetStep,
             modalClassName: 'modal-wrapper'
         },
         otp: {
             title: '請輸入驗證碼',
-            content: <ModalOtp altLogin={altLogin}/>,
+            content: <ModalSignUpOtp altLogin={altLogin}/>,
             icon: <img src={PrevIcon} alt="prev-icon"/>,
             iconFunc: signUp,
+            modalClassName: 'modal-wrapper'
+        },
+        signUpOtpEmail: {
+            title: '驗證信已傳送',
+            content: <ModalSignUpOtpEmail altLogin={altLogin}/>,
+            icon: <img src={CloseIcon} alt="close-icon"/>,
+            iconFunc: closeResetStep,
             modalClassName: 'modal-wrapper'
         },
         success: {
@@ -108,8 +116,10 @@ function ModalAuth({ open, closeModal }) {
     // Handle next step
     function nextBtnFunc() {
 
-        if(step === 'signup') {
+        if(step === 'signup' && phoneIsValid(accountInputFieldVal)) {
             setStep('otp');
+        } else if(step === 'signup' && emailIsValid(accountInputFieldVal)) {
+            setStep('signUpOtpEmail')
         } else if(step === 'otp') {
             setStep('success');
         } else if(step === 'login' && phoneIsValid(accountInputFieldVal)) {
@@ -154,8 +164,10 @@ function ModalAuth({ open, closeModal }) {
 
         let targetClass = e.target.classList[1]
         let inputVal = e.target.value
-  
-        if(targetClass === 'login-modal-phone-email-input') {
+        let checkClassName = ['login-modal-phone-email-input', 'signup-modal-phone-email-input']
+
+
+        if(checkClassName.includes(targetClass)) {
             setaccountInputFieldVal(inputVal)
         } else {
             setPasswordInputFieldVal(inputVal)
@@ -184,7 +196,7 @@ function ModalAuth({ open, closeModal }) {
         <>
             <ContextProvider.Provider value={contextValues}>
                 {/* MODAL BACKDROP */}
-                <div className="back-drop" onClick={() => {closeModal(); signUp()}}></div>
+                <div className="back-drop" onClick={closeResetStep}></div>
 
                 {/* MODAL */}
                 <div className={actualModalContent.modalClassName} onClick={e => e.stopPropagation()}>
