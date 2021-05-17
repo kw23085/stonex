@@ -3,7 +3,7 @@ import './index.css'
 import CloseIcon from '../../icons/close.png'
 import PrevIcon from '../../icons/prev.png'
 import ModalSignUp from '../modalSignUp'
-import ModalSignUpOtp from '../modalSignUpOtp'
+import ModalSignUpOtpPhone from '../modalSignUpOtpPhone'
 import ModalSignUpOtpEmail from '../modalSignUpOtpEmail'
 import ModalSuccess from '../modalSuccess'
 import ModalLogin from '../modalLogin'
@@ -32,7 +32,8 @@ function ModalAuth({ open, closeModal }) {
         inputFieldRef: inputFieldRef,
         accountInputFieldVal: accountInputFieldVal,
         passwordInputFieldVal: passwordInputFieldVal,
-        updateInputFieldVal: updateInputFieldVal
+        updateInputFieldVal: updateInputFieldVal,
+        signUp: signUp
     }
 
     // Show Modal or No
@@ -47,9 +48,9 @@ function ModalAuth({ open, closeModal }) {
             iconFunc: closeResetStep,
             modalClassName: 'modal-wrapper'
         },
-        otp: {
+        signUpOtpPhone: {
             title: '請輸入驗證碼',
-            content: <ModalSignUpOtp altLogin={altLogin}/>,
+            content: <ModalSignUpOtpPhone altLogin={altLogin}/>,
             icon: <img src={PrevIcon} alt="prev-icon"/>,
             iconFunc: signUp,
             modalClassName: 'modal-wrapper'
@@ -117,10 +118,10 @@ function ModalAuth({ open, closeModal }) {
     function nextBtnFunc() {
 
         if(step === 'signup' && phoneIsValid(accountInputFieldVal)) {
-            setStep('otp');
+            setStep('signUpOtpPhone');
         } else if(step === 'signup' && emailIsValid(accountInputFieldVal)) {
             setStep('signUpOtpEmail')
-        } else if(step === 'otp') {
+        } else if(step === 'signUpOtpPhone') {
             setStep('success');
         } else if(step === 'login' && phoneIsValid(accountInputFieldVal)) {
             setStep('loginOtpPhone')

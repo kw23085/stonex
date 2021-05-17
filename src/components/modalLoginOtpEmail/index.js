@@ -100,11 +100,6 @@ function ModalLoginOtpEmail() {
         let currentInputField = inputRefArr[currentInputIndex].current
         let nextInputField = inputRefArr[(currentInputIndex + 1)] ? inputRefArr[(currentInputIndex + 1)].current : undefined
 
-        // Show number in input field
-        // inputArr.forEach((input, index) => {
-        //     inputRefArr[index].current.childNodes[0].innerText = input
-        // })
-
         // Handle inputfield focus
         if(isInputArrNull) {
             inputRef0.current.focus()
@@ -140,7 +135,7 @@ function ModalLoginOtpEmail() {
                     <p className="resubmit-message">驗證碼已重新傳送</p>
                 </div>
                 <div className="otp-confirm-msg">
-                    <p>您的驗證碼已透過SMS簡訊傳送至</p>
+                    <p>您的驗證碼已傳送至</p>
                     <p>{emailAccount}</p>
                 </div>
                 <div className="otp-validation-num">

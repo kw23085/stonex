@@ -79,7 +79,7 @@ function ModalLoginOtpPhone() {
         reSubmitMessage.current.classList.add('show')
         setTimeout(() => {
             reSubmitMessage.current.classList.remove('show')
-        }, 3000)
+        }, 2000)
     }
 
     useEffect(() => {

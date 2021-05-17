@@ -7,7 +7,7 @@ import { useState, useRef, useEffect, useContext } from 'react'
 
 const INTEGER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
-function ModalSignUpOtp({ altLogin }) {
+function ModalSignUpOtpPhone({ altLogin }) {
 
     const [inputArr, setInputArr] = useState([null, null, null, null])
     const [currentInputIndex, setCurrentInputIndex] = useState(0)
@@ -161,4 +161,4 @@ function ModalSignUpOtp({ altLogin }) {
     )
 }
 
-export default ModalSignUpOtp
+export default ModalSignUpOtpPhone

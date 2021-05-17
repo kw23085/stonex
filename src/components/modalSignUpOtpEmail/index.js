@@ -1,5 +1,6 @@
 import './index.css'
 import MailIcon from '../../icons/mail.png'
+import BtnLongBlue from '../btnLongBlue'
 import { ContextProvider } from '../modalAuth'
 import { useContext } from 'react'
 
@@ -7,6 +8,7 @@ function ModalSignUpOtpEmail() {
 
     const contextObject = useContext(ContextProvider)
     const emailAccount = contextObject.accountInputFieldVal
+    const signUp = contextObject.signUp
 
 
     return (
@@ -19,6 +21,7 @@ function ModalSignUpOtpEmail() {
 
                 <img className="mail-icon"  src={MailIcon} />
 
+                <BtnLongBlue className="signup-otp-email-btn-long-blue" onClick={signUp} btnText="回到登入" />
 
             </div>
         </>

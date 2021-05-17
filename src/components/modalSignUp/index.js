@@ -2,9 +2,9 @@ import './index.css'
 import { ContextProvider } from '../modalAuth'
 import { useContext } from 'react'
 import InputField from '../inputField'
-import BtnNext from '../btnNext'
 import BtnGoogle from '../btnGoogle'
 import BtnFacebook from '../btnFacebook'
+import BtnLongBlue from '../btnLongBlue'
 
 
 function ModalSignUp({ login }) {
@@ -17,7 +17,7 @@ function ModalSignUp({ login }) {
     return (
         <div className="inner-modal-content">
             <InputField className="signup-modal-phone-email" type="text" placeholder="電話號碼/ Email" onChange={updateInputFieldVal} value={accountInputFieldVal}/>
-            <BtnNext className="btn-next-signup" onClick={nextBtnFunc}/>
+            <BtnLongBlue className="btn-next-signup" onClick={nextBtnFunc} btnText="下一步"/>
             <h2 className="horizontal-line"><span className="horizontal-line-text">或</span></h2>
             <div className="modal-social-btns">
                 <BtnGoogle />
