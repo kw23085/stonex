@@ -1,0 +1,20 @@
+.signup-otp-email-confirm-msg {
+    width: auto;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+    margin-top: 34px;
+    color: #4E4B66;
+}
+
+.mail-icon {
+    width: 24px;
+    height: 24px;
+    margin: 28px 0 0 0;
+}
