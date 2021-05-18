@@ -118,17 +118,36 @@ function ModalAuth({ open, closeModal }) {
     function nextBtnFunc() {
 
         if(step === 'signup' && phoneIsValid(accountInputFieldVal)) {
-            setStep('signUpOtpPhone');
+            setStep('signUpOtpPhone')
+            setaccountInputFieldVal('')
+            setPasswordInputFieldVal('')
         } else if(step === 'signup' && emailIsValid(accountInputFieldVal)) {
             setStep('signUpOtpEmail')
+            setaccountInputFieldVal('')
+            setPasswordInputFieldVal('')
         } else if(step === 'signUpOtpPhone') {
-            setStep('success');
+            setStep('success')
+            setaccountInputFieldVal('')
+            setPasswordInputFieldVal('')
         } else if(step === 'login' && phoneIsValid(accountInputFieldVal)) {
             setStep('loginOtpPhone')
+            setaccountInputFieldVal('')
+            setPasswordInputFieldVal('')
         } else if(step === 'forgotPassword') {
             setStep('loginOtp')
+            setaccountInputFieldVal('')
         } else if(step === 'login' && emailIsValid(accountInputFieldVal)) {
             setStep('loginOtpEmail')
+            setaccountInputFieldVal('')
+            setPasswordInputFieldVal('')
+        } else if(step === 'altLogin' && phoneIsValid(accountInputFieldVal)) {
+            setStep('signUpOtpPhone')
+            setaccountInputFieldVal('')
+            setPasswordInputFieldVal('')
+        } else if(step === 'altLogin' && emailIsValid(accountInputFieldVal)) {
+            setStep('signUpOtpEmail')
+            setaccountInputFieldVal('')
+            setPasswordInputFieldVal('')
         }
      
     }
@@ -142,6 +161,8 @@ function ModalAuth({ open, closeModal }) {
     function closeResetStep() {
         closeModal();
         setStep('signup');
+        setaccountInputFieldVal('');
+        setPasswordInputFieldVal('')
     }
 
     // Render altLogin modal content

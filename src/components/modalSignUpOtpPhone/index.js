@@ -22,9 +22,6 @@ function ModalSignUpOtpPhone({ altLogin }) {
     const spinnerGif = useRef()
     const reSubmitMessage = useRef();
 
-    let currentInputRefArrIndex = useRef(0)
-
-
     const inputRefArr = [inputRef0, inputRef1, inputRef2, inputRef3]
 
     // Update inputArr
@@ -35,21 +32,23 @@ function ModalSignUpOtpPhone({ altLogin }) {
 
             let key = e.key
             let id = e.target.id
+            let index = parseInt(id.split('').pop()) 
 
-            
-    
-            if(id === 'otp0') { 
-                currentInputRefArrIndex = 0
-                setCurrentInputIndex(0)
-            } else if(id === 'otp1') {
-                currentInputRefArrIndex = 1
-                setCurrentInputIndex(1)
-            } else if(id === 'otp2') {
-                currentInputRefArrIndex = 2
-                setCurrentInputIndex(2)
-            } else {
-                currentInputRefArrIndex = 3
-                setCurrentInputIndex(3)
+            switch(id) {
+
+                case 'otp0':
+                    setCurrentInputIndex(index)
+                    break;
+                case 'otp1':
+                    setCurrentInputIndex(index)
+                    break;
+                case 'otp2':
+                    setCurrentInputIndex(index)
+                    break;
+                case 'otp3':
+                    setCurrentInputIndex(index)
+                    break;
+
             }
     
             if(INTEGER.includes(parseInt(key))) {
@@ -57,14 +56,14 @@ function ModalSignUpOtpPhone({ altLogin }) {
                 let digit = parseInt(key)
                 
                 let inputArrCopy = [...inputArr]
-                inputArrCopy[currentInputRefArrIndex] = digit
+                inputArrCopy[index] = digit
                 setInputArr(inputArrCopy)
     
     
             } else if(key === 'Backspace') {
     
                 let inputArrCopy = [...inputArr]
-                inputArrCopy[currentInputRefArrIndex] = null
+                inputArrCopy[index] = null
                 setInputArr(inputArrCopy)
     
             }
@@ -78,16 +77,16 @@ function ModalSignUpOtpPhone({ altLogin }) {
         reSubmitMessage.current.classList.add('show')
         setTimeout(() => {
             reSubmitMessage.current.classList.remove('show')
-        }, 3000)
+        }, 2000)
     }
 
     useEffect(() => {
 
         // Check if all inputfield is empty
-        let isInputArrNull = inputArr.every((el, i, arr) => el === null) ? true : false
+        let isInputArrNull = inputArr.every((el) => el === null) ? true : false
 
         // Check if all inputfield is filled
-        let isInputArrFilled = inputArr.every((el, i, arr) => INTEGER.includes(el)) ? true : false
+        let isInputArrFilled = inputArr.every((el) => INTEGER.includes(el)) ? true : false
 
         // Set input values
         let currentInputVal = inputArr[currentInputIndex]
@@ -96,11 +95,6 @@ function ModalSignUpOtpPhone({ altLogin }) {
         let prevInputField = inputRefArr[(currentInputIndex - 1)] ? inputRefArr[(currentInputIndex - 1)].current : undefined
         let currentInputField = inputRefArr[currentInputIndex].current
         let nextInputField = inputRefArr[(currentInputIndex + 1)] ? inputRefArr[(currentInputIndex + 1)].current : undefined
-
-        // Show number in input field
-        // inputArr.forEach((input, index) => {
-        //     inputRefArr[index].current.childNodes[0].innerText = input
-        // })
 
         // Handle inputfield focus
         if(isInputArrNull) {
@@ -113,7 +107,7 @@ function ModalSignUpOtpPhone({ altLogin }) {
                 setIsLoading(true)
                 setTimeout(() => {
                     nextBtnFunc();
-                }, 3000)
+                }, 2000)
             }
         } else if(currentInputVal === null) {
             currentInputField.classList.remove('fill')
