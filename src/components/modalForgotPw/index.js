@@ -4,10 +4,10 @@ import { useContext } from 'react'
 import InputField from '../inputField'
 import BtnLongBlue from '../btnLongBlue'
 
-function ModalForgotPw({ handleNext }) {
+function ModalForgotPw() {
 
     const contextObject = useContext(ContextProvider)
-    const nextBtnFunc = contextObject.nextBtnFunc
+    const handleModalTraverse = contextObject.handleModalTraverse
 
 
     return (
@@ -16,7 +16,7 @@ function ModalForgotPw({ handleNext }) {
                 <p>請輸入您的手機號碼或Email</p>
             </div>
             <InputField className="forgot-password-phone-email" type="text" placeholder="電話號碼/ Email"/>
-            <BtnLongBlue className="forgot-password-btn-next" onClick={nextBtnFunc} btnText="下一步"/>
+            <BtnLongBlue className="forgot-password-btn-next" onClick={handleModalTraverse} btnText="下一步"/>
         </div>
     )
 }

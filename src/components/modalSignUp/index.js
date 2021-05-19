@@ -7,24 +7,24 @@ import BtnFacebook from '../btnFacebook'
 import BtnLongBlue from '../btnLongBlue'
 
 
-function ModalSignUp({ login }) {
+function ModalSignUp() {
 
     const contextObject = useContext(ContextProvider)
-    const nextBtnFunc = contextObject.nextBtnFunc
+    const handleModalTraverse = contextObject.handleModalTraverse
     const accountInputFieldVal = contextObject.accountInputFieldVal
     const updateInputFieldVal = contextObject.updateInputFieldVal
     
     return (
         <div className="inner-modal-content">
             <InputField className="signup-modal-phone-email" type="text" placeholder="電話號碼/ Email" onChange={updateInputFieldVal} value={accountInputFieldVal}/>
-            <BtnLongBlue className="btn-next-signup" onClick={nextBtnFunc} btnText="下一步"/>
+            <BtnLongBlue className="btn-next-signup" onClick={handleModalTraverse} btnText="下一步"/>
             <h2 className="horizontal-line"><span className="horizontal-line-text">或</span></h2>
             <div className="modal-social-btns">
                 <BtnGoogle />
                 <BtnFacebook />
             </div>
             <div className="already-acc">
-                <p id="already-acc-txt">已經有帳號了嗎?</p><p className="modal-link signup-link" onClick={login}>登入</p>
+                <p id="already-acc-txt">已經有帳號了嗎?</p><p className="modal-link signup-link" onClick={handleModalTraverse}>登入</p>
             </div>
         </div>
     )

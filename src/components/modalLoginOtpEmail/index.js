@@ -15,7 +15,7 @@ function ModalLoginOtpEmail() {
     const [currentInputIndex, setCurrentInputIndex] = useState(0)
     const [isLoading, setIsLoading] = useState(false);
     const contextObject = useContext(ContextProvider)
-    const nextBtnFunc = contextObject.nextBtnFunc
+    const handleModalTraverse = contextObject.handleModalTraverse
     const emailAccount = contextObject.accountInputFieldVal
 
     const inputRef0 = useRef()
@@ -110,7 +110,7 @@ function ModalLoginOtpEmail() {
             } else if(nextInputField === undefined && isInputArrFilled) {
                 setIsLoading(true)
                 setTimeout(() => {
-                    nextBtnFunc()
+                    handleModalTraverse()
                 }, 2000)
             }
         } else if(currentInputVal === null) {

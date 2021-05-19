@@ -2,7 +2,6 @@ import './index.css'
 import { useContext } from 'react'
 import { ContextProvider } from '../modalAuth'
 import InputField from '../inputField';
-import BtnNext from '../btnNext';
 import BtnGoogle from '../btnGoogle';
 import BtnFacebook from '../btnFacebook';
 import BtnLongBlue from '../btnLongBlue'
@@ -14,7 +13,7 @@ function ModalLogin({ forgotPassword }) {
     const accountInputFieldVal = contextObject.accountInputFieldVal
     const passwordInputFieldVal = contextObject.passwordInputFieldVal
     const updateInputFieldVal = contextObject.updateInputFieldVal
-    const nextBtnFunc = contextObject.nextBtnFunc
+    const handleModalTraverse = contextObject.handleModalTraverse
 
     const inputFieldArr = [
         {
@@ -43,9 +42,9 @@ function ModalLogin({ forgotPassword }) {
                 })
             }
             <div className="forgot-password">
-                <p className="modal-link register-link" onClick={forgotPassword}>忘記密碼 ?</p>
+                <p className="modal-link forgot-password-link" onClick={handleModalTraverse}>忘記密碼 ?</p>
             </div>
-            <BtnLongBlue className="btn-next-login" onClick={nextBtnFunc} btnText="下一步"/>
+            <BtnLongBlue className="btn-next-login" onClick={handleModalTraverse} btnText="下一步"/>
             <h2 className="horizontal-line-login"><span className="horizontal-line-text">或</span></h2>
             <div className="modal-social-btns">
                 <BtnGoogle />

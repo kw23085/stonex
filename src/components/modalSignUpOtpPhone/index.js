@@ -13,7 +13,8 @@ function ModalSignUpOtpPhone({ altLogin }) {
     const [currentInputIndex, setCurrentInputIndex] = useState(0)
     const [isLoading, setIsLoading] = useState(false);
     const contextObject = useContext(ContextProvider)
-    const nextBtnFunc = contextObject.nextBtnFunc
+    const handleModalTraverse = contextObject.handleModalTraverse
+    const accountInputFieldVal = contextObject.accountInputFieldVal
 
     const inputRef0 = useRef()
     const inputRef1 = useRef()
@@ -106,7 +107,7 @@ function ModalSignUpOtpPhone({ altLogin }) {
             } else if(nextInputField === undefined && isInputArrFilled) {
                 setIsLoading(true)
                 setTimeout(() => {
-                    nextBtnFunc();
+                    handleModalTraverse();
                 }, 2000)
             }
         } else if(currentInputVal === null) {
@@ -132,7 +133,7 @@ function ModalSignUpOtpPhone({ altLogin }) {
                 </div>
                 <div className="otp-confirm-msg">
                     <p>您的驗證碼已透過SMS簡訊傳送至</p>
-                    <p>(+886) 92200000</p>
+                    <p>{accountInputFieldVal}</p>
                 </div>
                 <div className="otp-validation-num">
                     {
@@ -148,7 +149,7 @@ function ModalSignUpOtpPhone({ altLogin }) {
                 </div>
                 <div className="no-valinum">
                     <p className="no-valinum-txt">沒有收到驗證碼嗎?</p>
-                    <p className="no-valinum-txt"><span role="button" className={isLoading ? "modal-link re-send-valinum loading" : "modal-link re-send-valinum"} onClick={otpReSubmit}>重新傳送</span>或<span className={isLoading ? "modal-link alt-register loading" : "modal-link alt-register"} onClick={altLogin}>使用不同的註冊方式</span></p>
+                    <p className="no-valinum-txt"><span role="button" className={isLoading ? "modal-link re-send-valinum loading" : "modal-link re-send-valinum"} onClick={otpReSubmit}>重新傳送</span>或<span className={isLoading ? "modal-link alt-register-link loading" : "modal-link alt-register"} onClick={handleModalTraverse}>使用不同的註冊方式</span></p>
                 </div>
             </div>
         </>

@@ -20,7 +20,7 @@ function ModalAuth({ open, closeModal }) {
     // Step
     const [step, setStep] = useState('signup');
     // Inputfield Values
-    const [accountInputFieldVal, setaccountInputFieldVal] = useState('')
+    const [accountInputFieldVal, setAccountInputFieldVal] = useState('')
     const [passwordInputFieldVal, setPasswordInputFieldVal] = useState('')
 
     console.log(step)
@@ -28,12 +28,11 @@ function ModalAuth({ open, closeModal }) {
     const inputFieldRef = useRef()
 
     const contextValues = {
-        nextBtnFunc: nextBtnFunc,
+        handleModalTraverse: handleModalTraverse,
         inputFieldRef: inputFieldRef,
         accountInputFieldVal: accountInputFieldVal,
         passwordInputFieldVal: passwordInputFieldVal,
-        updateInputFieldVal: updateInputFieldVal,
-        signUp: signUp
+        updateInputFieldVal: updateInputFieldVal
     }
 
     // Show Modal or No
@@ -43,65 +42,56 @@ function ModalAuth({ open, closeModal }) {
     let modalContent = {
         signup: {
             title: '會員註冊',
-            content: <ModalSignUp login={login}/>,
-            icon: <img src={CloseIcon} alt="close-icon"/>,
-            iconFunc: closeResetStep,
+            content: <ModalSignUp />,
+            icon: <img src={CloseIcon} className="close-icon" alt="close-icon"/>,
             modalClassName: 'modal-wrapper'
         },
         signUpOtpPhone: {
             title: '請輸入驗證碼',
-            content: <ModalSignUpOtpPhone altLogin={altLogin}/>,
-            icon: <img src={PrevIcon} alt="prev-icon"/>,
-            iconFunc: signUp,
+            content: <ModalSignUpOtpPhone />,
+            icon: <img src={PrevIcon} className="prev-icon" alt="prev-icon"/>,
             modalClassName: 'modal-wrapper'
         },
         signUpOtpEmail: {
             title: '驗證信已傳送',
-            content: <ModalSignUpOtpEmail altLogin={altLogin}/>,
-            icon: <img src={CloseIcon} alt="close-icon"/>,
-            iconFunc: closeResetStep,
+            content: <ModalSignUpOtpEmail />,
+            icon: <img src={CloseIcon} className="close-icon" alt="close-icon"/>,
             modalClassName: 'modal-wrapper'
         },
         success: {
             title: '完成註冊',
-            content: <ModalSuccess closeResetStep={closeResetStep}/>,
-            icon: <img src={CloseIcon} alt="close-icon"/>,
-            iconFunc: closeResetStep,
+            content: <ModalSuccess />,
+            icon: <img src={CloseIcon} className="close-icon" alt="close-icon"/>,
             modalClassName: 'modal-wrapper-large'
         },
         altLogin: {
             title: '選擇註冊方式',
-            content: <ModalAltLogin login={login}/>,
-            icon: <img src={CloseIcon} alt="close-icon"/>,
-            iconFunc: closeResetStep,
+            content: <ModalAltLogin />,
+            icon: <img src={CloseIcon} className="close-icon" alt="close-icon"/>,
             modalClassName: 'modal-wrapper'
         },
         login: {
             title: '會員登入',
-            content: <ModalLogin forgotPassword={forgotPassword} />,
-            icon: <img src={CloseIcon} alt="close-icon"/>,
-            iconFunc: closeResetStep,
+            content: <ModalLogin />,
+            icon: <img src={CloseIcon} className="close-icon" alt="close-icon"/>,
             modalClassName: 'modal-wrapper-medium'
         },
         forgotPassword: {
             title: '忘記密碼',
             content: <ModalForgotPw />,
-            icon: <img src={PrevIcon} alt="prev-icon"/>,
-            iconFunc: login,
+            icon: <img src={PrevIcon} className="prev-icon" alt="prev-icon"/>,
             modalClassName: 'modal-wrapper'
         },
         loginOtpPhone: {
             title: '請輸入驗證碼',
             content: <ModalLoginOtpPhone />,
-            icon: <img src={PrevIcon} alt="prev-icon"/>,
-            iconFunc: login,
+            icon: <img src={PrevIcon} className="prev-icon" alt="prev-icon"/>,
             modalClassName: 'modal-wrapper'
         },
         loginOtpEmail: {
             title: '驗證信已傳送',
             content: <ModalLoginOtpEmail />,
-            icon: <img src={PrevIcon} alt="prev-icon"/>,
-            iconFunc: login,
+            icon: <img src={PrevIcon} className="prev-icon" alt="prev-icon"/>,
             modalClassName: 'modal-wrapper'
         }
     }
@@ -115,71 +105,149 @@ function ModalAuth({ open, closeModal }) {
     }
     
     // Handle next step
-    function nextBtnFunc() {
+    function handleModalTraverse(e) {
+        // Check if there is an event and set variable
+        const targetClassName = e ? e.target.className : false
+        console.log(targetClassName)
 
-        if(step === 'signup' && phoneIsValid(accountInputFieldVal)) {
-            setStep('signUpOtpPhone')
-            setaccountInputFieldVal('')
-            setPasswordInputFieldVal('')
-        } else if(step === 'signup' && emailIsValid(accountInputFieldVal)) {
-            setStep('signUpOtpEmail')
-            setaccountInputFieldVal('')
-            setPasswordInputFieldVal('')
-        } else if(step === 'signUpOtpPhone') {
-            setStep('success')
-            setaccountInputFieldVal('')
-            setPasswordInputFieldVal('')
-        } else if(step === 'login' && phoneIsValid(accountInputFieldVal)) {
-            setStep('loginOtpPhone')
-            setaccountInputFieldVal('')
-            setPasswordInputFieldVal('')
-        } else if(step === 'forgotPassword') {
-            setStep('loginOtp')
-            setaccountInputFieldVal('')
-        } else if(step === 'login' && emailIsValid(accountInputFieldVal)) {
-            setStep('loginOtpEmail')
-            setaccountInputFieldVal('')
-            setPasswordInputFieldVal('')
-        } else if(step === 'altLogin' && phoneIsValid(accountInputFieldVal)) {
-            setStep('signUpOtpPhone')
-            setaccountInputFieldVal('')
-            setPasswordInputFieldVal('')
-        } else if(step === 'altLogin' && emailIsValid(accountInputFieldVal)) {
-            setStep('signUpOtpEmail')
-            setaccountInputFieldVal('')
-            setPasswordInputFieldVal('')
+        // Check what is clicked and set variables
+        const isSignUpLink = targetClassName ? targetClassName.includes('signup-link') : false
+        const isAltRegisterLink = targetClassName ? targetClassName.includes('alt-register-link') : false
+        const isForgotPasswordLink = targetClassName ? targetClassName.includes('forgot-password-link') : false
+        const isLoginLink = targetClassName ? targetClassName.includes('login-link') : false
+        const isCloseIcon = targetClassName ? targetClassName.includes('close-icon') : false
+        const isPrevIcon = targetClassName ? targetClassName.includes('prev-icon') : false
+        const isAgreeBtn = targetClassName ? targetClassName.includes('auth-success-agree-btn') : false
+
+        // Handle modal traverse logic
+
+        switch(step) {
+
+            case 'signup':
+                if(isCloseIcon) {
+                    closeModal()
+                    setStep('signup')
+                    clearAccPwVal()
+                    break;
+                } else if(isSignUpLink) {
+                    setStep('login')
+                    clearAccPwVal()
+                    break;
+                } else if(emailIsValid(accountInputFieldVal)) {
+                    setStep('signUpOtpEmail')
+                    break;
+                } else if(phoneIsValid(accountInputFieldVal)) {
+                    setStep('signUpOtpPhone')
+                    break;
+                } 
+                break;
+                
+            case 'signUpOtpPhone':
+                if(isPrevIcon) {
+                    setStep('signup')
+                    break;
+                } else if(isAltRegisterLink) {
+                    setStep('altLogin')
+                    clearAccPwVal()
+                    break;
+                }
+                setStep('success')
+                clearAccPwVal()
+                break;
+
+            case 'signUpOtpEmail':
+                if(isCloseIcon) {
+                    closeModal()
+                    setStep('signup')
+                    clearAccPwVal()
+                    break;
+                }
+                setStep('login')
+                break;
+            
+            case 'login':
+                if(phoneIsValid(accountInputFieldVal)) {
+                    setStep('loginOtpPhone')
+                    break;
+                } else if(emailIsValid(accountInputFieldVal)) {
+                    setStep('loginOtpEmail')
+                    break;
+                } else if(isForgotPasswordLink) {
+                    setStep('forgotPassword')
+                    clearAccPwVal()
+                    break;
+                } else if(isCloseIcon) {
+                    closeModal()
+                    setStep('signup')
+                    clearAccPwVal()
+                    break;
+                }
+                break;
+
+            case 'loginOtpEmail':
+                if(isPrevIcon) {
+                    setStep('login')
+                    clearAccPwVal()
+                    break;
+                }
+                setStep('success')
+                break;
+
+            case 'loginOtpPhone':
+                if(isPrevIcon) {
+                    setStep('login')
+                    clearAccPwVal()
+                    break;
+                }
+                setStep('success')
+                break;
+
+            case 'altLogin':
+                if(phoneIsValid(accountInputFieldVal)) {
+                    setStep('signUpOtpPhone')
+                    break;
+                } else if(emailIsValid(accountInputFieldVal)) {
+                    setStep('signUpOtpEmail')
+                    break;
+                } else if(isLoginLink) {
+                    setStep('login')
+                    break;
+                }
+                break;
+
+            case 'forgotPassword':
+                if(isPrevIcon) {
+                    setStep('login')
+                    clearAccPwVal()
+                    break;
+                }
+                break;
+
+            case 'success':
+                if(isCloseIcon) {
+                    closeModal()
+                    setStep('signup')
+                    break;
+                } else if(isAgreeBtn) {
+                    setStep('login')
+                    closeModal()
+                    clearAccPwVal()
+                    break;
+                }
+                break;
+
+            default:
+                break;
         }
-     
+
     }
 
-    // Render signup modal
-    function signUp() {
-        setStep('signup')
-    }
-
-    // Close and reset
+    // Close and reset modal
     function closeResetStep() {
         closeModal();
         setStep('signup');
-        setaccountInputFieldVal('');
-        setPasswordInputFieldVal('')
+        clearAccPwVal()
     }
-
-    // Render altLogin modal content
-    function altLogin() {
-        setStep('altLogin')
-    }
-
-    // Render login modal content
-    function login() {
-        setStep('login')
-    }
-
-    // Render forgotpassword modal content
-    function forgotPassword() {
-        setStep('forgotPassword')
-    }
-
 
     // Update inputfield value
     function updateInputFieldVal(e) {
@@ -190,11 +258,17 @@ function ModalAuth({ open, closeModal }) {
 
 
         if(checkClassName.includes(targetClass)) {
-            setaccountInputFieldVal(inputVal)
+            setAccountInputFieldVal(inputVal)
         } else {
             setPasswordInputFieldVal(inputVal)
         }
   
+    }
+
+    // Clear account/pw field state
+    function clearAccPwVal() {
+        setAccountInputFieldVal('')
+        setPasswordInputFieldVal('')
     }
 
     // Validate email format
@@ -213,6 +287,7 @@ function ModalAuth({ open, closeModal }) {
         }
     }
 
+    console.log(accountInputFieldVal)
 
     return (
         <>
@@ -227,7 +302,7 @@ function ModalAuth({ open, closeModal }) {
 
                         {/* HEADER */}
                         <div className="modal-header">
-                            <div onClick={actualModalContent.iconFunc} className="modal-header-btn">
+                            <div onClick={handleModalTraverse} className="modal-header-btn">
                                 {actualModalContent.icon}
                             </div>
                             

@@ -14,7 +14,7 @@ function ModalLoginOtpPhone() {
     const [currentInputIndex, setCurrentInputIndex] = useState(0)
     const [isLoading, setIsLoading] = useState(false);
     const contextObject = useContext(ContextProvider)
-    const nextBtnFunc = contextObject.nextBtnFunc
+    const handleModalTraverse = contextObject.handleModalTraverse
 
     const inputRef0 = useRef()
     const inputRef1 = useRef()
@@ -37,7 +37,6 @@ function ModalLoginOtpPhone() {
             let key = e.key
             let id = e.target.id
 
-            
     
             if(id === 'otp0') { 
                 currentInputRefArrIndex = 0
@@ -113,7 +112,7 @@ function ModalLoginOtpPhone() {
             } else if(nextInputField === undefined && isInputArrFilled) {
                 setIsLoading(true)
                 setTimeout(() => {
-                    nextBtnFunc()
+                    handleModalTraverse()
                 }, 2000)
             }
         } else if(currentInputVal === null) {
