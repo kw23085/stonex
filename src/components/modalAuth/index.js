@@ -287,8 +287,6 @@ function ModalAuth({ open, closeModal }) {
         }
     }
 
-    console.log(accountInputFieldVal)
-
     return (
         <>
             <ContextProvider.Provider value={contextValues}>
