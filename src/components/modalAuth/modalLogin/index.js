@@ -1,10 +1,10 @@
 import './index.css'
 import { useContext } from 'react'
-import { ContextProvider } from '../modalAuth'
-import InputField from '../inputField';
-import BtnGoogle from '../btnGoogle';
-import BtnFacebook from '../btnFacebook';
-import BtnLongBlue from '../btnLongBlue'
+import { ContextProvider } from '../index'
+import InputField from '../../inputField';
+import BtnGoogle from '../../buttons/btnGoogle';
+import BtnFacebook from '../../buttons/btnFacebook';
+import BtnLongBlue from '../../buttons/btnLongBlue'
 
 
 function ModalLogin({ forgotPassword }) {

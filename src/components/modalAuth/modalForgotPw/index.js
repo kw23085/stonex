@@ -1,8 +1,8 @@
 import './index.css'
-import { ContextProvider } from '../modalAuth'
+import { ContextProvider } from '../index'
 import { useContext } from 'react'
-import InputField from '../inputField'
-import BtnLongBlue from '../btnLongBlue'
+import InputField from '../../inputField'
+import BtnLongBlue from '../../buttons/btnLongBlue'
 
 function ModalForgotPw() {
 

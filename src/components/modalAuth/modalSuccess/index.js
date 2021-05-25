@@ -1,8 +1,8 @@
 import './index.css'
 import { useContext } from 'react'
-import { ContextProvider } from '../modalAuth'
-import InputField from '../inputField'
-import BtnLongBlue from '../btnLongBlue'
+import { ContextProvider } from '../index'
+import InputField from '../../inputField'
+import BtnLongBlue from '../../buttons/btnLongBlue'
 
 function AuthSucess() {
 

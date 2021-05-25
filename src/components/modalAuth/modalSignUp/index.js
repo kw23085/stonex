@@ -1,10 +1,10 @@
 import './index.css'
-import { ContextProvider } from '../modalAuth'
+import { ContextProvider } from '../index'
 import { useContext } from 'react'
-import InputField from '../inputField'
-import BtnGoogle from '../btnGoogle'
-import BtnFacebook from '../btnFacebook'
-import BtnLongBlue from '../btnLongBlue'
+import InputField from '../../inputField'
+import BtnGoogle from '../../buttons/btnGoogle'
+import BtnFacebook from '../../buttons/btnFacebook'
+import BtnLongBlue from '../../buttons/btnLongBlue'
 
 
 function ModalSignUp() {

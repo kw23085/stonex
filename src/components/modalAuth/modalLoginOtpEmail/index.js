@@ -1,20 +1,22 @@
 import './index.css'
-import spinner from '../../icons/loadingspinner.gif'
-import checkIcon from '../../icons/check.png'
-import InputOtp from '../inputOtp'
-import { ContextProvider } from '../modalAuth'
+import spinner from '../../../icons/loadingspinner.gif'
+import checkIcon from '../../../icons/check.png'
+import InputOtp from '../../inputOtp'
+import { ContextProvider } from '../index'
 import { useState, useRef, useEffect, useContext } from 'react'
+
 
 
 const INTEGER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
-function ModalLoginOtpPhone() {
+function ModalLoginOtpEmail() {
 
     const [inputArr, setInputArr] = useState([null, null, null, null])
     const [currentInputIndex, setCurrentInputIndex] = useState(0)
     const [isLoading, setIsLoading] = useState(false);
     const contextObject = useContext(ContextProvider)
     const handleModalTraverse = contextObject.handleModalTraverse
+    const emailAccount = contextObject.accountInputFieldVal
 
     const inputRef0 = useRef()
     const inputRef1 = useRef()
@@ -37,6 +39,7 @@ function ModalLoginOtpPhone() {
             let key = e.key
             let id = e.target.id
 
+            
     
             if(id === 'otp0') { 
                 currentInputRefArrIndex = 0
@@ -78,7 +81,7 @@ function ModalLoginOtpPhone() {
         reSubmitMessage.current.classList.add('show')
         setTimeout(() => {
             reSubmitMessage.current.classList.remove('show')
-        }, 2000)
+        }, 3000)
     }
 
     useEffect(() => {
@@ -96,11 +99,6 @@ function ModalLoginOtpPhone() {
         let prevInputField = inputRefArr[(currentInputIndex - 1)] ? inputRefArr[(currentInputIndex - 1)].current : undefined
         let currentInputField = inputRefArr[currentInputIndex].current
         let nextInputField = inputRefArr[(currentInputIndex + 1)] ? inputRefArr[(currentInputIndex + 1)].current : undefined
-
-        // Show number in input field
-        // inputArr.forEach((input, index) => {
-        //     inputRefArr[index].current.childNodes[0].innerText = input
-        // })
 
         // Handle inputfield focus
         if(isInputArrNull) {
@@ -137,8 +135,8 @@ function ModalLoginOtpPhone() {
                     <p className="resubmit-message">驗證碼已重新傳送</p>
                 </div>
                 <div className="otp-confirm-msg">
-                    <p>您的驗證碼已透過SMS簡訊傳送至</p>
-                    <p>(+886) 92200000</p>
+                    <p>您的驗證碼已傳送至</p>
+                    <p>{emailAccount}</p>
                 </div>
                 <div className="otp-validation-num">
                     {
@@ -161,4 +159,4 @@ function ModalLoginOtpPhone() {
     )
 }
 
-export default ModalLoginOtpPhone
+export default ModalLoginOtpEmail

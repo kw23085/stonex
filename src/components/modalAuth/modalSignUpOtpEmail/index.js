@@ -1,7 +1,7 @@
 import './index.css'
-import MailIcon from '../../icons/mail.png'
-import BtnLongBlue from '../btnLongBlue'
-import { ContextProvider } from '../modalAuth'
+import MailIcon from '../../../icons/mail.png'
+import BtnLongBlue from '../../buttons/btnLongBlue'
+import { ContextProvider } from '../index'
 import { useContext } from 'react'
 
 function ModalSignUpOtpEmail() {
