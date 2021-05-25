@@ -23,8 +23,6 @@ function ModalLoginOtpPhone() {
     const spinnerGif = useRef()
     const reSubmitMessage = useRef();
 
-    let currentInputRefArrIndex = useRef(0)
-
 
     const inputRefArr = [inputRef0, inputRef1, inputRef2, inputRef3]
 
@@ -36,20 +34,23 @@ function ModalLoginOtpPhone() {
 
             let key = e.key
             let id = e.target.id
+            let index = parseInt(id.split('').pop()) 
 
-    
-            if(id === 'otp0') { 
-                currentInputRefArrIndex = 0
-                setCurrentInputIndex(0)
-            } else if(id === 'otp1') {
-                currentInputRefArrIndex = 1
-                setCurrentInputIndex(1)
-            } else if(id === 'otp2') {
-                currentInputRefArrIndex = 2
-                setCurrentInputIndex(2)
-            } else {
-                currentInputRefArrIndex = 3
-                setCurrentInputIndex(3)
+            switch(id) {
+
+                case 'otp0':
+                    setCurrentInputIndex(index)
+                    break;
+                case 'otp1':
+                    setCurrentInputIndex(index)
+                    break;
+                case 'otp2':
+                    setCurrentInputIndex(index)
+                    break;
+                case 'otp3':
+                    setCurrentInputIndex(index)
+                    break;
+
             }
     
             if(INTEGER.includes(parseInt(key))) {
@@ -57,14 +58,14 @@ function ModalLoginOtpPhone() {
                 let digit = parseInt(key)
                 
                 let inputArrCopy = [...inputArr]
-                inputArrCopy[currentInputRefArrIndex] = digit
+                inputArrCopy[index] = digit
                 setInputArr(inputArrCopy)
     
     
             } else if(key === 'Backspace') {
     
                 let inputArrCopy = [...inputArr]
-                inputArrCopy[currentInputRefArrIndex] = null
+                inputArrCopy[index] = null
                 setInputArr(inputArrCopy)
     
             }

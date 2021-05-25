@@ -17,8 +17,8 @@ function AuthSucess() {
                     <p className="last-step-txt">最後一步, 即將成為會員！</p>
                 </div>
 
-                <InputField type="text" className="user-nickname" placeholder="暱稱"  />
-                <InputField type="text" className="user-password" placeholder="密碼"  />
+                <InputField type="text" className="user-nickname" placeholder="暱稱" />
+                <InputField type="text" className="user-password" placeholder="密碼" />
                 <InputField type="text" className="user-password-confirm" placeholder="再次輸入密碼"  />
 
                 <div className="terms-wrapper">
