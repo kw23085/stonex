@@ -36,22 +36,7 @@ function ModalLoginOtpPhone() {
             let id = e.target.id
             let index = parseInt(id.split('').pop()) 
 
-            switch(id) {
-
-                case 'otp0':
-                    setCurrentInputIndex(index)
-                    break;
-                case 'otp1':
-                    setCurrentInputIndex(index)
-                    break;
-                case 'otp2':
-                    setCurrentInputIndex(index)
-                    break;
-                case 'otp3':
-                    setCurrentInputIndex(index)
-                    break;
-
-            }
+            setCurrentInputIndex(index)
     
             if(INTEGER.includes(parseInt(key))) {
     
