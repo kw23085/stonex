@@ -11,6 +11,7 @@ import ModalForgotPw from './modalForgotPw'
 import ModalAltLogin from './modalAltLogin'
 import ModalLoginOtpPhone from './modalLoginOtpPhone'
 import ModalLoginOtpEmail from './modalLoginOtpEmail'
+import ClassNames from 'classnames'
 
 
 export const ContextProvider = React.createContext()
@@ -286,6 +287,7 @@ function ModalAuth({ open, closeModal }) {
             return false
         }
     }
+
 
     return (
         <>
