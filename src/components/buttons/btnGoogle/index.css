@@ -5,7 +5,6 @@
     width: 156px;
     height: 46px;
     background: #DE5246;
-    padding: 12px 22px;
     border-radius: 8px;
     color: #FCFCFC;
     font-style: normal;
@@ -13,6 +12,8 @@
     font-size: 13px;
     line-height: 22px;
     letter-spacing: 0.25px;
+    display: flex;
+    align-items: center;
 }
 
 .btn-google:focus {
@@ -21,4 +22,12 @@
 
 .btn-google:active {
     transform: scale(0.98);
+}
+
+.google-icon {
+    padding: 0 0 0 39.5px;
+}
+
+.btn-google-text {
+    padding: 0 0 0 12px;
 }
