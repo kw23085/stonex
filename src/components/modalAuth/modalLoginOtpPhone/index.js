@@ -1,9 +1,9 @@
-import './index.css'
 import spinner from '../../../icons/loadingspinner.gif'
 import checkIcon from '../../../icons/check.png'
 import InputOtp from '../../inputOtp'
 import { ContextProvider } from '../index'
 import { useState, useRef, useEffect, useContext } from 'react'
+import ClassNames from 'classnames'
 
 
 const INTEGER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
@@ -67,6 +67,15 @@ function ModalLoginOtpPhone() {
         }, 2000)
     }
 
+    // Dynamic classnames
+    var loading = ClassNames({
+        'loading': isLoading
+    })
+
+    var show = ClassNames({
+        'show': isLoading
+    })
+
     useEffect(() => {
 
         // Check if all inputfield is empty
@@ -91,21 +100,27 @@ function ModalLoginOtpPhone() {
         // Handle inputfield focus
         if(isInputArrNull) {
             inputRef0.current.focus()
-        } else if(currentInputVal !== null) {
-            currentInputField.classList.add('fill')
-            if(nextInputField !== undefined) {
-                nextInputField.focus()
-            } else if(nextInputField === undefined && isInputArrFilled) {
-                setIsLoading(true)
-                setTimeout(() => {
-                    handleModalTraverse()
-                }, 2000)
-            }
-        } else if(currentInputVal === null) {
-            currentInputField.classList.remove('fill')
-            if(prevInputField !== undefined) {
-                prevInputField.focus()
-            }
+        }
+
+        switch(true) {
+
+            case (currentInputVal !== null):
+                if(nextInputField !== undefined) {
+                    nextInputField.focus()
+                } else if(nextInputField === undefined && isInputArrFilled) {
+                    setIsLoading(true)
+                    setTimeout(() => {
+                        handleModalTraverse();
+                    }, 2000)
+                }
+                break;
+
+            case (currentInputVal === null):
+                if(prevInputField !== undefined) {
+                    prevInputField.focus()
+                }
+                break;
+
         }
 
     }, [inputArr])
@@ -113,8 +128,8 @@ function ModalLoginOtpPhone() {
     return (
         <>
             {/* Loading Gif */}
-            <img ref={spinnerGif} className={isLoading ? "spinner show" : "spinner"} src={spinner} alt="spinner"/>
-            <div className={isLoading ? "inner-modal-content loading" : "inner-modal-content"}>
+            <img ref={spinnerGif} className={'spinner ' + show} src={spinner} alt="spinner"/>
+            <div className={'inner-modal-content ' + loading}>
                 {/* Resubmit Message */}
                 <div ref={reSubmitMessage} className="otp-resubmit-message">
                     <div className="otp-resubmit-icon">
@@ -134,13 +149,19 @@ function ModalLoginOtpPhone() {
 
                             let checkedInput = input === null ? '' : input
 
-                           return  <InputOtp key={index} index={index} checkedInput={checkedInput} className={isLoading ? "validation-num-container loading" : "validation-num-container"} onKeyDownFunc={updateInputArr} currentInputRef={currentInputRef}/>
+                            var otpClassNames = ClassNames({
+                                'validation-num-container': true,
+                                'loading': isLoading,
+                                'fill': input
+                            })
+
+                           return  <InputOtp key={index} index={index} checkedInput={checkedInput} className={otpClassNames} onKeyDownFunc={updateInputArr} currentInputRef={currentInputRef}/>
                         })
                     }
                 </div>
                 <div className="login-otp-no-valinum">
                     <p className="no-valinum-txt">沒有收到驗證碼嗎?</p>
-                    <p className="no-valinum-txt"><span role="button" className={isLoading ? "modal-link login-otp-re-send-valinum loading" : "modal-link login-otp-re-send-valinum"} onClick={otpReSubmit}>重新傳送</span></p>
+                    <p className="no-valinum-txt"><span role="button" className={'modal-link login-otp-re-send-valinum ' + loading} onClick={otpReSubmit}>重新傳送</span></p>
                 </div>
             </div>
         </>

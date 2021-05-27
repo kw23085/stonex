@@ -1,4 +1,3 @@
-import './index.css'
 import { ContextProvider } from '../index'
 import { useContext } from 'react'
 import InputField from '../../inputField'

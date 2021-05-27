@@ -1,4 +1,3 @@
-import './index.css'
 import spinner from '../../../icons/loadingspinner.gif'
 import checkIcon from '../../../icons/check.png'
 import InputOtp from '../../inputOtp'
@@ -93,23 +92,6 @@ function ModalSignUpOtpPhone() {
         let nextInputField = inputRefArr[(currentInputIndex + 1)] ? inputRefArr[(currentInputIndex + 1)].current : undefined
 
         // Handle inputfield focus
-        // if(isInputArrNull) {
-        //     inputRef0.current.focus()
-        // } else if(currentInputVal !== null) {
-        //     if(nextInputField !== undefined) {
-        //         nextInputField.focus()
-        //     } else if(nextInputField === undefined && isInputArrFilled) {
-        //         setIsLoading(true)
-        //         setTimeout(() => {
-        //             handleModalTraverse();
-        //         }, 2000)
-        //     }
-        // } else if(currentInputVal === null) {
-        //     if(prevInputField !== undefined) {
-        //         prevInputField.focus()
-        //     }
-        // }
-
         if(isInputArrNull) {
             inputRef0.current.focus()
         }

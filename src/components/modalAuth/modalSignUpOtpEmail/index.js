@@ -1,4 +1,3 @@
-import './index.css'
 import MailIcon from '../../../icons/mail.png'
 import BtnLongBlue from '../../buttons/btnLongBlue'
 import { ContextProvider } from '../index'

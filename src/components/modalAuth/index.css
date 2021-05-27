@@ -99,3 +99,332 @@
     color: #D9DBE9;
 }
 
+/* Auth Success */
+.last-step-text-wrapper {
+    margin: 24px 0 23px 0 ;
+}
+
+.user-nickname {
+    margin: 0 0 12px 0;
+}
+
+.user-password {
+    margin: 0 0 12px 0;
+}
+
+.user-password-confirm {
+    margin: 0 0 12px 0;
+}
+
+.terms-wrapper {
+    margin: 0 0 24px 0;
+}
+
+/* OTP */
+.otp-resubmit-message {
+    display: none;
+    width: 178px;
+    height: 48px;
+    border: 1px solid #00994D;
+    border-radius: 8px;
+    margin: 21px 0 -18px 0;
+    align-items: center;
+    position: relative;    
+}
+
+.otp-resubmit-message.show {
+    display: flex;
+}
+
+.otp-resubmit-icon {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 24px;
+}
+
+.resubmit-message {
+    position: absolute;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.25px;
+    left: 54px;
+    color: #00994D;
+}
+
+.check-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.otp-confirm-msg {
+    width: 237px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+    margin-top: 34px;
+}
+
+.otp-confirm-msg.loading {
+    color: #D9DBE9;
+}
+
+.no-valinum {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.no-valinum-txt {
+    font-size: 15px;
+    line-height: 24px;
+    font-style: normal;
+    font-weight: normal;
+    letter-spacing: 0.75px;
+    padding-bottom: 6px;
+}
+
+.re-send-valinum {
+    padding-right: 6px;
+}
+
+.alt-register {
+    padding-left: 6px;
+}
+
+.spinner {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 50%;
+    top: 58%;
+    transform: translateX(-50%);
+    display: none;
+}
+
+.spinner.show {
+    display: block;
+}
+
+/* Signup Otp Email */
+.signup-otp-email-confirm-msg {
+    width: auto;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+    margin-top: 34px;
+    color: #4E4B66;
+}
+
+.mail-icon {
+    width: 24px;
+    height: 24px;
+    margin: 28px 0 0 0;
+}
+
+.signup-otp-email-btn-long-blue {
+    margin: 27px 0 0 0;
+}
+
+
+/* Sign Up */
+.signup-modal-phone-email {
+    margin: 34px 0 0 0;
+}
+
+.inner-modal-content {
+    width: 326px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.btn-next-signup {
+    margin: 12px 0 0 0;
+}
+
+.inner-modal-content.loading{
+    color: #D9DBE9;
+}
+
+.horizontal-line {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 2px solid #D9DBE9; 
+    line-height: 0.1em;
+    margin: 36px 0 34px 0; 
+}
+
+.horizontal-line-text {
+    background:#fff; 
+    padding:0 4px; 
+    color: #6E7191;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.modal-social-btns {
+    width: 325px;
+    height: 46px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.already-acc {
+    display: flex;
+    justify-content: flex-start;
+    margin: 12px 0 0 0;
+}
+
+#already-acc-txt {
+    letter-spacing: 0.75px;
+    font-size: 15px;
+    line-height: 24px;
+    width: 126px;
+    height: 24px;
+    color: #4E4B66;
+}
+
+.signup-link {
+    margin: 0 0 0 6px;
+}
+
+/* Login Otp Phone/Email */
+.login-otp-no-valinum {
+    display: flex;
+    flex-direction: row;
+}
+
+.login-otp-re-send-valinum {
+    padding-left: 8px;
+}
+
+/* Login */
+
+.login-modal-phone-email {
+    margin: 30px 0 12px 0;
+}
+
+.forgot-password {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin: 12px 0 0 0;
+}
+
+.btn-next-login {
+    margin: 36px 0 0 0;
+}
+
+.horizontal-line-login {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 2px solid #D9DBE9; 
+    line-height: 0.1em;
+    margin: 23px 0; 
+}
+
+/* Forgot Password */
+.forgot-password-msg {
+    width: 202px;
+    height: 24px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    color: #4E4B66;
+    margin: 34px 0 0 0;
+}
+
+.forgot-password-phone-email {
+    margin: 24px 0 0 0;
+}
+
+.forgot-password-btn-next {
+    margin: 12px 0 0 0;
+}
+
+/* Sign Up */
+.signup-modal-phone-email {
+    margin: 34px 0 0 0;
+}
+
+.inner-modal-content {
+    width: 326px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.btn-next-signup {
+    margin: 12px 0 0 0;
+}
+
+.inner-modal-content.loading{
+    color: #D9DBE9;
+}
+
+.horizontal-line {
+    width: 100%; 
+    text-align: center; 
+    border-bottom: 2px solid #D9DBE9; 
+    line-height: 0.1em;
+    margin: 36px 0 34px 0; 
+}
+
+.horizontal-line-text {
+    background:#fff; 
+    padding:0 4px; 
+    color: #6E7191;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.modal-social-btns {
+    width: 325px;
+    height: 46px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alt-login-already-acc {
+    display: flex;
+    justify-content: flex-start;
+    margin: 12px 0 0 0; 
+    width: 326px;
+}
+
+#alt-login-already-acc-txt {
+    letter-spacing: 0.75px;
+    font-size: 15px;
+    line-height: 24px;
+    width: 126px;
+    height: 24px;
+    color: #4E4B66;
+}
+
+.signup-link {
+    margin: 0 0 0 6px;
+}

@@ -1,4 +1,3 @@
-import './index.css'
 import spinner from '../../../icons/loadingspinner.gif'
 import checkIcon from '../../../icons/check.png'
 import InputOtp from '../../inputOtp'
