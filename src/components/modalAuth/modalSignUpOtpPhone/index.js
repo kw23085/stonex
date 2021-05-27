@@ -3,7 +3,7 @@ import checkIcon from '../../../icons/check.png'
 import InputOtp from '../../inputOtp'
 import { ContextProvider } from '../index'
 import { useState, useRef, useEffect, useContext } from 'react'
-import ClassNames from 'classnames'
+import classnames from 'classnames'
 
 const INTEGER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
@@ -67,11 +67,23 @@ function ModalSignUpOtpPhone() {
     }
 
     // Dynamic classnames
-    var loading = ClassNames({
+    var resendValinum = classnames({
+        'modal-link re-send-valinum': true,
         'loading': isLoading
     })
 
-    var show = ClassNames({
+    var altRegisterLink = classnames({
+        'modal-link alt-register-link': true,
+        'loading': isLoading
+    })
+
+    var innerModalContent = classnames({
+        'inner-modal-content': true,
+        'loading': isLoading
+    })
+
+    var spinnerClass = classnames({
+        'spinner': true,
         'show': isLoading
     })
 
@@ -96,35 +108,26 @@ function ModalSignUpOtpPhone() {
             inputRef0.current.focus()
         }
 
-        switch(true) {
-
-            case (currentInputVal !== null):
-                if(nextInputField !== undefined) {
-                    nextInputField.focus()
-                } else if(nextInputField === undefined && isInputArrFilled) {
-                    setIsLoading(true)
-                    setTimeout(() => {
-                        handleModalTraverse();
-                    }, 2000)
-                }
-                break;
-
-            case (currentInputVal === null):
-                if(prevInputField !== undefined) {
-                    prevInputField.focus()
-                }
-                break;
-
+        if(currentInputVal !== null) {
+            if(nextInputField !== undefined) {
+                nextInputField.focus()
+            } else if(nextInputField === undefined && isInputArrFilled) {
+                setIsLoading(true)
+                setTimeout(() => {
+                    handleModalTraverse();
+                }, 2000)
+            }
+        } else if(currentInputVal === null && prevInputField !== undefined) {
+            prevInputField.focus()
         }
-
 
     }, [inputArr])
 
     return (
         <>
             {/* Loading Gif */}
-            <img ref={spinnerGif} className={'spinner ' + show} src={spinner} />
-            <div className={'inner-modal-content ' + loading}>
+            <img ref={spinnerGif} className={spinnerClass} src={spinner} />
+            <div className={innerModalContent}>
                 {/* Resubmit Message */}
                 <div ref={reSubmitMessage} className="otp-resubmit-message">
                     <div className="otp-resubmit-icon">
@@ -144,19 +147,13 @@ function ModalSignUpOtpPhone() {
 
                             let checkedInput = input === null ? '' : input
 
-                            var otpClassNames = ClassNames({
-                                'validation-num-container': true,
-                                'loading': isLoading,
-                                'fill': input
-                            })
-
-                           return  <InputOtp key={index} index={index} checkedInput={checkedInput} className={otpClassNames} onKeyDownFunc={updateInputArr} currentInputRef={currentInputRef}/>
+                           return  <InputOtp key={index} index={index} checkedInput={checkedInput} isLoading={isLoading} onKeyDownFunc={updateInputArr} currentInputRef={currentInputRef}/>
                         })
                     }
                 </div>
                 <div className="no-valinum">
                     <p className="no-valinum-txt">沒有收到驗證碼嗎?</p>
-                    <p className="no-valinum-txt"><span role="button" className={'modal-link re-send-valinum ' + loading} onClick={otpReSubmit}>重新傳送</span>或<span className={'modal-link alt-register-link ' + loading} onClick={handleModalTraverse}>使用不同的註冊方式</span></p>
+                    <p className="no-valinum-txt"><span role="button" className={resendValinum} onClick={otpReSubmit}>重新傳送</span>或<span className={altRegisterLink} onClick={handleModalTraverse}>使用不同的註冊方式</span></p>
                 </div>
             </div>
         </>

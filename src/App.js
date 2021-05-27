@@ -9,10 +9,6 @@ function App() {
 
   let [isOpen, setIsOpen] = useState(false);
 
-  let [test1, setTest1] = useState(true);
-
-  let [test2, setTest2] = useState(false);
-
   let openModal = () => setIsOpen(true);
 
   let closeModal = () => setIsOpen(false);

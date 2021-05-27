@@ -79,10 +79,10 @@ function ModalLoginOtpPhone() {
     useEffect(() => {
 
         // Check if all inputfield is empty
-        let isInputArrNull = inputArr.every((el, i, arr) => el === null) ? true : false
+        let isInputArrNull = inputArr.every((el) => el === null) ? true : false
 
         // Check if all inputfield is filled
-        let isInputArrFilled = inputArr.every((el, i, arr) => INTEGER.includes(el)) ? true : false
+        let isInputArrFilled = inputArr.every((el) => INTEGER.includes(el)) ? true : false
 
         // Set input values
         let currentInputVal = inputArr[currentInputIndex]
