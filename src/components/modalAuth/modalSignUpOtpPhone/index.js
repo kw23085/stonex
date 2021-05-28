@@ -12,18 +12,13 @@ function ModalSignUpOtpPhone() {
     const [inputArr, setInputArr] = useState([null, null, null, null])
     const [currentInputIndex, setCurrentInputIndex] = useState(0)
     const [isLoading, setIsLoading] = useState(false)
+    const [resendMessage, setResendMessage] = useState(false)
     const contextObject = useContext(ContextProvider)
     const handleModalTraverse = contextObject.handleModalTraverse
     const accountInputFieldVal = contextObject.accountInputFieldVal
 
-    const inputRef0 = useRef()
-    const inputRef1 = useRef()
-    const inputRef2 = useRef()
-    const inputRef3 = useRef()
+    const innerModalWrapper = useRef()
     const spinnerGif = useRef()
-    const reSubmitMessage = useRef();
-
-    const inputRefArr = [inputRef0, inputRef1, inputRef2, inputRef3]
 
     // Update inputArr
     function updateInputArr(e) {
@@ -32,26 +27,24 @@ function ModalSignUpOtpPhone() {
         if(!isLoading) {
 
             let key = e.key
-            let id = e.target.id
-            let index = parseInt(id.split('').pop()) 
+            let index = currentInputIndex
+            let prevIndex = index <= 0 ? 0 : index -1
 
-            setCurrentInputIndex(index)
-    
             if(INTEGER.includes(parseInt(key))) {
     
                 let digit = parseInt(key)
-                
                 let inputArrCopy = [...inputArr]
                 inputArrCopy[index] = digit
                 setInputArr(inputArrCopy)
+                setCurrentInputIndex(current => current + 1)
     
     
             } else if(key === 'Backspace') {
     
                 let inputArrCopy = [...inputArr]
-                inputArrCopy[index] = null
+                inputArrCopy[prevIndex] = null
                 setInputArr(inputArrCopy)
-    
+                setCurrentInputIndex(prevIndex)
             }
 
         }
@@ -59,10 +52,9 @@ function ModalSignUpOtpPhone() {
     }
 
     function otpReSubmit() {
-        
-        reSubmitMessage.current.classList.add('show')
+        setResendMessage(true)
         setTimeout(() => {
-            reSubmitMessage.current.classList.remove('show')
+            setResendMessage(false)
         }, 2000)
     }
 
@@ -71,67 +63,48 @@ function ModalSignUpOtpPhone() {
         'modal-link re-send-valinum': true,
         'loading': isLoading
     })
-
     var altRegisterLink = classnames({
         'modal-link alt-register-link': true,
         'loading': isLoading
     })
-
     var innerModalContent = classnames({
         'inner-modal-content': true,
         'loading': isLoading
     })
-
     var spinnerClass = classnames({
         'spinner': true,
         'show': isLoading
     })
+    var resubmitMessage = classnames({
+        'otp-resubmit-message': true,
+        'show': resendMessage
+    })
 
     useEffect(() => {
 
-        // Check if all inputfield is empty
-        let isInputArrNull = inputArr.every((el) => el === null) ? true : false
+        innerModalWrapper.current.focus()
 
         // Check if all inputfield is filled
         let isInputArrFilled = inputArr.every((el) => INTEGER.includes(el)) ? true : false
 
-        // Set input values
-        let currentInputVal = inputArr[currentInputIndex]
-
-        // Set input field
-        let prevInputField = inputRefArr[(currentInputIndex - 1)] ? inputRefArr[(currentInputIndex - 1)].current : undefined
-        let currentInputField = inputRefArr[currentInputIndex].current
-        let nextInputField = inputRefArr[(currentInputIndex + 1)] ? inputRefArr[(currentInputIndex + 1)].current : undefined
-
-        // Handle inputfield focus
-        if(isInputArrNull) {
-            inputRef0.current.focus()
+        if(isInputArrFilled) {
+            setIsLoading(true)
+            setTimeout(() => {
+                handleModalTraverse();
+            }, 2000)
         }
 
-        if(currentInputVal !== null) {
-            if(nextInputField !== undefined) {
-                nextInputField.focus()
-            } else if(nextInputField === undefined && isInputArrFilled) {
-                setIsLoading(true)
-                setTimeout(() => {
-                    handleModalTraverse();
-                }, 2000)
-            }
-        } else if(currentInputVal === null && prevInputField !== undefined) {
-            prevInputField.focus()
-        }
-
-    }, [inputArr])
+    }, [inputArr, handleModalTraverse])
 
     return (
         <>
             {/* Loading Gif */}
-            <img ref={spinnerGif} className={spinnerClass} src={spinner} />
-            <div className={innerModalContent}>
+            <img ref={spinnerGif} className={spinnerClass} src={spinner} alt="spinner" />
+            <div className={innerModalContent} ref={innerModalWrapper} onKeyDown={updateInputArr} tabIndex="-1">
                 {/* Resubmit Message */}
-                <div ref={reSubmitMessage} className="otp-resubmit-message">
+                <div className={resubmitMessage}>
                     <div className="otp-resubmit-icon">
-                        <img src={checkIcon} className="check-icon" />
+                        <img src={checkIcon} className="check-icon" alt="check-icon" />
                     </div>
                     <p className="resubmit-message">驗證碼已重新傳送</p>
                 </div>
@@ -143,11 +116,9 @@ function ModalSignUpOtpPhone() {
                     {
                         inputArr.map((input, index) => {
 
-                            let currentInputRef = inputRefArr[index]
-
                             let checkedInput = input === null ? '' : input
 
-                           return  <InputOtp key={index} index={index} checkedInput={checkedInput} isLoading={isLoading} onKeyDownFunc={updateInputArr} currentInputRef={currentInputRef}/>
+                           return  <InputOtp key={index} index={index} checkedInput={checkedInput} isLoading={isLoading} />
                         })
                     }
                 </div>

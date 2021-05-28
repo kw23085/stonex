@@ -1,7 +1,9 @@
 import './index.css'
 import classnames from 'classnames'
 
-function InputOtp({ index, onKeyDownFunc, currentInputRef, checkedInput, isLoading }) {
+function InputOtp({ index, onKeyDownFunc, input, isLoading }) {
+
+    let checkedInput = input === null ? '' : input
 
     var otpClassNames = classnames({
         'validation-num-container': true,
@@ -10,8 +12,8 @@ function InputOtp({ index, onKeyDownFunc, currentInputRef, checkedInput, isLoadi
     })
 
     return (
-            <div ref={currentInputRef} id={'otp' + index} className={otpClassNames} tabIndex={0} onKeyDown={onKeyDownFunc} >
-                <p id={index} className="validation-num">{checkedInput}</p>
+            <div id={'otp' + index} className={otpClassNames} onKeyDown={onKeyDownFunc} >
+                <p id={index} className="validation-num">{input}</p>
             </div>
     )
     

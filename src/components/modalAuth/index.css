@@ -256,6 +256,10 @@
     margin: 0 auto;
 }
 
+.inner-modal-content:focus {
+    outline: 0px solid transparent;
+}
+
 .btn-next-signup {
     margin: 12px 0 0 0;
 }
