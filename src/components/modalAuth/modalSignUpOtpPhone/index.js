@@ -115,10 +115,7 @@ function ModalSignUpOtpPhone() {
                 <div className="otp-validation-num">
                     {
                         inputArr.map((input, index) => {
-
-                            let checkedInput = input === null ? '' : input
-
-                           return  <InputOtp key={index} index={index} checkedInput={checkedInput} isLoading={isLoading} />
+                           return  <InputOtp key={index} index={index} input={input} isLoading={isLoading} />
                         })
                     }
                 </div>
