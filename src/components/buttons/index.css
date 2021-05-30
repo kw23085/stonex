@@ -1,0 +1,142 @@
+/* Facebook */
+.btn-facebook {
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    width: 156px;
+    height: 46px;
+    background: #3B5998;
+    border-radius: 8px;
+    color: #FCFCFC;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.25px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-facebook:focus {
+    outline: none;
+}
+
+.btn-facebook:active {
+    transform: scale(0.98);
+}
+
+.facebook-icon {
+    padding: 0 0 0 32px;
+}
+
+.btn-facebook-text {
+    padding: 0 0 0 12px;
+}
+
+/* Google */
+.btn-google {
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    width: 156px;
+    height: 46px;
+    background: #DE5246;
+    border-radius: 8px;
+    color: #FCFCFC;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.25px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-google:focus {
+    outline: none;
+}
+
+.btn-google:active {
+    transform: scale(0.98);
+}
+
+.google-icon {
+    padding: 0 0 0 39.5px;
+}
+
+.btn-google-text {
+    padding: 0 0 0 12px;
+}
+
+/* Btn Login */
+.btn-login {
+    background: #FCFCFC;
+    color: #007099;
+    border: 2px solid #007099;
+    font-size: 15px;
+    border-radius: 12px;
+    letter-spacing: 0.75px;
+    padding: 16px 24px;
+    font-weight: 600px;
+    line-height: 24px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-login:focus {
+    outline: none;
+}
+
+.btn-login:active {
+    transform: scale(0.98);
+}
+
+/* Btn Long Blue */
+.btn-long-blue {
+    background: #007099;
+    color: #FCFCFC;
+    border: 2px solid #007099;
+    width: 325px;
+    height: 46px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    letter-spacing: 0.25px;
+    margin: 12px 0 0 0;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-long-blue:focus {
+    outline: none;
+}
+
+.btn-long-blue:active {
+    transform: scale(0.98);
+}
+
+/* Btn Register */
+.btn-register {
+    background: #007099;
+    color: #FCFCFC;
+    border: 2px solid #007099;
+    margin: 0 0 0 20px;
+    font-size: 15px;
+    border-radius: 12px;
+    letter-spacing: 0.75px;
+    padding: 16px 24px;
+    font-weight: 600px;
+    line-height: 24px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-register:focus {
+    outline: none;
+}
+
+.btn-register:active {
+    transform: scale(0.98);
+}

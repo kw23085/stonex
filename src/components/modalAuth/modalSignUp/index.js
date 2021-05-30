@@ -23,7 +23,7 @@ function ModalSignUp() {
                 <BtnFacebook />
             </div>
             <div className="already-acc">
-                <p id="already-acc-txt">已經有帳號了嗎?</p><p className="modal-link signup-link" onClick={handleModalTraverse}>登入</p>
+                <p id="already-acc-txt">已經有帳號了嗎?</p><p className="modal-link login-link" onClick={handleModalTraverse}>登入</p>
             </div>
         </div>
     )

@@ -7,9 +7,7 @@ function ModalSignUpOtpEmail() {
 
     const contextObject = useContext(ContextProvider)
     const emailAccount = contextObject.accountInputFieldVal
-    const signUp = contextObject.signUp
     const handleModalTraverse = contextObject.handleModalTraverse
-
 
     return (
         <>
@@ -19,7 +17,7 @@ function ModalSignUpOtpEmail() {
                     <p>{emailAccount}</p>
                 </div>
 
-                <img className="mail-icon"  src={MailIcon} />
+                <img className="mail-icon"  src={MailIcon} alt="mail-icon" />
 
                 <BtnLongBlue className="signup-otp-email-btn-long-blue" onClick={handleModalTraverse} btnText="回到登入" />
 

@@ -23,8 +23,6 @@ function ModalAuth({ open, closeModal }) {
     const [accountInputFieldVal, setAccountInputFieldVal] = useState('')
     const [passwordInputFieldVal, setPasswordInputFieldVal] = useState('')
 
-    console.log(step)
-
     const inputFieldRef = useRef()
 
     const contextValues = {
@@ -108,19 +106,47 @@ function ModalAuth({ open, closeModal }) {
     function handleModalTraverse(e) {
         // Check if there is an event and set variable
         const targetClassName = e ? e.target.className : false
-        console.log(targetClassName)
 
-        // Check what is clicked and set variables
-        const isSignUpLink = targetClassName ? targetClassName.includes('signup-link') : false
-        const isAltRegisterLink = targetClassName ? targetClassName.includes('alt-register-link') : false
-        const isForgotPasswordLink = targetClassName ? targetClassName.includes('forgot-password-link') : false
-        const isLoginLink = targetClassName ? targetClassName.includes('login-link') : false
-        const isCloseIcon = targetClassName ? targetClassName.includes('close-icon') : false
-        const isPrevIcon = targetClassName ? targetClassName.includes('prev-icon') : false
-        const isAgreeBtn = targetClassName ? targetClassName.includes('auth-success-agree-btn') : false
+        // Set classname variables
+        let isAltRegisterLink
+        let isForgotPasswordLink
+        let isLoginLink
+        let isCloseIcon
+        let isPrevIcon
+        let isAgreeBtn
+
+        // Assign classname variables
+        switch(targetClassName) {
+
+            case ('modal-link alt-register-link'):
+                isAltRegisterLink = true
+                break;
+
+            case ('modal-link forgot-password-link'):
+                isForgotPasswordLink = true
+                break;
+            
+            case ('modal-link login-link'):
+                isLoginLink = true
+                break;
+
+            case ('close-icon'):
+                isCloseIcon = true
+                break;
+
+            case ('prev-icon'):
+                isPrevIcon = true
+                break;
+
+            case ('btn-long-blue auth-success-agree-btn'):
+                isAgreeBtn = true
+                break;
+
+            default:
+                break;
+        }
 
         // Handle modal traverse logic
-
         switch(step) {
 
             case 'signup':
@@ -129,7 +155,7 @@ function ModalAuth({ open, closeModal }) {
                     setStep('signup')
                     clearAccPwVal()
                     break;
-                } else if(isSignUpLink) {
+                } else if(isLoginLink) {
                     setStep('login')
                     clearAccPwVal()
                     break;
@@ -287,6 +313,7 @@ function ModalAuth({ open, closeModal }) {
         }
     }
 
+    console.log(step)
 
     return (
         <>

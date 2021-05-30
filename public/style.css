@@ -21,7 +21,12 @@
   }
 
   #app-logo {
-      height: 76px;
+      width: 170px;
+  }
+
+  .logo-link {
+    width: 170px;
+    height: 58px;
   }
 
   .search-bar {
@@ -33,7 +38,7 @@
       display: flex;
       align-items: center;
       padding: 20px;
-      margin: 0 0 0 120px;
+      margin: 0 0 0 58px;
   }
 
   .search-bar i {

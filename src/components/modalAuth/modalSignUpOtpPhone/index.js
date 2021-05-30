@@ -38,9 +38,8 @@ function ModalSignUpOtpPhone() {
                 setInputArr(inputArrCopy)
                 setCurrentInputIndex(current => current + 1)
     
-    
             } else if(key === 'Backspace') {
-    
+
                 let inputArrCopy = [...inputArr]
                 inputArrCopy[prevIndex] = null
                 setInputArr(inputArrCopy)
