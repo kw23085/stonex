@@ -1,3 +1,11 @@
+.btn:focus {
+    outline: none;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
 /* Facebook */
 .btn-facebook {
     border: none;
@@ -15,14 +23,6 @@
     letter-spacing: 0.25px;
     display: flex;
     align-items: center;
-}
-
-.btn-facebook:focus {
-    outline: none;
-}
-
-.btn-facebook:active {
-    transform: scale(0.98);
 }
 
 .facebook-icon {
@@ -52,14 +52,6 @@
     align-items: center;
 }
 
-.btn-google:focus {
-    outline: none;
-}
-
-.btn-google:active {
-    transform: scale(0.98);
-}
-
 .google-icon {
     padding: 0 0 0 39.5px;
 }
@@ -83,14 +75,6 @@
     text-decoration: none;
 }
 
-.btn-login:focus {
-    outline: none;
-}
-
-.btn-login:active {
-    transform: scale(0.98);
-}
-
 /* Btn Long Blue */
 .btn-long-blue {
     background: #007099;
@@ -109,14 +93,6 @@
     text-decoration: none;
 }
 
-.btn-long-blue:focus {
-    outline: none;
-}
-
-.btn-long-blue:active {
-    transform: scale(0.98);
-}
-
 /* Btn Register */
 .btn-register {
     background: #007099;
@@ -133,10 +109,20 @@
     text-decoration: none;
 }
 
-.btn-register:focus {
-    outline: none;
+/* Btn Sell Gem */
+.btn-sellgem {
+    width: 84px;
+    height: 46px;
+    border: 2px solid #007099;
+    box-sizing: border-box;
+    border-radius: 8px;
+    color: #007099;
+    background: #FCFCFC;
 }
 
-.btn-register:active {
-    transform: scale(0.98);
+.btn-sellgem-text {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 22px;
 }
