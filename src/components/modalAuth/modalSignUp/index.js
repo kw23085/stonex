@@ -15,7 +15,7 @@ function ModalSignUp() {
     
     return (
         <div className="inner-modal-content">
-            <InputField className="signup-modal-phone-email" type="text" placeholder="電話號碼/ Email" onChange={updateInputFieldVal} value={accountInputFieldVal}/>
+            <InputField className="phone-email signup-modal-phone-email" type="text" placeholder="電話號碼/ Email" onChange={updateInputFieldVal} value={accountInputFieldVal}/>
             <BtnLongBlue className="btn-next-signup" onClick={handleModalTraverse} btnText="下一步"/>
             <h2 className="horizontal-line"><span className="horizontal-line-text">或</span></h2>
             <div className="modal-social-btns">

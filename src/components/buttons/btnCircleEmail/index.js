@@ -4,7 +4,7 @@ function BtnCircleEmail() {
     return (
         <>
             <button className="btn btn-circle-email">
-                <img className="email-icon" src={mailIcon} />
+                <img className="email-icon" src={mailIcon} alt="email-icon"/>
             </button>
         </>
     )

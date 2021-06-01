@@ -1,3 +1,7 @@
+.input.green {
+    background: #F2FFF9;
+}
+
 .custom-field {
     position: relative;
     font-size: 15px;
@@ -44,4 +48,36 @@
     font-size: 15px;
     color: #4E4B66;
     border: 2px solid #4E4B66;
+}
+
+.inputfield-close-icon {
+    position: absolute;
+    background: transparent;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border: 0px none transparent;
+    top: 16px;
+    right: 20px;
+    width: 24px;
+    height: 24px;
+}
+
+.inputfield-close-icon:hover {
+    background: transparent;
+    border: 0px none transparent;
+}
+
+.inputfield-close-icon:active {
+    transform: scale(0.90);
+}
+
+.inputfield-close-icon.show {
+    display: flex;
+}
+
+.inputfield-close-icon-img {
+    width: 24px;
+    height: 24px;
 }

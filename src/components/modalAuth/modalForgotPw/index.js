@@ -14,7 +14,7 @@ function ModalForgotPw() {
             <div className="forgot-password-msg">
                 <p>請輸入您的手機號碼或Email</p>
             </div>
-            <InputField className="forgot-password-phone-email" type="text" placeholder="電話號碼/ Email"/>
+            <InputField className="phone-email forgot-password-phone-email" type="text" placeholder="電話號碼/ Email"/>
             <BtnLongBlue className="forgot-password-btn-next" onClick={handleModalTraverse} btnText="下一步"/>
         </div>
     )

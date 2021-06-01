@@ -16,7 +16,7 @@ function ModalLogin({ forgotPassword }) {
 
     const inputFieldArr = [
         {
-            className: 'login-modal-phone-email',
+            className: 'phone-email login-modal-phone-email',
             type: 'text',
             placeholder: '電話號碼/ Email',
             value: accountInputFieldVal
@@ -36,7 +36,6 @@ function ModalLogin({ forgotPassword }) {
         <div className="inner-modal-content">
             {
                 inputFieldArr.map((inputField) => {
-
                     return <InputField key={inputField.className} className={inputField.className} type="text" placeholder={inputField.placeholder} onChange={updateInputFieldVal} value={inputField.value}/>
                 })
             }

@@ -26,8 +26,8 @@ function App() {
 
   // User avatar image
   let [userAvatarImg, SetUserAvatarImg] = useState('')
-  let [userFirstName, SetUserFirstName] = useState('正威')
-  let [userLastName, SetUserLastName] = useState('王')
+  let [userFirstName, SetUserFirstName] = useState('')
+  let [userLastName, SetUserLastName] = useState('')
 
 
 

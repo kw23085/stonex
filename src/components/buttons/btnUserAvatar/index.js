@@ -20,7 +20,7 @@ function BtnUserAvatar({ userAvatarImg, userFirstName, userLastName }) {
         return (
             <>
                 <button className="btn btn-user-avatar">
-                    <img className="img-user-avatar" src={userAvatarImg} />
+                    <img className="img-user-avatar" src={userAvatarImg} alt="user-avatar"/>
                 </button>
             </>
         )

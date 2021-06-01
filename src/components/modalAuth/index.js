@@ -31,7 +31,9 @@ function ModalAuth({ open, closeModal, signIn }) {
         accountInputFieldVal: accountInputFieldVal,
         passwordInputFieldVal: passwordInputFieldVal,
         updateInputFieldVal: updateInputFieldVal,
-        googleOauth: signIn
+        googleOauth: signIn,
+        emailIsValid: emailIsValid,
+        phoneIsValid: phoneIsValid
     }
 
     // Show Modal or No
@@ -279,10 +281,9 @@ function ModalAuth({ open, closeModal, signIn }) {
     // Update inputfield value
     function updateInputFieldVal(e) {
 
-        let targetClass = e.target.classList[1]
+        let targetClass = e.target.classList[2]
         let inputVal = e.target.value
         let checkClassName = ['login-modal-phone-email-input', 'signup-modal-phone-email-input']
-
 
         if(checkClassName.includes(targetClass)) {
             setAccountInputFieldVal(inputVal)

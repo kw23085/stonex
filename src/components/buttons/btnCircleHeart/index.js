@@ -4,7 +4,7 @@ function BtnCircleHeart() {
     return (
         <>
             <button className="btn btn-circle-heart">
-                <img className="heart-icon" src={heartIcon} />
+                <img className="heart-icon" src={heartIcon} alt="heart-icon"/>
             </button>
         </>
     )
