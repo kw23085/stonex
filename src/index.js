@@ -11,7 +11,7 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('login-btns')
+  document.getElementById('header-btn-group')
 );
 
 ReactDOM.render(

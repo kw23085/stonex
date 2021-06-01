@@ -16,7 +16,7 @@ import ModalLoginOtpEmail from './modalLoginOtpEmail'
 export const ContextProvider = React.createContext()
 
 
-function ModalAuth({ open, closeModal }) {
+function ModalAuth({ open, closeModal, signIn }) {
     // Step
     const [step, setStep] = useState('signup');
     // Inputfield Values
@@ -30,7 +30,8 @@ function ModalAuth({ open, closeModal }) {
         inputFieldRef: inputFieldRef,
         accountInputFieldVal: accountInputFieldVal,
         passwordInputFieldVal: passwordInputFieldVal,
-        updateInputFieldVal: updateInputFieldVal
+        updateInputFieldVal: updateInputFieldVal,
+        googleOauth: signIn
     }
 
     // Show Modal or No

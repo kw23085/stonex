@@ -118,6 +118,7 @@
     border-radius: 8px;
     color: #007099;
     background: #FCFCFC;
+    margin: 0 24px 0 0;
 }
 
 .btn-sellgem-text {
@@ -125,4 +126,43 @@
     font-weight: 600;
     font-size: 13px;
     line-height: 22px;
+}
+
+/* Btn Circle Mail/Heart */
+.btn-circle-email {
+    width: 56px;
+    height: 56px;
+    border-radius: 40px;
+    background: #EFF0F7;
+    border: 0px none transparent;
+    margin: 0 24px 0 0;
+}
+
+.btn-circle-heart {
+    width: 56px;
+    height: 56px;
+    border-radius: 40px;
+    background: #EFF0F7;
+    border: 0px none transparent;
+    margin: 0 27px 0 0;
+}
+
+/* Btn User Avatar */
+.btn-user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 80px;
+    background: #007099;
+    border: 0px none transparent;
+}
+
+.img-user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 80px;
+    border: 0px none transparent;
+}
+
+.initial-user-avatar {
+    color: #FCFCFC;
 }

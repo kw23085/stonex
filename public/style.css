@@ -54,3 +54,8 @@
       font-size: 16px;
       padding: 0 0 0 20px;
   }
+
+  #header-btn-group {
+    display: flex;
+    align-items: center;
+  }

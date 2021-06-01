@@ -1,31 +1,16 @@
 import '../index.css'
 import GoogleIcon from '../../../icons/google.png'
-import { useGoogleLogin } from 'react-google-login'
-
-const clientId = '854380704827-5apghi4e463dph5hs6m2i3hdr6s8b5ra.apps.googleusercontent.com'
+import { ContextProvider } from '../../modalAuth'
+import { useContext } from 'react'
 
 function BtnGoogle() {
 
-    const onSuccess = (res) => {
-        console.log('Login Success: currentUser:', res.profileObj)
-        console.log(res)
-    }
-
-    const onFailure= (res) => {
-        console.log('Login failed: res:', res)
-    }
-
-    const { signIn } = useGoogleLogin({
-        onSuccess,
-        onFailure,
-        clientId,
-        isSignedIn: false,
-        accessType: 'offline'
-    })
+    const contextObject = useContext(ContextProvider)
+    const googleOauth = contextObject.googleOauth
 
     return (
         <>
-            <button className="btn btn-google" onClick={signIn}>
+            <button className="btn btn-google" onClick={googleOauth}>
                 <img className="google-icon" src={GoogleIcon} alt="google-icon" />
                 <p className="btn-google-text">Google</p>
             </button>
