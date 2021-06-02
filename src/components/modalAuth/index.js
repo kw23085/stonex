@@ -22,6 +22,7 @@ function ModalAuth({ open, closeModal, signIn }) {
     // Inputfield Values
     const [accountInputFieldVal, setAccountInputFieldVal] = useState('')
     const [passwordInputFieldVal, setPasswordInputFieldVal] = useState('')
+    const [isValidPhoneEmail, setIsValidPhoneEmail] = useState(false)
 
     const inputFieldRef = useRef()
 
@@ -32,6 +33,7 @@ function ModalAuth({ open, closeModal, signIn }) {
         passwordInputFieldVal: passwordInputFieldVal,
         updateInputFieldVal: updateInputFieldVal,
         googleOauth: signIn,
+        isValidPhoneEmail: isValidPhoneEmail,
         emailIsValid: emailIsValid,
         phoneIsValid: phoneIsValid
     }
@@ -287,8 +289,13 @@ function ModalAuth({ open, closeModal, signIn }) {
 
         if(checkClassName.includes(targetClass)) {
             setAccountInputFieldVal(inputVal)
+            if(emailIsValid(inputVal) || phoneIsValid(inputVal)) {
+                setIsValidPhoneEmail(true)
+            }
+           
         } else {
             setPasswordInputFieldVal(inputVal)
+            setIsValidPhoneEmail(false)
         }
   
     }

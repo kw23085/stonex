@@ -19,24 +19,24 @@ function ModalLogin({ forgotPassword }) {
             className: 'phone-email login-modal-phone-email',
             type: 'text',
             placeholder: '電話號碼/ Email',
-            value: accountInputFieldVal
+            value: accountInputFieldVal,
+            isPhoneEmail: true
         },
         {
-            className: 'login-modal-password',
+            className: 'password login-modal-password',
             type: 'text',
             placeholder: '密碼',
-            value: passwordInputFieldVal
+            value: passwordInputFieldVal,
+            isPhoneEmail: false
         }
     ]
-
-
 
 
     return (
         <div className="inner-modal-content">
             {
                 inputFieldArr.map((inputField) => {
-                    return <InputField key={inputField.className} className={inputField.className} type="text" placeholder={inputField.placeholder} onChange={updateInputFieldVal} value={inputField.value}/>
+                    return <InputField key={inputField.className} className={inputField.className} isPhoneEmail={inputField.isPhoneEmail} type="text" placeholder={inputField.placeholder} onChange={updateInputFieldVal} value={inputField.value}/>
                 })
             }
             <div className="forgot-password">

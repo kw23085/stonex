@@ -1,10 +1,23 @@
-.input.green {
-    background: #F2FFF9;
-}
-
 .custom-field {
     position: relative;
     font-size: 15px;
+}
+
+.custom-field .placeholder {
+    position: absolute;
+    left: 24px;
+    top: 16px;
+    /* transform: translateY(16px); */
+    font-size: 15px;
+    color: #6E7191;
+    letter-spacing: 0.75px;
+    transition:
+    top 0.3s ease,
+    font-size 0.3s ease;
+}
+
+.custom-field .placeholder.green {
+    color: #00994D;
 }
 
 .custom-field input {
@@ -23,17 +36,9 @@
     transition: padding 0.3s ease;
 }
 
-.custom-field .placeholder {
-    position: absolute;
-    left: 24px;
-    top: 16px;
-    /* transform: translateY(16px); */
-    font-size: 15px;
-    color: #6E7191;
-    letter-spacing: 0.75px;
-    transition:
-    top 0.3s ease,
-    font-size 0.3s ease;
+.custom-field input.green {
+    background: #F2FFF9;
+    border: 2px solid #00994D !important;
 }
 
 .custom-field input:valid + .placeholder,

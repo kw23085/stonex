@@ -1,37 +1,49 @@
 import './index.css'
 import CloseIcon from '../../icons/close.png'
 import classnames from 'classnames'
-import { useState, useContext } from 'react'
+import { useState, useContext, useRef } from 'react'
 import { ContextProvider } from '../modalAuth'
 
-function InputField({ type, id, placeholder, className, onChange, value}) {
+function InputField({ type, id, placeholder, isPhoneEmail, className, onChange, value}) {
 
-    const [isFocus, setIsFocus] = useState(false)
 
+    const [isFocus, SetIsFocus] = useState(false)
     const contextObject = useContext(ContextProvider)
-    const emailIsValid = contextObject.emailIsValid
-    const phoneIsValid = contextObject.phoneIsValid
-    const accountInputFieldVal = contextObject.accountInputFieldVal
+    const isValidPhoneEmail = contextObject.isValidPhoneEmail
 
-    let isEmailPhone = className.includes('phone-email')
+    const inputFieldName = 'input ' + className + '-input'
+    const placeHolderName = 'placeholder ' + className + '-placeholder'
 
-    let inputDefaultClassName = 'input ' + className + '-input'
+    function focusFunc() {
+        SetIsFocus(true)
+    }
+
+    function blurFunc() {
+        SetIsFocus(false)
+    }
 
     let inputFieldIconClassName = classnames({
         "inputfield-close-icon": true,
-        "show": isEmailPhone && isFocus
+        "show": isFocus 
     })
 
     let inputFieldClassName = classnames({
-        [inputDefaultClassName]: className,
-        "green": isEmailPhone && emailIsValid(accountInputFieldVal)
+        [inputFieldName]: true,
+        "green": isValidPhoneEmail && isPhoneEmail
     })
+
+    let placeHolderClassName = classnames({
+        [placeHolderName]: true,
+        "green": isValidPhoneEmail && isPhoneEmail
+    })
+
+    console.log(isValidPhoneEmail)
 
     return (
         <>
             <label className={'custom-field ' + className}>
-                <input type={type} id={id} className={inputFieldClassName} onChange={onChange} value={value} required onFocus={() => setIsFocus(true)} onBlur={() => setIsFocus(false)}/>
-                <span className="placeholder">{placeholder}</span>
+                <input type={type} id={id} className={inputFieldClassName} onChange={onChange} value={value} required onFocus={focusFunc} onBlur={blurFunc}/>
+                <span className={placeHolderClassName}>{placeholder}</span>
                 <button className={inputFieldIconClassName}>
                     <img className="inputfield-close-icon-img" src={CloseIcon} alt="close-icon" />
                 </button>
