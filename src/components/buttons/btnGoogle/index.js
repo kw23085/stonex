@@ -1,15 +1,17 @@
 import '../index.css'
 import GoogleIcon from '../../../icons/google.png'
-// import { useGoogleAuth } from '../../../ContextAPI/contextGAuth'
+import { useContext } from 'react'
+import { GoogleAuthContext } from '../../../ContextAPI/contextGAuth'
 
 function BtnGoogle() {
 
-    // Get google auth signin function
-    // const { signIn } = useGoogleAuth().googleAuth
+    // Get google auth values
+    const GoogleContextValues = useContext(GoogleAuthContext)
+    const { signIn } = GoogleContextValues.googleAuth
 
     return (
         <>
-            <button className="btn btn-google">
+            <button className="btn btn-google" onClick={signIn}>
                 <img className="google-icon" src={GoogleIcon} alt="google-icon" />
                 <p className="btn-google-text">Google</p>
             </button>

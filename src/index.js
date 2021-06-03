@@ -19,7 +19,9 @@ ReactDOM.render(
 
 ReactDOM.render(
   <React.StrictMode>
-    <App2 />
+    <GoogleAuthProvider>
+      <App2 />
+    </GoogleAuthProvider>
   </React.StrictMode>,
   document.getElementById('user-dashboard-container')
 );

@@ -7,7 +7,7 @@ import BtnSellGem from './components/buttons/btnSellGem'
 import BtnCircleEmail from './components/buttons/btnCircleEmail'
 import BtnCircleHeart from './components/buttons/btnCircleHeart'
 import BtnUserAvatar from './components/buttons/btnUserAvatar'
-import { GoogleContext } from './ContextAPI/contextGAuth'
+import { GoogleAuthContext } from './ContextAPI/contextGAuth'
 
 
 function App() {
@@ -20,12 +20,14 @@ function App() {
   let closeModal = () => setIsOpen(false)
 
   // User signed in?
-  let { isSignedIn, setIsSignedIn } = useState(false)
+  let { isSignedIn } = useContext(GoogleAuthContext)
+  
+  console.log(isSignedIn + ' from app1')
   
   return (
 
     <>
-    {isSignedIn ? (
+      {isSignedIn ? (
         <>
           <BtnSellGem />
           <BtnCircleEmail />

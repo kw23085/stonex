@@ -1,7 +1,7 @@
 function UserDashBoard() {
     return (
         <div className="user-dashboard-container">
-            <p>Test</p>
+            <p>SignedIn</p>
         </div>
     )
 }

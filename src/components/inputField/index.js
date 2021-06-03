@@ -37,8 +37,6 @@ function InputField({ type, id, placeholder, isPhoneEmail, className, onChange, 
         "green": isValidPhoneEmail && isPhoneEmail
     })
 
-    console.log(isValidPhoneEmail)
-
     return (
         <>
             <label className={'custom-field ' + className}>
