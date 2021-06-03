@@ -156,13 +156,12 @@ function ModalAuth({ open, closeModal, signIn }) {
 
             case 'signup':
                 if(isCloseIcon) {
-                    closeModal()
-                    setStep('signup')
-                    clearAccPwVal()
+                    closeResetStep()
                     break;
                 } else if(isLoginLink) {
                     setStep('login')
                     clearAccPwVal()
+                    setIsValidPhoneEmail(false)
                     break;
                 } else if(emailIsValid(accountInputFieldVal)) {
                     setStep('signUpOtpEmail')
@@ -180,10 +179,12 @@ function ModalAuth({ open, closeModal, signIn }) {
                 } else if(isAltRegisterLink) {
                     setStep('altLogin')
                     clearAccPwVal()
+                    setIsValidPhoneEmail(false)
                     break;
                 }
                 setStep('success')
                 clearAccPwVal()
+                setIsValidPhoneEmail(false)
                 break;
 
             case 'signUpOtpEmail':
@@ -275,9 +276,10 @@ function ModalAuth({ open, closeModal, signIn }) {
 
     // Close and reset modal
     function closeResetStep() {
-        closeModal();
-        setStep('signup');
+        closeModal()
+        setStep('signup')
         clearAccPwVal()
+        setIsValidPhoneEmail(false)
     }
 
     // Update inputfield value

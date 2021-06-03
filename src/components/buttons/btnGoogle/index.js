@@ -1,16 +1,15 @@
 import '../index.css'
 import GoogleIcon from '../../../icons/google.png'
-import { ContextProvider } from '../../modalAuth'
-import { useContext } from 'react'
+// import { useGoogleAuth } from '../../../ContextAPI/contextGAuth'
 
 function BtnGoogle() {
 
-    const contextObject = useContext(ContextProvider)
-    const googleOauth = contextObject.googleOauth
+    // Get google auth signin function
+    // const { signIn } = useGoogleAuth().googleAuth
 
     return (
         <>
-            <button className="btn btn-google" onClick={googleOauth}>
+            <button className="btn btn-google">
                 <img className="google-icon" src={GoogleIcon} alt="google-icon" />
                 <p className="btn-google-text">Google</p>
             </button>

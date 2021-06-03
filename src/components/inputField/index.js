@@ -7,7 +7,7 @@ import { ContextProvider } from '../modalAuth'
 function InputField({ type, id, placeholder, isPhoneEmail, className, onChange, value}) {
 
 
-    const [isFocus, SetIsFocus] = useState(false)
+    const [isFocus, setIsFocus] = useState(false)
     const contextObject = useContext(ContextProvider)
     const isValidPhoneEmail = contextObject.isValidPhoneEmail
 
@@ -15,11 +15,11 @@ function InputField({ type, id, placeholder, isPhoneEmail, className, onChange, 
     const placeHolderName = 'placeholder ' + className + '-placeholder'
 
     function focusFunc() {
-        SetIsFocus(true)
+        setIsFocus(true)
     }
 
     function blurFunc() {
-        SetIsFocus(false)
+        setIsFocus(false)
     }
 
     let inputFieldIconClassName = classnames({

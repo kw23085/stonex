@@ -1,15 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import App from './App'
 import App2 from './App2'
-import reportWebVitals from './reportWebVitals';
+import { GoogleAuthProvider } from './ContextAPI/contextGAuth'
+import reportWebVitals from './reportWebVitals'
 
 
 // Header Buttons
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <GoogleAuthProvider>
+      <App />
+    </GoogleAuthProvider>
   </React.StrictMode>,
   document.getElementById('header-btn-group')
 );
