@@ -1,12 +1,10 @@
-import { useContext } from 'react'
-import { ContextProvider } from '../index'
 import InputField from '../../inputField'
 import BtnLongBlue from '../../buttons/btnLongBlue'
+import { useModalAuthContext } from '../../../ContextAPI/contextModalAuth'
 
 function AuthSucess() {
 
-    const contextObject = useContext(ContextProvider)
-    const handleModalTraverse = contextObject.handleModalTraverse
+    const { handleModalTraverse } = useModalAuthContext()
 
     return (
         <>

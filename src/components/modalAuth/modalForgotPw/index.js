@@ -1,13 +1,10 @@
-import { ContextProvider } from '../index'
-import { useContext } from 'react'
 import InputField from '../../inputField'
 import BtnLongBlue from '../../buttons/btnLongBlue'
+import { useModalAuthContext } from '../../../ContextAPI/contextModalAuth'
 
 function ModalForgotPw() {
 
-    const contextObject = useContext(ContextProvider)
-    const handleModalTraverse = contextObject.handleModalTraverse
-
+    const { handleModalTraverse } = useModalAuthContext()
 
     return (
         <div className="inner-modal-content">

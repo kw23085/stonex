@@ -1,20 +1,17 @@
 import MailIcon from '../../../icons/mail.png'
 import BtnLongBlue from '../../buttons/btnLongBlue'
-import { ContextProvider } from '../index'
-import { useContext } from 'react'
+import { useModalAuthContext } from '../../../ContextAPI/contextModalAuth'
 
 function ModalSignUpOtpEmail() {
 
-    const contextObject = useContext(ContextProvider)
-    const emailAccount = contextObject.accountInputFieldVal
-    const handleModalTraverse = contextObject.handleModalTraverse
+    const { accountInputFieldVal, handleModalTraverse } = useModalAuthContext()
 
     return (
         <>
             <div className="inner-modal-content">
                 <div className="signup-otp-email-confirm-msg">
                     <p>驗證信已發送到</p>
-                    <p>{emailAccount}</p>
+                    <p>{accountInputFieldVal}</p>
                 </div>
 
                 <img className="mail-icon"  src={MailIcon} alt="mail-icon" />

@@ -1,17 +1,12 @@
-import { ContextProvider } from '../index'
-import { useContext } from 'react'
 import InputField from '../../inputField'
 import BtnGoogle from '../../buttons/btnGoogle'
 import BtnFacebook from '../../buttons/btnFacebook'
 import BtnLongBlue from '../../buttons/btnLongBlue'
-
+import { useModalAuthContext } from '../../../ContextAPI/contextModalAuth'
 
 function ModalSignUp() {
 
-    const contextObject = useContext(ContextProvider)
-    const handleModalTraverse = contextObject.handleModalTraverse
-    const accountInputFieldVal = contextObject.accountInputFieldVal
-    const updateInputFieldVal = contextObject.updateInputFieldVal
+    const { handleModalTraverse, accountInputFieldVal, updateInputFieldVal } = useModalAuthContext()
     
     return (
         <div className="inner-modal-content">

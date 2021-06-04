@@ -1,15 +1,14 @@
 import './index.css'
 import CloseIcon from '../../icons/close.png'
 import classnames from 'classnames'
-import { useState, useContext } from 'react'
-import { ContextProvider } from '../modalAuth'
+import { useState } from 'react'
+import { useModalAuthContext } from '../../ContextAPI/contextModalAuth'
 
 function InputField({ type, id, placeholder, isPhoneEmail, className, onChange, value}) {
 
 
     const [isFocus, setIsFocus] = useState(false)
-    const contextObject = useContext(ContextProvider)
-    const isValidPhoneEmail = contextObject.isValidPhoneEmail
+    const { isValidPhoneEmail } = useModalAuthContext()
 
     const inputFieldName = 'input ' + className + '-input'
     const placeHolderName = 'placeholder ' + className + '-placeholder'

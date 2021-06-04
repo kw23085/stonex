@@ -1,6 +1,4 @@
 import './index.css'
-import { useState, useContext } from 'react'
-import { GoogleAuthContext } from '../../ContextAPI/contextGAuth'
 import BtnLogin from '../../components/buttons/btnLogin'
 import BtnRegister from '../../components/buttons/btnRegister'
 import BtnSellGem from '../../components/buttons/btnSellGem'
@@ -10,18 +8,12 @@ import BtnUserAvatar from '../../components/buttons/btnUserAvatar'
 import ModalAuth from '../../components/modalAuth'
 import logoImg from '../../icons/logo.png'
 import searchIcon from '../../icons/search.png'
+import { useGoogleAuthContext } from '../../ContextAPI/contextGAuth'
 
 function Header() {
 
   // User signed in?
-  let { isSignedIn } = useContext(GoogleAuthContext)
-
-  // Outh modal isOpen?
-  let [isOpen, setIsOpen] = useState(false)
-
-  let openModal = () => setIsOpen(true)
-
-  let closeModal = () => setIsOpen(false)
+  let { isSignedIn } = useGoogleAuthContext()
 
   return (
     <>
@@ -47,8 +39,8 @@ function Header() {
           ) : (
             <>
               <BtnLogin />
-              <BtnRegister openModal={openModal} closeModal={closeModal}/>
-              <ModalAuth open={isOpen} closeModal={closeModal} />
+              <BtnRegister />
+              <ModalAuth />
             </>
           )}
           </div>

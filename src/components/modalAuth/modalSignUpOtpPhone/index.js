@@ -4,6 +4,7 @@ import InputOtp from '../../inputOtp'
 import { ContextProvider } from '../index'
 import { useState, useRef, useEffect, useContext } from 'react'
 import classnames from 'classnames'
+import { useModalAuthContext } from '../../../ContextAPI/contextModalAuth'
 
 const INTEGER = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
 
@@ -13,9 +14,7 @@ function ModalSignUpOtpPhone() {
     const [currentInputIndex, setCurrentInputIndex] = useState(0)
     const [isLoading, setIsLoading] = useState(false)
     const [resendMessage, setResendMessage] = useState(false)
-    const contextObject = useContext(ContextProvider)
-    const handleModalTraverse = contextObject.handleModalTraverse
-    const accountInputFieldVal = contextObject.accountInputFieldVal
+    const { handleModalTraverse, accountInputFieldVal } = useModalAuthContext()
 
     const innerModalWrapper = useRef()
     const spinnerGif = useRef()

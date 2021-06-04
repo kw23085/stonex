@@ -6,8 +6,6 @@ function BtnGoogle() {
 
     // Get google auth values
     const { googleAuth: { signIn } } = useGoogleAuthContext()
-    
-    console.log(signIn)
 
     return (
         <>

@@ -1,18 +1,13 @@
-import { useContext } from 'react'
-import { ContextProvider } from '../index'
 import InputField from '../../inputField';
 import BtnGoogle from '../../buttons/btnGoogle';
 import BtnFacebook from '../../buttons/btnFacebook';
 import BtnLongBlue from '../../buttons/btnLongBlue'
+import { useModalAuthContext } from '../../../ContextAPI/contextModalAuth'
 
 
 function ModalLogin({ forgotPassword }) {
 
-    const contextObject = useContext(ContextProvider)
-    const accountInputFieldVal = contextObject.accountInputFieldVal
-    const passwordInputFieldVal = contextObject.passwordInputFieldVal
-    const updateInputFieldVal = contextObject.updateInputFieldVal
-    const handleModalTraverse = contextObject.handleModalTraverse
+    const { accountInputFieldVal, passwordInputFieldVal, updateInputFieldVal, handleModalTraverse } = useModalAuthContext()
 
     const inputFieldArr = [
         {
