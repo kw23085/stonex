@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useContext } from 'react'
 import { useGoogleLogin } from 'react-google-login'
 
 const clientId = process.env.REACT_APP_G_AUTH_CLIENTID
@@ -56,3 +56,8 @@ export function GoogleAuthProvider({ children }) {
     )
 
 }
+
+export const useGoogleAuthContext = () => {
+    const context = useContext(GoogleAuthContext);
+    return context;
+};

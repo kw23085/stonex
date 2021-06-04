@@ -1,13 +1,13 @@
 import '../index.css'
 import GoogleIcon from '../../../icons/google.png'
-import { useContext } from 'react'
-import { GoogleAuthContext } from '../../../ContextAPI/contextGAuth'
+import { useGoogleAuthContext } from '../../../ContextAPI/contextGAuth'
 
 function BtnGoogle() {
 
     // Get google auth values
-    const GoogleContextValues = useContext(GoogleAuthContext)
-    const { signIn } = GoogleContextValues.googleAuth
+    const { googleAuth: { signIn } } = useGoogleAuthContext()
+    
+    console.log(signIn)
 
     return (
         <>

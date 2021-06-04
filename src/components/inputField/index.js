@@ -1,7 +1,7 @@
 import './index.css'
 import CloseIcon from '../../icons/close.png'
 import classnames from 'classnames'
-import { useState, useContext, useRef } from 'react'
+import { useState, useContext } from 'react'
 import { ContextProvider } from '../modalAuth'
 
 function InputField({ type, id, placeholder, isPhoneEmail, className, onChange, value}) {
