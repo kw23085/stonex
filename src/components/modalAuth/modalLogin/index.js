@@ -5,7 +5,7 @@ import BtnLongBlue from '../../buttons/btnLongBlue'
 import { useModalAuthContext } from '../../../ContextAPI/contextModalAuth'
 
 
-function ModalLogin({ forgotPassword }) {
+function ModalLogin() {
 
     const { accountInputFieldVal, passwordInputFieldVal, updateInputFieldVal, handleModalTraverse } = useModalAuthContext()
 

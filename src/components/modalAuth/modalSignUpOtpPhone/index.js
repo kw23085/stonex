@@ -1,8 +1,7 @@
 import spinner from '../../../icons/loadingspinner.gif'
 import checkIcon from '../../../icons/check.png'
 import InputOtp from '../../inputOtp'
-import { ContextProvider } from '../index'
-import { useState, useRef, useEffect, useContext } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import classnames from 'classnames'
 import { useModalAuthContext } from '../../../ContextAPI/contextModalAuth'
 
