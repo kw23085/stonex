@@ -1,5 +1,6 @@
 import './index.css'
 import UserDashLMenu from './userDashLMenu'
+import UserDashContent from './userDashContent'
 import { useGoogleAuthContext } from '../../ContextAPI/contextGAuth'
 
 function UserDashBoard() {
@@ -9,12 +10,11 @@ function UserDashBoard() {
 
 	return (
 		<>
-			<div className="content">
+			<div className="user-dashboard-container">
 				{isSignedIn ? (
 					<>
-						<div className="user-dashboard-container">
-							<UserDashLMenu />
-						</div>
+						<UserDashLMenu />
+						<UserDashContent />
 					</>
 				) : (           
 					<>

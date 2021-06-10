@@ -1,31 +1,34 @@
-.content {
+.user-dashboard-container {
     width: 100vw;
-    height: 100vh;
+    height: 85vh;
+    display: flex;
 }
 
 
 /* Userdash Left Menu */
 
 .user-dash-left-menu {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    width: 22.4vw;
-    height: 100vw;
-    border: 1px solid #000;
+  width: 323px;
+  height: 100%;
+  border: 1px solid #000;
 }
 
-.user-menu-tab-title-container {
+.user-menu-tab-group-container {
+  width: 122px;
+  margin: 48px 0 0 117px;
+}
+
+.user-menu-tab-title-container,
+.user-menu-tab-sublinks-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 122px;
   height: 35px;
-  border-top: 1px solid #000;
 }
 
-.user-menu-tab-icon-container {
+.user-menu-tab-icon-container,
+.user-menu-tab-sublink-icon-container {
   width: 20px;
   height: 20px;
   margin: 0 12px 0 0;
@@ -36,7 +39,8 @@
   height: 100%;
 }
 
-.user-menu-tab-text-container {
+.user-menu-tab-text-container,
+.user-menu-tab-sublink-text-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -51,4 +55,26 @@
   line-height: 22px;
   letter-spacing: 0.25px;
   color: #262338;
+}
+
+.user-menu-tab-sublink-text:hover {
+  color: #007099;
+  cursor: pointer;
+}
+
+.user-menu-tab-sublink-text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 22px;
+  letter-spacing: 0.25px;
+  color: #6E7191;
+}
+
+/* User Dash Content */
+
+.user-dashboard-content{
+  width: 1117px;
+  height: 100%;
+  border: 1px solid #000;
 }

@@ -1,7 +1,7 @@
 
 /* Header Styles */
 .header {
-  min-height: 150px;
+  min-height: 15vh;
   border-bottom: 2px solid #D9DBE9;
   display: flex;
   justify-content: space-between;
