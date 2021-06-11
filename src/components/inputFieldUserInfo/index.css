@@ -1,0 +1,94 @@
+.user-info-field {
+    position: relative;
+    font-size: 15px;
+    margin: 0 0 16px 0;
+}
+
+.user-info-field .placeholder {
+    position: absolute;
+    left: 24px;
+    top: 16px;
+    /* transform: translateY(16px); */
+    font-weight: 500;
+    font-size: 13px;
+    color: #6E7191;
+    line-height: 22px;
+    letter-spacing: 0.25px;
+    transition:
+    top 0.3s ease,
+    font-size 0.3s ease;
+}
+
+.user-info-field .placeholder.green {
+    color: #00994D;
+}
+
+.user-info-field input {
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -moz-appearance: none;
+    background: #F7F7FC;
+    width: 325px;
+    height: 56px;
+    font-weight: normal;
+    letter-spacing: 0.75px;
+    line-height: 24px;
+    font-size: 15px;
+    border-radius: 16px;
+    padding: 16px 0 16px 24px;
+    outline: none;
+    border: none;
+    transition: padding 0.3s ease;
+}
+
+.user-info-field input.green {
+    background: #F2FFF9;
+    border: 2px solid #00994D !important;
+}
+
+.user-info-field input:valid + .placeholder,
+.user-info-field input:focus + .placeholder {
+    top: 6px;
+    font-size: 13px;
+}
+
+.user-info-field input:valid,
+.user-info-field input:focus {
+    padding-top: 35px;
+    font-size: 15px;
+    color: #4E4B66;
+}
+
+.inputfield-close-icon {
+    position: absolute;
+    background: transparent;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    border: 0px none transparent;
+    top: 16px;
+    right: 20px;
+    width: 24px;
+    height: 24px;
+}
+
+.inputfield-close-icon:hover {
+    background: transparent;
+    border: 0px none transparent;
+}
+
+.inputfield-close-icon:active {
+    transform: scale(0.90);
+}
+
+.inputfield-close-icon.show {
+    display: flex;
+}
+
+.inputfield-close-icon-img {
+    width: 24px;
+    height: 24px;
+}

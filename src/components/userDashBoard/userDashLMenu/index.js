@@ -26,7 +26,7 @@ function UserDashLMenu() {
         <div className="user-menu-tab-group-container">
           {
             tabGroupsArr.map((tab, index) => {
-              return <TabGroup icon={tab.icon} title={tab.title} iconClassName={tab.iconClassName} index={index} subLinks={tab.subLinks}/>
+              return <TabGroup key={index} icon={tab.icon} title={tab.title} iconClassName={tab.iconClassName} subLinks={tab.subLinks}/>
             })
           }
         </div>
