@@ -1,0 +1,86 @@
+.address-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 540px;
+    height: 182px;
+    background: #F7F7FC;
+    border-radius: 16px;
+    margin: 15px 0 0 0;
+    transition: .25s ease-in-out;
+}
+
+.address-container:hover {
+    box-shadow: 0px 7px 10px rgb(116, 116, 116);
+    cursor: pointer;
+}
+
+.address-container:active {
+    transform: scale(0.98);
+}
+
+.address-container .icon-container {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 39px;
+    right: 32px;
+}
+
+.address-container .icon-container:hover {
+    cursor: pointer;
+}
+
+.address-container .icon-container:active {
+    transform: scale(0.95);
+}
+
+.address-container .name-container {
+    display: flex;
+    align-items: center;
+    margin: 32px 0 0 32px;
+}
+
+.address-container .name-container .name {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 38px;
+    letter-spacing: 0.75px;
+    color: #14142B;
+}
+
+.address-container .name-container .default-mark {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 32px;
+    background: #E5FFF2;
+    border-radius: 8px;
+    margin: 0 0 0 13px;
+}
+
+.address-container .name-container .default-mark.show {
+    display: flex;
+}
+
+.address-container .name-container .default-mark span {
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.25px;
+    color: #00994D;
+}
+
+.address-container .info {
+    width: 476px;
+    height: 68px;
+    display: flex;
+    flex-direction: column;
+    margin: 12px 0 0 32px;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 34px;
+    letter-spacing: 0.75px;
+    color: #4E4B66;
+}

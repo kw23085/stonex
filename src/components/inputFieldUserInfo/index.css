@@ -49,13 +49,15 @@
 }
 
 .user-info-field input:valid + .placeholder,
-.user-info-field input:focus + .placeholder {
+.user-info-field input:focus + .placeholder,
+.user-info-field input + .placeholder {
     top: 6px;
     font-size: 13px;
 }
 
 .user-info-field input:valid,
-.user-info-field input:focus {
+.user-info-field input:focus,
+.user-info-field input {
     padding-top: 35px;
     font-size: 15px;
     color: #4E4B66;

@@ -6,7 +6,7 @@ function InputFieldUserInfo({ type, id, placeHolder, value}) {
     return (
         <>
             <label className='user-info-field'>
-                <input type={type} id={id} className='user-info-field-input' value={value} required />
+                <input type={type} id={id} className='user-info-field-input' value={value} readOnly required />
                 <span className='placeholder'>{placeHolder}</span>
             </label>
         </>

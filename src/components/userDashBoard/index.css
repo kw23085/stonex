@@ -108,15 +108,16 @@
 
 .user-info-address-container {
   max-width: 540px;
+  margin: 57px 0 0 0;
 }
 
-.user-info-address-title-wrapper {
+.user-info-address-container .user-info-address-title-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.add-address-link {
+.user-info-address-container .add-address-link {
   font-weight: 600;
   font-size: 15px;
   line-height: 24px;
@@ -125,10 +126,10 @@
   transition: transform .1s;
 }
 
-.add-address-link:hover {
+.user-info-address-container .add-address-link:hover {
   cursor: pointer;
 }
 
-.add-address-link:active {
+.user-info-address-container .add-address-link:active {
   transform: scale(0.95);
 }
