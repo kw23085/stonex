@@ -1,0 +1,30 @@
+.user-back-drop {
+    background: rgba(63, 61, 61, 0.692);
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: all 1.3s;
+    width: 100%;
+}
+
+.user-modal-wrapper {
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    width: 500px;
+    height: 629px;
+    transition: all .5s ease;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+.user-model-content {
+    width: 325px;
+    border: 1px solid #000;
+}

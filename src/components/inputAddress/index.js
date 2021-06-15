@@ -2,16 +2,19 @@ import './index.css'
 import classnames from 'classnames'
 import deleteIcon from '../../icons/delete.png'
 
-function InputAddress({ id, name, address, phone, setIsOpen }) {
+function InputAddress({ id, name, address, phone, setIsOpen, index }) {
 
-    // Show default
+    // Dynamic class names
     var defaultMark = classnames({
         'default-mark': true,
-        'show': id === 1
+        'show': id === 0
     })
 
+    // Address container class name
+    var addressContainer = 'address-container ' + 'container-' + id
+
     return (
-        <div className="address-container" onClick={() => {setIsOpen(true)}}>
+        <div className={addressContainer} onClick={() => {setIsOpen(true)}}>
             <div className="name-container">
                 <span className="name">{name}</span>
                 <div className={defaultMark}>

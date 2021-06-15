@@ -87,7 +87,6 @@ function ModalAuth() {
     }
 
     console.log(step)
-    console.log(isOpen)
 
     return (
         <>
