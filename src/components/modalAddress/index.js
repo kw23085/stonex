@@ -1,5 +1,6 @@
 import './index.css'
 import InputFieldUserInfo from '../inputFieldUserInfo'
+import DropDownMenu from '../dropdownMenu'
 
 function ModalAddress() {
 
@@ -38,7 +39,7 @@ function ModalAddress() {
 
                 <div className="user-modal-content">
                     <span className="title">編輯地址</span>
-
+                    <DropDownMenu />
                 </div>
 
             </div>

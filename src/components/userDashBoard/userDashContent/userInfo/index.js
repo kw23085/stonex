@@ -65,7 +65,7 @@ function UserInfo() {
                     }
                 </div>
             </div>
-            {/* <ModalAddress /> */}
+            <ModalAddress />
         </>
 
     )
