@@ -24,7 +24,8 @@
     border-radius: 10px;
 }
 
-.user-model-content {
-    width: 325px;
-    border: 1px solid #000;
+.user-modal-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 325px;
 }

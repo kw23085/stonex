@@ -12,6 +12,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 2px solid transparent;
 }
 
 .dropdown .dropdown-btn:hover {
@@ -20,9 +21,16 @@
 
 .dropdown .dropdown-btn:focus {
     border: 2px solid #4E4B66;
+    outline: none;
 }
 
-.dropdown .dropdown-btn .text,
+.dropdown .dropdown-btn .text {
+    font-size: 15px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    color: #4E4B66;
+    margin: 0 0 0 22px;
+}
 .dropdown .dropdown-item .text {
     font-size: 15px;
     line-height: 24px;
@@ -32,7 +40,7 @@
 }
 
 .dropdown .dropdown-btn .forward-icon {
-    margin: 0 16px 0 0;
+    margin: 0 14px 0 0;
 }
 
 .dropdown .dropdown-content {

@@ -20,7 +20,7 @@ function DropDownMenu() {
 
     return (
         <div className="dropdown">
-            <div className="dropdown-btn" tabIndex={0} onFocus={() => setIsActive(true)}>
+            <div className="dropdown-btn" tabIndex={0} onClick={() => setIsActive(!isActive)}>
                 <span className="text">{selectedCity}</span>
                 <img className="forward-icon" src={forwardIcon} alt="forward-icon"/>
             </div>
