@@ -2,7 +2,7 @@ import './index.css'
 import classnames from 'classnames'
 import deleteIcon from '../../icons/delete.png'
 
-function InputAddress({ id, name, address, phone, setIsOpen, index }) {
+function InputAddress({ id, name, address, phone, setIsOpen }) {
 
     // Dynamic class names
     var defaultMark = classnames({

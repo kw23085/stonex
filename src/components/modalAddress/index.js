@@ -1,6 +1,8 @@
 import './index.css'
+import { useEffect } from 'react'
 import InputFieldUserInfo from '../inputFieldUserInfo'
 import DropDownMenu from '../dropdownMenu'
+import { CityAreaProvider } from '../../ContextAPI/contextCityArea'
 
 function ModalAddress() {
 
@@ -30,19 +32,32 @@ function ModalAddress() {
         }
     ]
 
+    // Prevent background to scroll
+    useEffect(() => {
+
+        document.body.style.overflow = 'hidden'
+
+        return () => {
+            document.body.style.overflow = 'unset'
+        }
+
+    }, [])
+
     return (
         <>
-            {/* Modal Backdrop */}
-            <div className="user-back-drop"></div>
-            {/* Modal */}
-            <div className="user-modal-wrapper">
+            <CityAreaProvider>
+                {/* Modal Backdrop */}
+                <div className="user-back-drop"></div>
+                {/* Modal */}
+                <div className="user-modal-wrapper" onClick={e => e.stopPropagation()}>
 
-                <div className="user-modal-content">
-                    <span className="title">編輯地址</span>
-                    <DropDownMenu />
+                    <div className="user-modal-content">
+                        <span className="title">編輯地址</span>
+                        <DropDownMenu />
+                    </div>
+
                 </div>
-
-            </div>
+            </CityAreaProvider>
         </>
     )
 }
