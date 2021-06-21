@@ -4,7 +4,7 @@ import forwardIcon from '../../icons/forward.png'
 import { useCityAreaContext } from '../../ContextAPI/contextCityArea'
 import shortid from 'shortid'
 
-function DropDownMenu() {
+function DropDownMenu({ city, area }) {
 
     const [isActive, setIsActive] = useState(false)
 
@@ -16,7 +16,6 @@ function DropDownMenu() {
         setSelectedCity(e.target.innerText)
         setIsActive(false)
     }
-
 
     return (
         <div className="dropdown">

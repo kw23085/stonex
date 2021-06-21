@@ -45,6 +45,14 @@ function UserInfo() {
             area: '新店區',
             address: '中正路35號',
             phone: '(0808)088-088'
+        },
+        {
+            id: 2,
+            name: '周杰倫',
+            city: '台北市',
+            area: '新店區',
+            address: '中正路35號',
+            phone: '(0808)088-088'
         }
     ]
 
@@ -55,7 +63,6 @@ function UserInfo() {
 
         if(className === 'add-address-link') {
             setAddressClickType('new')
-            console.log('new')
         } else {
             if(typeof id !== null) {
                 setAddressClickType('edit')
