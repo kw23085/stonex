@@ -8,7 +8,7 @@ const GoogleAuthContext = React.createContext()
 export function GoogleAuthProvider({ children }) {
 
     // User signed in?
-    let [isSignedIn, setIsSignedIn] = useState(true)
+    let [isSignedIn, setIsSignedIn] = useState(false)
 
     // User info
     let [userAvatarImg, SetUserAvatarImg] = useState('')

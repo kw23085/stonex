@@ -10,7 +10,6 @@
 .user-dash-left-menu {
   width: 22.4%;
   height: 100%;
-  border: 1px solid #000;
 }
 
 .user-menu-tab-group-container {
@@ -76,7 +75,6 @@
 .user-dashboard-content{
   width: 87.6%;
   height: 100%;
-  border: 1px solid #000;
 }
 
 /* User Info */

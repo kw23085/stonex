@@ -24,15 +24,54 @@ function ModalAddress({ addressClickType, name, address, phone, city, area }) {
     //     let actualPhone = phone
     //     let actualCity = city
     //     let actualArea = area
-    // }
+    // }e,nbv  
 
-    const fieldsArr = [
-        <InputFieldUserInfo placeholder='姓名' value={name} />,
-        <InputFieldUserInfo placeholder='手機號碼' value={phone}/>,
-        <DropDownMenu city={city} area={area}/>,
-        <DropDownMenu city={city} area={area}/>,
-        <InputFieldUserInfo placeholder='地址' value={address} />
+    const userInfo = [
+        {
+            type: 'inputname',
+            placeholder: '姓名',
+            ele: <InputFieldUserInfo />,
+            value: name
+        },
+        {
+            type: 'inputphone',
+            placeholder: '手機號碼',
+            ele: <InputFieldUserInfo />,
+            value: phone
+        },
+        {
+            type: 'dropdowncity',
+            ele: <DropDownMenu />,
+            value: city
+        },
+        {
+            type: 'dropdownarea',
+            ele: <DropDownMenu />,
+            value: area
+        },
+        {
+            type: 'inputaddress',
+            placeholder: '地址',
+            ele: <InputFieldUserInfo />,
+            value: address 
+        }
     ]
+
+
+    userInfo.map(field => {
+        let type = field.type
+        console.log(type)
+        if(type === 'inputname' || 'inputphone' || "inputaddress") {
+            // return <InputFieldUserInfo placeholder={field.placeholder} value={field.value} />
+            console.log('input')
+        } else if(type === 'dropdowncity') {
+            // return <DropDownMenu city={field.city} />
+            console.log('dropdowncity')
+        } else if(type === 'dropdownarea') {
+            // return <DropDownMenu area={field.area} />
+            console.log('dropdownarea')
+        }
+    })
 
     // Prevent background to scroll
     useEffect(() => {
@@ -55,11 +94,7 @@ function ModalAddress({ addressClickType, name, address, phone, city, area }) {
 
                     <div className="user-modal-content">
                         <span className="title">編輯地址</span>
-                        {
-                            fieldsArr.map(item => {
-                                return item
-                            })
-                        }
+                        {/* {modalFields} */}
                     </div>
 
                 </div>
