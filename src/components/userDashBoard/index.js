@@ -7,7 +7,6 @@ function UserDashBoard() {
 
 	const { isSignedIn } = useGoogleAuthContext()
 
-
 	return (
 		<>
 			<div className="user-dashboard-container">
