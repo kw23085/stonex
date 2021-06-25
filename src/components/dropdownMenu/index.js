@@ -17,6 +17,8 @@ function DropDownMenu({ city, area }) {
         setIsActive(false)
     }
 
+    console.log('gg')
+
     return (
         <div className="dropdown">
             <div className="dropdown-btn" tabIndex={0} onClick={() => setIsActive(!isActive)}>
@@ -29,7 +31,7 @@ function DropDownMenu({ city, area }) {
                         cities.map(city => {
                             
                             return <div className="dropdown-item" key={shortid.generate()} onClick={selectCity}>
-                                        <span className="text">{city}</span>
+                                        <span className="text"></span>
                                     </div>
                         })
                     }
