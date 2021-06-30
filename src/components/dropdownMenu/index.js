@@ -17,7 +17,7 @@ function DropDownMenu({ city, area }) {
         setIsActive(false)
     }
 
-    consolelog('its hot')
+    consolelog('its ok hot today')
 
     return (
         <div className="dropdown">
