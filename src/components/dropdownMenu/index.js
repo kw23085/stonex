@@ -17,8 +17,6 @@ function DropDownMenu({ city, area }) {
         setIsActive(false)
     }
 
-    consolelog('its cold at nice is good')
-
     return (
         <div className="dropdown">
             <div className="dropdown-btn" tabIndex={0} onClick={() => setIsActive(!isActive)}>

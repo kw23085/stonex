@@ -1,5 +1,6 @@
 import Header from './components/header'
 import UserDashBoard from './components/userDashBoard'
+import Api from './components/api'
 import { ModalAuthProvider } from './ContextAPI/contextModalAuth'
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
     <>
       <ModalAuthProvider>
         <Header />
-        <UserDashBoard />
+        {/* <UserDashBoard /> */}
+        <Api />
       </ModalAuthProvider>
     </>
   )
