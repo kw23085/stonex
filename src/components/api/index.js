@@ -2,20 +2,21 @@ import './index.css'
 import React, { useEffect } from 'react'
 import axios from 'axios'
 
-const axiosInstance = axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com'
-})
 
 function Api() {
 
+    const axiosInstance = axios.create({
+        baseURL: 'https://jsonplaceholder.typicode.com'
+    })
+
     function fetchUsers() {
         axiosInstance.get('/todos')
-        .then(res => {console.log(res)})
+        .then(res => {console.log(res.data)})
     }
 
-    // useEffect(() => {
-    //     fetchUsers()
-    // }, [])
+    useEffect(() => {
+        fetchUsers()
+    }, [])
 
     return (
         <div className="api-user-container">
