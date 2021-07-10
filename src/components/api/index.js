@@ -3,6 +3,8 @@ import React, { useEffect } from 'react'
 import axios from 'axios'
 
 
+console.log('portal')
+
 function Api() {
 
     const axiosInstance = axios.create({
