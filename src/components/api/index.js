@@ -6,16 +6,16 @@ import axios from 'axios'
 function Api() {
 
     const axiosInstance = axios.create({
-        baseURL: 'https://jsonplaceholder.typicode.com'
+        baseURL: 'https://random-data-api.com/api'
     })
 
-    function fetchUsers() {
-        axiosInstance.get('/todos')
+    function fetchUsers(size) {
+        axiosInstance.get(`/users/random_user?size=${size}`)
         .then(res => {console.log(res.data)})
     }
 
     useEffect(() => {
-        fetchUsers()
+        fetchUsers(10)
     }, [])
 
     return (
