@@ -2,7 +2,6 @@ import './index.css'
 import React, { useEffect } from 'react'
 import axios from 'axios'
 
-const a = 'portal'
 
 function Api() {
 
