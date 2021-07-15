@@ -21,14 +21,33 @@ function Api() {
 
     var collectedIntervals = [[10,15], [3,4], [7,9]]
     var desiredInterval = [1,12]
+    var result = []
 
     var remainingIntervals = function(collectedIntervals, desiredInterval) {
     
+        // Sorting collected intervals
         const sortedCollectedIntervals = collectedIntervals.sort(
             ([s1, e1], [s2, e3]) => s1 - s2
         )
 
+        const [start, end] = desiredInterval
+
+        // Head
+        if(start < sortedCollectedIntervals[0][0]) {
+            result.push([start, sortedCollectedIntervals[0][0]])
+        }
+
+        // Intervals
+        let previousEnd
+
+        for(let i = 0; i < sortedCollectedIntervals.length; i++) {
+            
+        }
+
+
+
         console.log(sortedCollectedIntervals)
+        console.log(result)
 
     };
 
