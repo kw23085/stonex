@@ -24,43 +24,11 @@ function Api() {
 
     var remainingIntervals = function(collectedIntervals, desiredInterval) {
     
-        const [ start, end ] = desiredInterval
-        let intervalArray = Array(end - start + 1).fill(0)
-        let result = []
+        const sortedCollectedIntervals = collectedIntervals.sort(
+            ([s1, e1], [s2, e3]) => s1 - s2
+        )
 
-        collectedIntervals.forEach( ([s, e], index) => {
- 
-            if (s > start && s < end) {
-                for(let i = s - start; i <= e - start; i++) {
-                    if(i > intervalArray.length - 1) break;
-                    intervalArray[i] = 1;
-                }
-            }
-
-        })
-
-        
-
-        let p1 = 0 
-        let p2 = 0
-
-
-        intervalArray.forEach( (item, index) => {
-            
-            if(item === 0 && intervalArray[index - 1] != 0) {
-                p1 = index + 1
-            } 
-            else if (item === 1) {
-                p2 = index + 1
-                // if(intervalArray[index + 1] != 1)
-                console.log(p1, index + 1)
-            }
-
-        })
-
-
-        console.log(intervalArray)
-        console.log(result)
+        console.log(sortedCollectedIntervals)
 
     };
 
